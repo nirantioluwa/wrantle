@@ -1,0 +1,5 @@
+<%= render(Primer::BaseComponent.new(tag: :div, mt: 4, color_scheme: :light)) do %>
+  <div class="container-lg">
+    <%= render(Primer::Beta::Heading.new(tag: :h1)) { "Welcome to Wrantle" } %>
+  </div>
+<% end %>

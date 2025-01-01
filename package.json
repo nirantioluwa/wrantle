@@ -1,0 +1,14 @@
+{
+  "name": "wrantle",
+  "version": "1.0.0",
+  "description": "wrantle-website",
+  "main": "index",
+  "author": "holausman <126561345+holausman@users.noreply.github.com>",
+  "license": "MIT",
+  "private": null,
+  "dependencies": {
+    "@primer/css": "^21.5.1",
+    "@primer/primitives": "^10.3.2",
+    "@primer/view-components": "^0.36.2"
+  }
+}
