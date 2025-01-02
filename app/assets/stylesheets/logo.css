@@ -1,0 +1,24 @@
+/* Logo Style */
+.logo-large {
+  font-size: 2.5rem !important;
+  line-height: 1;
+  font-family: 'Major Mono Display', monospace;
+}
+
+@media (min-width: 576px) {
+  .logo-large {
+    font-size: 3rem !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .logo-large {
+    font-size: 3.5rem !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .logo-large {
+    font-size: 4rem !important;
+  }
+}

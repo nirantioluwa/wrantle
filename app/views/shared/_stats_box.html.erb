@@ -1,0 +1,47 @@
+<%= render(Primer::Box.new(p: 4, mt: 4, border: false, border_right: 0, border_left: 0, border_bottom: 0)) do %>
+  <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-heading")) { "Making real impact across emerging markets" } %>
+  
+  <div class="features-cards">
+    <%= render(Primer::Box.new(bg: :subtle, p: 4, border_radius: 0, border: true, border_right: 0)) do %>
+      <div class="feature-card-content">
+        <div>
+          <%= render(Primer::Beta::Text.new(tag: :h3, classes: "stats-number")) do %>
+            <span data-controller="counter" 
+                  data-counter-final-number-value="300000000" 
+                  data-counter-prefix-value="$"
+                  data-counter-suffix-value="+"
+                  data-counter-target="number">$300M</span>
+          <% end %>
+          <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "in transactions value" } %>
+        </div>
+      </div>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, p: 4, border_radius: 0, border_left: 0, border_right: 0)) do %>
+      <div class="feature-card-content">
+        <div>
+          <%= render(Primer::Beta::Text.new(tag: :h3, classes: "stats-number")) do %>
+            <span data-controller="counter" 
+                  data-counter-final-number-value="110"
+                  data-counter-suffix-value="+"
+                  data-counter-target="number">110+</span>
+          <% end %>
+          <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "startups served across Africa" } %>
+        </div>
+      </div>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, p: 4, border_radius: 0, border_left: 0)) do %>
+      <div class="feature-card-content">
+        <div>
+          <%= render(Primer::Beta::Text.new(tag: :h3, classes: "stats-number")) do %>
+            <span data-controller="counter" 
+                  data-counter-final-number-value="18"
+                  data-counter-target="number">18</span>
+          <% end %>
+          <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "African countries worked in" } %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

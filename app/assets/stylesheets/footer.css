@@ -1,0 +1,118 @@
+/* Footer Styles */
+.footer-heading {
+  font-family: monospace;
+  font-size: 2rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 3rem !important;
+}
+
+.footer-text {
+  font-family: monospace;
+  font-size: 1rem;
+}
+
+.footer-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.footer-cards .service-icon {
+  width: clamp(80px, 8vw, 120px);
+  height: clamp(80px, 8vw, 120px);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-cards .service-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.footer-card-title {
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 1rem !important;
+  font-family: monospace;
+}
+
+.footer-card-text {
+  color: var(--color-fg-muted);
+  margin-bottom: 1rem;
+  font-family: monospace;
+}
+
+.footer-link {
+  font-family: monospace;
+  color: #1a7f37 !important; /* GitHub success green */
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+  transform: translateX(5px);
+  color: #116329 !important; /* Darker success green */
+}
+
+.footer-link::after {
+  content: '→';
+  margin-left: 0.5rem;
+}
+
+.footer-locations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  color: var(--color-fg-muted);
+  font-size: 0.875rem;
+  font-family: monospace;
+}
+
+.footer-locations span {
+  display: inline-flex;
+  align-items: center;
+}
+
+.footer-locations span:not(:last-child)::after {
+  content: '•';
+  margin-left: 1rem;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.footer-writings {
+  font-family: monospace;
+  color: #1a7f37 !important; /* GitHub success green */
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.footer-writings:hover {
+  color: #116329 !important; /* Darker success green */
+}
+
+.footer-writings::after {
+  content: '→';
+  margin-left: 0.5rem;
+}
