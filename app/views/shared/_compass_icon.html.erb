@@ -1,12 +1,10 @@
-<%# Compass Icon Section %>
-<%= render(Primer::Box.new(classes: "compass-icon-wrapper")) do %>
-  <div class="compass-icon-container">
+<div class="icon-container">
     <svg class="compass-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
       <!-- White background rectangle -->
       <rect width="85" height="65" x="-20" y="10" fill="white"/>
       <!-- North Star design -->
       <path d="M50 20 L53 47 L80 50 L53 53 L50 80 L47 53 L20 50 L47 47 Z"
-            stroke="currentColor" 
+            stroke="#1a7f37"
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -16,11 +14,10 @@
       />
       <!-- Compass points -->
       <path d="M50 35 L50 25 M65 50 L75 50 M50 65 L50 75 M35 50 L25 50"
-            stroke="currentColor"
+            stroke="#1a7f37"
             stroke-width="1.5"
             stroke-linecap="round"
             stroke-dasharray="1 3"
       />
     </svg>
-  </div>
-<% end %>
+</div>

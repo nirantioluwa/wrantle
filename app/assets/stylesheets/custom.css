@@ -27,83 +27,50 @@ body {
 /* Services Styles */
 .services-container {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
   gap: 1.5rem;
-  padding: 2rem;
-  max-width: 1400px;
+  padding: 1.5rem;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 .service-item {
-  flex: 1 1 300px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   padding: 1.5rem;
   border: 1px solid var(--color-border-default);
-  border-radius: 8px;
   transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
+  background-color: var(--color-canvas-subtle);
 }
 
 .service-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   border-color: var(--color-success-emphasis);
+  transform: translateY(-3px);
 }
 
-.service-item::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
+.service-icon {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 1rem;
+}
+
+.service-icon svg {
+  width: 100%;
   height: 100%;
-  background: var(--color-success-emphasis);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.service-item:hover::before {
-  opacity: 1;
 }
 
 .service-title {
-  font-size: 1.25rem !important;
-  font-weight: 600 !important;
-  margin-bottom: 0.75rem !important;
-  color: var(--color-fg-default);
+  font-size: 1rem !important;
+  margin-bottom: 0.5rem !important;
 }
 
-.service-link {
-  display: inline-block;
-  margin-top: 1rem;
-  font-size: 0.875rem;
-  color: var(--color-success-emphasis);
-  text-decoration: none;
-  position: relative;
-}
-
-.service-link::after {
-  content: '→';
-  margin-left: 0.5rem;
-  transition: transform 0.3s ease;
-}
-
-.service-link:hover::after {
-  transform: translateX(5px);
-}
-
-@media (min-width: 1024px) {
-  .service-item:nth-child(odd) {
-    transform: translateY(2rem);
-  }
-  
-  .service-item:nth-child(3n) {
-    transform: translateY(-2rem);
-  }
-  
-  .service-item:hover {
-    transform: translateY(-7px);
-  }
+.service-description {
+  font-size: 0.875rem !important;
+  color: var(--color-fg-muted);
+  line-height: 1.4;
 }
 
 /* Logo Style */
@@ -247,6 +214,114 @@ body {
   margin-left: 0.5rem;
 }
 
+/* Features Box Styles */
+.features-heading {
+  font-family: monospace;
+  font-size: 1.8rem !important;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  max-width: 900px;
+  margin-bottom: 3rem;
+  font-weight: 400 !important;
+}
+
+.features-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.features-cards .service-icon {
+  width: clamp(80px, 8vw, 120px);
+  height: clamp(80px, 8vw, 120px);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.features-cards .service-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.features-card-heading {
+  font-family: monospace;
+  font-size: 1.25rem !important;
+  margin-bottom: 0.75rem !important;
+  text-decoration: none !important;
+  color: var(--color-fg-default) !important;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.features-card-heading:hover {
+  color: var(--color-accent-fg) !important;
+  text-decoration: underline !important;
+  transform: translateY(-2px);
+}
+
+.features-card-heading h3 {
+  margin: 0 !important;
+}
+
+.features-card-text {
+  font-family: monospace;
+  color: var(--color-fg-muted);
+  margin-bottom: 1rem !important;
+}
+
+.features-link {
+  font-family: monospace;
+  color: #1a7f37 !important;
+  text-decoration: none;
+  display: inline-flex;
+}
+
+@media (max-width: 768px) {
+  .features-cards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .features-heading {
+    font-size: 1.5rem !important;
+  }
+}
+
+/* Icon colors based on box background */
+.features-cards .bg-success .service-icon svg path,
+.features-cards .bg-success .service-icon svg line,
+.features-cards .bg-success .service-icon svg circle,
+.features-cards .bg-success .service-icon svg rect {
+  stroke: #1a7f37 !important;
+  fill: transparent !important;
+}
+
+.features-cards .bg-accent .service-icon svg path,
+.features-cards .bg-accent .service-icon svg line,
+.features-cards .bg-accent .service-icon svg circle,
+.features-cards .bg-accent .service-icon svg rect {
+  stroke: #8250df !important;
+  fill: transparent !important;
+}
+
+.features-cards .bg-severe .service-icon svg path,
+.features-cards .bg-severe .service-icon svg line,
+.features-cards .bg-severe .service-icon svg circle,
+.features-cards .bg-severe .service-icon svg rect {
+  stroke: #cf222e !important;
+  fill: transparent !important;
+}
+
+.features-cards .service-icon svg path,
+.features-cards .service-icon svg line,
+.features-cards .service-icon svg circle,
+.features-cards .service-icon svg rect {
+  stroke-width: 2;
+}
+
 /* Footer Styles */
 .footer-heading {
   font-family: monospace;
@@ -265,6 +340,20 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin-bottom: 3rem;
+}
+
+.footer-cards .service-icon {
+  width: clamp(80px, 8vw, 120px);
+  height: clamp(80px, 8vw, 120px);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-cards .service-icon svg {
+  width: 100%;
+  height: 100%;
 }
 
 .footer-card-title {
