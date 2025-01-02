@@ -3,42 +3,34 @@
   <%= render(Primer::Beta::Text.new(tag: :p, classes: "services-subheader")) { "We are a niche firm serving only teams shaping the future of emerging markets. We work with only technology and innovation focused startups. " } %>
  
   <div class="features-cards">
-    <%= render(Primer::Box.new(bg: :default, border: true, p: 4, border_right: 0, border_top: 0, border_radius: 2)) do %>
+    <%= render(Primer::Box.new(bg: :default, border: true, p: 4, border_right: 0, border_top: 0, border_radius: 0)) do %>
       <div class="service-icon">
         <%= render "shared/compass_icon" %>
       </div>
       <%= render(Primer::Beta::Link.new(href: "#", classes: "features-card-heading")) do %>
-        <%= render(Primer::Beta::Text.new(tag: :h3)) { "Global Entity Management" } %>
+        <%= render(Primer::Beta::Text.new(tag: :h3)) { "Global Corprate Strategy" } %>
       <% end %>
        <% end %>
 
-    <%= render(Primer::Box.new(bg: :default, border: true, p: 4, border_left: 0, border_bottom: 0, border_radius: 2)) do %>
+    <%= render(Primer::Box.new(bg: :default, border: true, p: 4, border_left: 0, border_bottom: 0, border_radius: 0)) do %>
       <div class="service-icon">
         <%= render "shared/growth_icon" %>
       </div>
       <%= render(Primer::Beta::Link.new(href: "#", classes: "features-card-heading")) do %>
-        <%= render(Primer::Beta::Text.new(tag: :h3)) { "IP & Brand Protection" } %>
+        <%= render(Primer::Beta::Text.new(tag: :h3)) { "Technology & IP" } %>
       <% end %>
     <% end %>
 
-    <%= render(Primer::Box.new(bg: :default, border: true, p: 4, border_right: 0, border_top: 0, border_radius: 2)) do %>
-      <div class="service-icon">
-        <%= render "shared/pillars_icon" %>
-      </div>
-      <%= render(Primer::Beta::Link.new(href: "#", classes: "features-card-heading")) do %>
-        <%= render(Primer::Beta::Text.new(tag: :h3)) { "Fundraising & Investments" } %>
-      <% end %>
-    <% end %>
-
-     <%= render(Primer::Box.new(bg: :default, border: true, p: 4, border_left: 0, border_bottom: 0, border_radius: 0)) do %>
-      <div class="service-icon">
-        <%= render "shared/pillars_icon" %>
-      </div>
-      <%= render(Primer::Beta::Link.new(href: "#", classes: "features-card-heading")) do %>
-        <%= render(Primer::Beta::Text.new(tag: :h3)) { "Tax Structure Advisory" } %>
-      <% end %>
-    <% end %>
     <%= render(Primer::Box.new(bg: :default, border: true, p: 4, border_right: 0, border_top: 0, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/pillars_icon" %>
+      </div>
+      <%= render(Primer::Beta::Link.new(href: "#", classes: "features-card-heading")) do %>
+        <%= render(Primer::Beta::Text.new(tag: :h3)) { "Finance & Investments" } %>
+      <% end %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :default, border: true, p: 4, border_left: 0, border_bottom: 0, border_radius: 0)) do %>
       <div class="service-icon">
         <%= render "shared/pillars_icon" %>
       </div>
@@ -46,20 +38,20 @@
         <%= render(Primer::Beta::Text.new(tag: :h3)) { "Legal & Compliance" } %>
       <% end %>
     <% end %>
-     <%= render(Primer::Box.new(bg: :default, border: true, p: 4, border_left: 0, border_bottom: 0, border_radius: 0)) do %>
+     <%= render(Primer::Box.new(bg: :default, border: true, p: 4, border_right: 0, border_top: 0, border_radius: 0)) do %>
       <div class="service-icon">
         <%= render "shared/pillars_icon" %>
       </div>
       <%= render(Primer::Beta::Link.new(href: "#", classes: "features-card-heading")) do %>
-        <%= render(Primer::Beta::Text.new(tag: :h3)) { "Risk Management" } %>
+        <%= render(Primer::Beta::Text.new(tag: :h3)) { "Operational Excellence" } %>
       <% end %>
     <% end %>
-    <%= render(Primer::Box.new(bg: :default, border: true, p: 4, border_right: 0, border_bottom: 0, border_radius: 0)) do %>
+    <%= render(Primer::Box.new(bg: :default, border: true, p: 4, border_left: 0, border_bottom: 0, border_radius: 0)) do %>
       <div class="service-icon">
         <%= render "shared/pillars_icon" %>
       </div>
       <%= render(Primer::Beta::Link.new(href: "#", classes: "features-card-heading")) do %>
-        <%= render(Primer::Beta::Text.new(tag: :h3)) { "Governance & ESG " } %>
+        <%= render(Primer::Beta::Text.new(tag: :h3)) { "Risk, ESG & Governance" } %>
       <% end %>
     <% end %>
   </div>
