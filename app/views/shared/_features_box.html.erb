@@ -1,5 +1,6 @@
 <%= render(Primer::Box.new(p: 4, mt: 4, border: false, border_right: 0, border_left: 0, border_bottom: 0)) do %>
-  <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-heading")) { "We are focused on serving teams shaping the future of emerging markets." } %>
+  <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-heading")) { "We are more than just advisors" } %>
+  <%= render(Primer::Beta::Text.new(tag: :p, classes: "services-subheader")) { "We are a niche team of advisors working only with technology and innovation focused ventures." } %>
   
   <div class="features-cards">
     <%= render(Primer::Box.new(bg: :subtle, p: 4, border_radius: 0, border: true, border_right: 0)) do %>
@@ -9,9 +10,9 @@
         </div>
         <div>
           <%= render(Primer::Beta::Link.new(href: "#", classes: "features-card-heading")) do %>
-            <%= render(Primer::Beta::Text.new(tag: :h3)) { "A single north star" } %>
+            <%= render(Primer::Beta::Text.new(tag: :h3)) { "A Single North Star — The Client" } %>
           <% end %>
-          <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "We are focused on a single north star" } %>
+          <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "A Simple, Effective Model for Good Service" } %>
         </div>
       </div>
     <% end %>
@@ -23,9 +24,9 @@
         </div>
         <div>
           <%= render(Primer::Beta::Link.new(href: "#", classes: "features-card-heading")) do %>
-            <%= render(Primer::Beta::Text.new(tag: :h3)) { "Join our team" } %>
+            <%= render(Primer::Beta::Text.new(tag: :h3)) { "Live, Impact & Thrive" } %>
           <% end %>
-          <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Want to join our team?" } %>
+          <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Create Impact Living Your Best Life" } %>
         </div>
       </div>
     <% end %>
@@ -37,9 +38,9 @@
         </div>
         <div>
           <%= render(Primer::Beta::Link.new(href: "#", classes: "features-card-heading")) do %>
-            <%= render(Primer::Beta::Text.new(tag: :h3)) { "Coffee chat" } %>
+            <%= render(Primer::Beta::Text.new(tag: :h3)) { "Impact Beyond Ourselves" } %>
           <% end %>
-          <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Have a coffee chat with us?" } %>
+          <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "An Incubator For Service Talents" } %>
         </div>
       </div>
     <% end %>
