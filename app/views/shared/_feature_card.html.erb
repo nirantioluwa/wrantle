@@ -1,0 +1,12 @@
+<%# Feature Card Component %>
+<%= render(Primer::Box.new(classes: "feature-card")) do %>
+  <%= render(Primer::Box.new(classes: "feature-icon-wrapper")) do %>
+    <%= render icon_partial %>
+  <% end %>
+  
+  <%= render(Primer::Box.new(classes: "feature-content")) do %>
+    <%= render(Primer::Beta::Heading.new(tag: :h3, font_weight: :bold, classes: "feature-heading")) { title } %>
+    <%= render(Primer::Beta::Text.new(tag: :p, classes: "feature-description")) { description } %>
+    <%= render(Primer::Beta::Link.new(href: link_url, classes: "feature-link")) { "Learn more" } %>
+  <% end %>
+<% end %>

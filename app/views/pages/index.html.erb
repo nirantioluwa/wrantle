@@ -1,5 +1,45 @@
-<%= render(Primer::BaseComponent.new(tag: :div, mt: 4, color_scheme: :light)) do %>
-  <div class="container-lg">
-    <%= render(Primer::Beta::Heading.new(tag: :h1)) { "Welcome to Wrantle" } %>
-  </div>
-<% end %>
+<%= render "shared/hero" %>
+
+<div class="features-grid">
+  <%= render "shared/feature_card", {
+    icon_partial: "shared/blueprint_icon",
+    title: "Strategic Planning",
+    description: "Build your foundation with our comprehensive strategic planning services.",
+    link_url: "#"
+  } %>
+
+  <%= render "shared/feature_card", {
+    icon_partial: "shared/springboard_icon",
+    title: "Launch & Growth",
+    description: "Accelerate your business with our proven launch and growth strategies.",
+    link_url: "#"
+  } %>
+
+  <%= render "shared/feature_card", {
+    icon_partial: "shared/wave_icon",
+    title: "Market Dynamics",
+    description: "Navigate market waves with our expert analysis and insights.",
+    link_url: "#"
+  } %>
+
+  <%= render "shared/feature_card", {
+    icon_partial: "shared/pillars_icon",
+    title: "Strong Foundation",
+    description: "Build on solid pillars with our structural business solutions.",
+    link_url: "#"
+  } %>
+
+  <%= render "shared/feature_card", {
+    icon_partial: "shared/growth_icon",
+    title: "Scalable Growth",
+    description: "Multiply your success with our scalable growth frameworks.",
+    link_url: "#"
+  } %>
+
+  <%= render "shared/feature_card", {
+    icon_partial: "shared/compass_icon",
+    title: "Strategic Direction",
+    description: "Find your true north with our strategic guidance and expertise.",
+    link_url: "#"
+  } %>
+</div>

@@ -1,0 +1,4 @@
+<%# Hero section using Primer components %>
+<%= render(Primer::Box.new(mt: 4, p: 4)) do %>
+  <%= render(Primer::Beta::Heading.new(tag: :h1, font_weight: :bold, classes: "hero-heading")) { "Made by builders—advisory services for innovators in emerging markets" } %>
+<% end %>
