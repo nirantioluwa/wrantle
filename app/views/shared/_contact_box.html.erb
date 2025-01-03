@@ -4,7 +4,7 @@
   <%= render(Primer::Beta::Text.new(tag: :p, classes: "services-subheader")) { subtitle } %>
   
   <div class="features-cards">
-    <%= render(Primer::Box.new(bg: :success, p: 4, border_radius: 0, border: true, border_right: 0)) do %>
+    <%= render(Primer::Box.new(bg: :success, p: 4, border_radius: 0, border: false, border_right: 0)) do %>
       <div class="feature-card-content">
         <div class="service-icon">
           <%= render "shared/schedule_icon" %>
@@ -18,7 +18,7 @@
       </div>
     <% end %>
 
-    <%= render(Primer::Box.new(bg: :success, border: true, p: 4, border_radius: 0, border_left: 0, border_right: 0)) do %>
+    <%= render(Primer::Box.new(bg: :success, border: false, p: 4, border_radius: 0, border_left: 0, border_right: 0)) do %>
       <div class="feature-card-content">
         <div class="service-icon">
           <%= render "shared/info_icon" %>
@@ -32,7 +32,7 @@
       </div>
     <% end %>
 
-    <%= render(Primer::Box.new(bg: :success, border: true, p: 4, border_radius: 0, border_left: 0)) do %>
+    <%= render(Primer::Box.new(bg: :success, border: false, p: 4, border_radius: 0, border_left: 0)) do %>
       <div class="feature-card-content">
         <div class="service-icon">
           <%= render "shared/assessment_icon" %>
