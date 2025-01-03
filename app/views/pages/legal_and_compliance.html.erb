@@ -1,3 +1,95 @@
-<%# Legal & Compliance page template - content to be added %>
-<div class="service-page legal-and-compliance">
-</div>
+<%# Meta tags %>
+<% content_for :title, "Legal & Compliance Advisory - Wrantle" %>
+<% content_for :meta_description, "Strategic legal and compliance services for global businesses. We provide regulatory guidance, contract management, and compliance frameworks across jurisdictions." %>
+<% content_for :meta_keywords, "legal advisory, regulatory compliance, contract management, data protection, employment law, dispute resolution, legal audit" %>
+<% content_for :og_title, "Legal & Compliance Advisory | Wrantle" %>
+<% content_for :og_description, "Expert legal and compliance services for international businesses. Get support with regulations, contracts, and compliance frameworks." %>
+
+<%# Legal Services Page %>
+
+<%# Hero Section %>
+<%= render(Primer::Box.new(mt: 6, p: 4)) do %>
+  <%= render(Primer::Beta::Heading.new(tag: :h1, font_weight: :bold, classes: "hero-heading")) { "Legal and compliance framework management" } %>
+<% end %>
+
+<%# Services Content Section %>
+<%= render(Primer::Box.new(p: 4, mb: 6)) do %>
+  <div class="features-cards">
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_right: 0, border_bottom: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/legal_compliance/regulatory_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Regulatory Compliance" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Ensure adherence to regulatory requirements across jurisdictions." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_left: 0, border_bottom: 0, border_right: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/legal_compliance/contracts_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Contract Management" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Develop and manage commercial contracts and legal documentation." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_left: 0, border_bottom: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/legal_compliance/employment_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Employment Law" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Handle employment regulations and workforce compliance matters." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_right: 0, border_top: 0,  border_bottom: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/legal_compliance/data_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Data Protection" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Implement data privacy frameworks and compliance protocols." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: 0, border_left: 0, border_right: 0, border_top: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/legal_compliance/dispute_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Dispute Resolution" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Manage disputes and develop litigation strategies." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_left: 0, border_top: 0, border_bottom: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/legal_compliance/licensing_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Licensing & Permits" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Secure necessary business licenses and regulatory permits." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_right: 0, border_top: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/legal_compliance/legal_playbook_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Legal Playbook Development" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Create standardized legal processes and guidelines for your operations." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_left: 0, border_right: 0, border_top: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/legal_compliance/audit_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Legal Audit" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Review legal frameworks and develop compliance playbooks." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_left: 0, border_top: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/legal_compliance/filings_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Statutory Compliance" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Manage annual filings and ongoing statutory requirements." } %>
+    <% end %>
+  </div>
+<% end %>
+
+<%# Contact Section %>
+<%= render "shared/contact_box",
+  title: "Need legal compliance support?",
+  subtitle: "Let's discuss your regulatory and compliance needs" %>
