@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title><%= content_for(:title) || "Wrantle" %></title>
+    <title><%= content_for(:title) || "Wrantle - Africa's Leading Advisory Firm for Innovative Ventures" %></title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
+    
+    <%# SEO Meta Tags %>
+    <meta name="description" content="<%= content_for(:meta_description) || "Wrantle is Africa's premier advisory firm for innovative ventures, delivering strategic guidance and solutions to technology-driven companies. We accelerate business growth across the continent." %>">
+    <meta name="keywords" content="<%= content_for(:meta_keywords) || "advisory firm, Africa, innovation, technology ventures, business strategy, venture capital, strategic consulting, business growth" %>">
+    <meta name="author" content="Wrantle">
+    <meta name="robots" content="index, follow">
+    
+    <%# Open Graph Meta Tags for Social Media %>
+    <meta property="og:title" content="<%= content_for(:og_title) || content_for(:title) || "Wrantle - Africa's Leading Advisory Firm for Innovative Ventures" %>">
+    <meta property="og:description" content="<%= content_for(:og_description) || content_for(:meta_description) || "Wrantle is Africa's premier advisory firm for innovative ventures, delivering strategic guidance and solutions to technology-driven companies. We accelerate business growth across the continent." %>">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<%= request.original_url %>">
+    <meta property="og:image" content="<%= content_for(:og_image) || asset_url('icon.png') %>">
+    <meta property="og:site_name" content="Wrantle">
+    
+    <%# Twitter Card Meta Tags %>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<%= content_for(:twitter_title) || content_for(:title) || "Wrantle - Africa's Leading Advisory Firm for Innovative Ventures" %>">
+    <meta name="twitter:description" content="<%= content_for(:twitter_description) || content_for(:meta_description) || "Wrantle is Africa's premier advisory firm for innovative ventures, delivering strategic guidance and solutions to technology-driven companies. We accelerate business growth across the continent." %>">
+    <meta name="twitter:image" content="<%= content_for(:twitter_image) || asset_url('icon.png') %>">
+    
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
