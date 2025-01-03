@@ -6,6 +6,8 @@
 <% content_for :og_description, "Expert operational optimization services. Get support with process improvement, quality systems, and performance enhancement." %>
 
 <%# Operations Page %>
+<%# Services Navigation %>
+<%= render "shared/services_navigation" %>
 
 <%# Hero Section %>
 <%= render(Primer::Box.new(mt: 6, p: 4)) do %>
@@ -88,9 +90,6 @@
     <% end %>
   </div>
 <% end %>
-
-<%# Services Navigation %>
-<%= render "shared/services_navigation" %>
 
 <%# Contact Section %>
 <%= render "shared/contact_box",

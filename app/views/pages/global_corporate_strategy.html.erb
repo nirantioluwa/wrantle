@@ -7,6 +7,9 @@
 
 <%# Global Corporate Strategy Page %>
 
+<%# Services Navigation %>
+<%= render "shared/services_navigation" %>
+
 <%# Hero Section %>
 <%= render(Primer::Box.new(mt: 6, p: 4)) do %>
   <%= render(Primer::Beta::Heading.new(tag: :h1, font_weight: :bold, classes: "hero-heading")) { "International expansion and corporate structuring" } %>
@@ -64,9 +67,6 @@
     <% end %>
   </div>
 <% end %>
-
-<%# Services Navigation %>
-<%= render "shared/services_navigation" %>
 
 <%# Contact Section %>
 <%= render "shared/contact_box",

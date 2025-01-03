@@ -1,10 +1,69 @@
 <%# Services Navigation %>
 <%= render(Primer::Box.new(p: 4)) do %>
   <%= render(Primer::Alpha::ActionBar.new(color: :success, classes: "services-action-bar")) do |component| %>
-    <%= component.with_item_icon_button(bg: :success, p: 2, icon: :organization, label: "Global Corporate Strategy", tag: :a, href: global_corporate_strategy_path, classes: "service-icon-button") %>
-    <%= component.with_item_icon_button(bg: :success, p: 2, icon: :graph, label: "Finance & Investments", tag: :a, href: finance_and_investments_path, classes: "service-icon-button") %>
-    <%= component.with_item_icon_button(bg: :success, p: 2, icon: :law, label: "Legal & Compliance", tag: :a, href: legal_and_compliance_path, classes: "service-icon-button") %>
-    <%= component.with_item_icon_button(bg: :success, p: 2, icon: :workflow, label: "Operational Excellence", tag: :a, href: operational_excellence_path, classes: "service-icon-button") %>
-    <%= component.with_item_icon_button(bg: :success, p: 2, icon: :shield, label: "Risk, ESG & Governance", tag: :a, href: risk_esg_and_governance_path, classes: "service-icon-button") %>
+    <%= component.with_item_icon_button(
+      bg: current_page?(root_path) ? :success : nil,
+      p: 2,
+      icon: "home",
+      label: "Home",
+      tag: :a,
+      href: root_path,
+      classes: "service-icon-button"
+    ) %>
+    <%= component.with_item_divider %>
+    <%= component.with_item_icon_button(
+      bg: current_page?(global_corporate_strategy_path) ? :success : nil,
+      p: 2,
+      icon: "organization",
+      label: "Global Corporate Strategy",
+      tag: :a,
+      href: global_corporate_strategy_path,
+      classes: "service-icon-button"
+    ) %>
+    <%= component.with_item_icon_button(
+      bg: current_page?(intellectual_property_path) ? :success : nil,
+      p: 2,
+      icon: "file-badge",
+      label: "Intellectual Property",
+      tag: :a,
+      href: intellectual_property_path,
+      classes: "service-icon-button"
+    ) %>
+    <%= component.with_item_icon_button(
+      bg: current_page?(finance_and_investments_path) ? :success : nil,
+      p: 2,
+      icon: "graph",
+      label: "Finance & Investments",
+      tag: :a,
+      href: finance_and_investments_path,
+      classes: "service-icon-button"
+    ) %>
+    <%= component.with_item_icon_button(
+      bg: current_page?(legal_and_compliance_path) ? :success : nil,
+      p: 2,
+      icon: "law",
+      label: "Legal & Compliance",
+      tag: :a,
+      href: legal_and_compliance_path,
+      classes: "service-icon-button"
+    ) %>
+    <%= component.with_item_icon_button(
+      bg: current_page?(operational_excellence_path) ? :success : nil,
+      p: 2,
+      icon: "workflow",
+      label: "Operational Excellence",
+      tag: :a,
+      href: operational_excellence_path,
+      classes: "service-icon-button"
+    ) %>
+    <%= component.with_item_icon_button(
+      bg: current_page?(risk_esg_and_governance_path) ? :success : nil,
+      p: 2,
+      icon: "shield",
+      label: "Risk, ESG & Governance",
+      tag: :a,
+      href: risk_esg_and_governance_path,
+      classes: "service-icon-button"
+    ) %>
   <% end %>
 <% end %>
