@@ -1,3 +1,95 @@
-<%# Finance & Investments page template - content to be added %>
-<div class="service-page finance-and-investments">
-</div>
+<%# Meta tags %>
+<% content_for :title, "Finance & Investment Advisory - Wrantle" %>
+<% content_for :meta_description, "Strategic financial advisory services for mergers, investments, and tax optimization. We help businesses structure investments, manage transactions, and optimize financial operations across borders." %>
+<% content_for :meta_keywords, "mergers acquisitions, financial advisory, investment structuring, fundraising, tax optimization, financial planning, transaction support" %>
+<% content_for :og_title, "Finance & Investment Advisory | Wrantle" %>
+<% content_for :og_description, "Expert financial advisory services for mergers, investments, and tax planning. Get support with transaction structuring, fundraising, and financial optimization." %>
+
+<%# Finance Services Page %>
+
+<%# Hero Section %>
+<%= render(Primer::Box.new(mt: 6, p: 4)) do %>
+  <%= render(Primer::Beta::Heading.new(tag: :h1, font_weight: :bold, classes: "hero-heading")) { "Finance and Investment Advisory" } %>
+<% end %>
+
+<%# Services Content Section %>
+<%= render(Primer::Box.new(p: 4, mb: 6)) do %>
+  <div class="features-cards">
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_right: 0, border_bottom: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/finance_investments/fundraising_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Fundraising Advisory" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Guide debt and equity fundraising transactions from preparation to completion." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_left: 0, border_bottom: 0, border_right: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/finance_investments/investment_planning_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Investment Planning" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Structure your investment approach and assess funding options for growth." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_left: 0, border_bottom: 0, border_right: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/finance_investments/ma_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "M&A Advisory" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Guide mergers, acquisitions, and transaction support from planning to completion." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_right: 0, border_bottom: 0, border_top: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/finance_investments/due_diligence_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Financial Due Diligence" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Assess financial health and risks for transactions and investments." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: 0, border_right: 0, border_top: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/finance_investments/capital_structure_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Capital Structure" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Optimize capital allocation and financial restructuring across your group." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_left: 0, border_bottom: 0, border_top: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/finance_investments/tax_planning_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Tax Planning" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Manage cross-border taxation and optimize treaty benefits." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_left: 0, border_top: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/finance_investments/risk_management_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Risk Management" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Structure insurance portfolios and financial risk controls." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_right: 0, border_top: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/finance_investments/investor_relations_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Investor Relations" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Manage stakeholder communications and reporting frameworks." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_left: 0, border_right: 0, border_top: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/finance_investments/group_finance_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Group Finance" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Plan and implement financial strategies across your corporate group." } %>
+    <% end %>
+  </div>
+<% end %>
+
+<%# Contact Section %>
+<%= render "shared/contact_box",
+  title: "Planning to fundraise soon?",
+  subtitle: "Let's discuss how we can support your investment needs" %>
