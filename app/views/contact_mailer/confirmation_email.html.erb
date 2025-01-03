@@ -1,27 +1,23 @@
 <div class="mb-4">
   <h1 class="h1 color-fg-default mb-2"><%= @greeting %></h1>
-  <p class="f4 color-fg-muted">Thank you for your <%= @contact.contact_type.humanize.downcase %> request. We've received your message and will get back to you shortly.</p>
+  <p class="f4 color-fg-muted">We've received your message and will get back to you shortly.</p>
 </div>
 
 <div class="mb-4">
   <h2 class="h3 color-fg-default mb-2">Your Contact Information</h2>
-  <div class="color-bg-default p-3">
-    <p><strong>Name:</strong> <%= @contact.name %></p>
-    <p><strong>Email:</strong> <%= @contact.email %></p>
-    <p><strong>Phone:</strong> <%= @contact.phone %></p>
-    
-    <% if @contact.contact_type == "schedule_chat" %>
-      <p><strong>Preferred Date:</strong> <%= @contact.preferred_date.strftime("%B %d, %Y") %></p>
-      <p><strong>Preferred Time:</strong> <%= @contact.preferred_time.strftime("%I:%M %p") %></p>
-    <% end %>
-  </div>
+  <p><strong>Name:</strong> <%= @contact.name %></p>
+  <p><strong>Email:</strong> <%= @contact.email %></p>
+  <p><strong>Phone:</strong> <%= @contact.phone %></p>
+  
+  <% if @contact.contact_type == "schedule_chat" %>
+    <p><strong>Preferred Date:</strong> <%= @contact.preferred_date.strftime("%B %d, %Y") %></p>
+    <p><strong>Preferred Time:</strong> <%= @contact.preferred_time.strftime("%I:%M %p") %></p>
+  <% end %>
 </div>
 
 <div class="mb-4">
   <h2 class="h3 color-fg-default mb-2">Your Message</h2>
-  <div class="color-bg-default p-3">
-    <%= simple_format(@contact.message) %>
-  </div>
+  <%= simple_format(@contact.message) %>
 </div>
 
 <p class="f4 color-fg-muted">
@@ -30,9 +26,13 @@
   <% elsif @contact.contact_type == "request_info" %>
     We'll gather the information you need and get back to you soon.
   <% else %>
-    We'll review your needs and provide a detailed assessment shortly.
+    We'll review your information and provide a detailed assessment shortly.
   <% end %>
 </p>
+
+<div class="signature">
+  <p>Best regards,<br>Wrantle Team</p>
+</div>
 
 <% content_for :footer do %>
   <p class="color-fg-muted f6">If you did not submit this request, please ignore this email or contact us at hi@wrantle.com</p>

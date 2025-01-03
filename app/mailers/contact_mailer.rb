@@ -11,7 +11,7 @@ class ContactMailer < ApplicationMailer
     @greeting = "Hi #{@contact.name}"
 
     mail to: @contact.email,
-         subject: "We've received your #{@contact.contact_type.humanize} request"
+         subject: "We've received your request"
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
