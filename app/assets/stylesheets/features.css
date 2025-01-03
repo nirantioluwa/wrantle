@@ -215,7 +215,7 @@
 .features-card-heading {
   font-family: monospace;
   font-size: clamp(1.1rem, 2.5vw, 1.25rem) !important;
-  margin-bottom: clamp(0.5rem, 2vw, 0.75rem) !important;
+  margin-bottom: 0.25rem !important;
   text-decoration: none !important;
   color: var(--color-fg-default) !important;
   transition: all 0.3s ease;
@@ -298,4 +298,12 @@
   max-width: 860px !important;
   margin: 0 0 1.5rem !important;
   line-height: 1.2 !important;
+}
+
+/* Rotating Text Styles */
+.rotating-text {
+  display: block;
+  min-height: 1em;
+  margin-top: 0rem !important;
+  transition: opacity 0.2s ease-in-out;
 }
