@@ -7,7 +7,7 @@
       <div class="service-icon">
         <%= render "shared/global_strategy_icon" %>
       </div>
-      <%= render(Primer::Beta::Link.new(href: "#", classes: "features-card-heading")) do %>
+      <%= render(Primer::Beta::Link.new(href: global_corporate_strategy_path, classes: "features-card-heading")) do %>
         <%= render(Primer::Beta::Text.new(tag: :h3)) { "Global Corporate Strategy" } %>
       <% end %>
     <% end %>
@@ -16,7 +16,7 @@
       <div class="service-icon">
         <%= render "shared/tech_ip_icon" %>
       </div>
-      <%= render(Primer::Beta::Link.new(href: "#", classes: "features-card-heading")) do %>
+      <%= render(Primer::Beta::Link.new(href: intellectual_property_path, classes: "features-card-heading")) do %>
         <%= render(Primer::Beta::Text.new(tag: :h3)) { "Intellectual Property" } %>
       <% end %>
     <% end %>
@@ -25,7 +25,7 @@
       <div class="service-icon">
         <%= render "shared/finance_investments_icon" %>
       </div>
-      <%= render(Primer::Beta::Link.new(href: "#", classes: "features-card-heading")) do %>
+      <%= render(Primer::Beta::Link.new(href: finance_and_investments_path, classes: "features-card-heading")) do %>
         <%= render(Primer::Beta::Text.new(tag: :h3)) { "Finance & Investments" } %>
       <% end %>
     <% end %>
@@ -34,7 +34,7 @@
       <div class="service-icon">
         <%= render "shared/legal_compliance_icon" %>
       </div>
-      <%= render(Primer::Beta::Link.new(href: "#", classes: "features-card-heading")) do %>
+      <%= render(Primer::Beta::Link.new(href: legal_and_compliance_path, classes: "features-card-heading")) do %>
         <%= render(Primer::Beta::Text.new(tag: :h3)) { "Legal & Compliance" } %>
       <% end %>
     <% end %>
@@ -42,7 +42,7 @@
       <div class="service-icon bg">
         <%= render "shared/operational_excellence_icon" %>
       </div>
-      <%= render(Primer::Beta::Link.new(href: "#", classes: "features-card-heading")) do %>
+      <%= render(Primer::Beta::Link.new(href: operational_excellence_path, classes: "features-card-heading")) do %>
         <%= render(Primer::Beta::Text.new(tag: :h3)) { "Operational Excellence" } %>
       <% end %>
 
@@ -51,7 +51,7 @@
       <div class="service-icon">
         <%= render "shared/risk_esg_governance_icon" %>
       </div>
-      <%= render(Primer::Beta::Link.new(href: "#", classes: "features-card-heading")) do %>
+      <%= render(Primer::Beta::Link.new(href: risk_esg_and_governance_path, classes: "features-card-heading")) do %>
         <%= render(Primer::Beta::Text.new(tag: :h3)) { "Risk, ESG & Governance" } %>
       <% end %>
     <% end %>
