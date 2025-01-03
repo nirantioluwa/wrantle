@@ -9,9 +9,6 @@
       </div>
       <%= render(Primer::Beta::Link.new(href: "#", classes: "features-card-heading")) do %>
         <%= render(Primer::Beta::Text.new(tag: :h3)) { "Global Corporate Strategy" } %>
-          <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) do %>
-          <span data-text-rotator-target="text">International expansion and corporate structuring</span>
-        <% end %>
       <% end %>
     <% end %>
 
@@ -20,10 +17,7 @@
         <%= render "shared/tech_ip_icon" %>
       </div>
       <%= render(Primer::Beta::Link.new(href: "#", classes: "features-card-heading")) do %>
-        <%= render(Primer::Beta::Text.new(tag: :h3)) { "Technology & IP" } %>
-          <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) do %>
-          <span data-text-rotator-target="text">Protection and management of intellectual property assets</span>
-        <% end %>
+        <%= render(Primer::Beta::Text.new(tag: :h3)) { "Intellectual Property" } %>
       <% end %>
     <% end %>
 
@@ -33,9 +27,6 @@
       </div>
       <%= render(Primer::Beta::Link.new(href: "#", classes: "features-card-heading")) do %>
         <%= render(Primer::Beta::Text.new(tag: :h3)) { "Finance & Investments" } %>
-        <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) do %>
-          <span data-text-rotator-target="text"> Fundraising, financial strategy and investment structuring</span>
-        <% end %>
       <% end %>
     <% end %>
 
@@ -45,9 +36,6 @@
       </div>
       <%= render(Primer::Beta::Link.new(href: "#", classes: "features-card-heading")) do %>
         <%= render(Primer::Beta::Text.new(tag: :h3)) { "Legal & Compliance" } %>
-        <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) do %>
-          <span data-text-rotator-target="text">Tailored businesslegal and compliance services</span>
-        <% end %>
       <% end %>
     <% end %>
      <%= render(Primer::Box.new(bg: :default, border: true, p: 4, border_right: 0, border_top: 0, border_radius: 0)) do %>
@@ -56,9 +44,6 @@
       </div>
       <%= render(Primer::Beta::Link.new(href: "#", classes: "features-card-heading")) do %>
         <%= render(Primer::Beta::Text.new(tag: :h3)) { "Operational Excellence" } %>
-        <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) do %>
-          <span data-text-rotator-target="text">Business processes and employee efficiency optimization</span>
-        <% end %>
       <% end %>
 
     <% end %>
@@ -68,9 +53,6 @@
       </div>
       <%= render(Primer::Beta::Link.new(href: "#", classes: "features-card-heading")) do %>
         <%= render(Primer::Beta::Text.new(tag: :h3)) { "Risk, ESG & Governance" } %>
-          <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text rotating-text")) do %>
-          <span data-text-rotator-target="text">Risk management and sustainable governance advisory</span>
-        <% end %>
       <% end %>
     <% end %>
   </div>

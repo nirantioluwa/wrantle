@@ -37,21 +37,21 @@
 
   <body data-color-mode="light" data-light-theme="light" data-dark-theme="dark">
     <%# Primer Layout Component with main content and sidebar %>
-    <%= render(Primer::Alpha::Layout.new(stacking_breakpoint: :lg, gutter: :none)) do |component| %>
+    <%= render(Primer::Alpha::Layout.new(stacking_breakpoint: :sm, gutter: :none)) do |component| %>
       <% component.with_main() do %>
         <%# Nested layout within main content %>
-        <%= render(Primer::Alpha::Layout.new(stacking_breakpoint: :md, gutter: :none)) do |inner| %>
+        <%= render(Primer::Alpha::Layout.new(stacking_breakpoint: :sm, gutter: :none)) do |inner| %>
           <% inner.with_main() do %>
             <%= render "shared/navbar" %>
             <%= yield %>
             <%= render "shared/footer" %>
           <% end %>
-          <% inner.with_sidebar(col_placement: :end, row_placement: :none) do %>
+          <% inner.with_sidebar(width: :narrow, col_placement: :end, row_placement: :none) do %>
             <%# 2nd inner sidebar content %>
           <% end %>
         <% end %>
       <% end %>
-      <% component.with_sidebar(row_placement: :none) do %>
+      <% component.with_sidebar(width: :narrow, col_placement: :start, row_placement: :none) do %>
         <%# 1st outer sidebar content %>
       <% end %>
     <% end %>
