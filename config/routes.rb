@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :passwords, param: :token
   resources :registrations, except: [ :index, :show, :destroy ]
   mount MissionControl::Jobs::Engine, at: "/jobs"
-  resources :contacts
+  resources :contacts, only: [ :new, :create, :show ]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
