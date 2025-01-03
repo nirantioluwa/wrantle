@@ -3,22 +3,16 @@
     <%= render(Primer::Beta::Text.new(tag: :h2, font_weight: :bold, classes: "footer-heading")) { "Learn more about our work" } %>
     
     <div class="footer-cards">
-      <%= render(Primer::Box.new(bg: :subtle, p: 4, border_radius: 2)) do %>
+      <%= render(Primer::Box.new(bg: :subtle, p: 4, border_radius: 0)) do %>
         <%= render(Primer::Beta::Text.new(tag: :h3, font_weight: :bold, classes: "footer-card-heading")) { "Work with us" } %>
         <%= render(Primer::Beta::Text.new(tag: :p, classes: "footer-card-text")) { "How can we work with you?" } %>
         <%= render(Primer::Beta::Link.new(href: "mailto:hi@wrantle.com", classes: "footer-link")) { "hi@wrantle.com" } %>
       <% end %>
 
-      <%= render(Primer::Box.new(bg: :subtle, p: 4, border_radius: 2)) do %>
+      <%= render(Primer::Box.new(bg: :subtle, p: 4, border_radius: 0)) do %>
         <%= render(Primer::Beta::Text.new(tag: :h3, font_weight: :bold, classes: "footer-card-heading")) { "Join our team" } %>
         <%= render(Primer::Beta::Text.new(tag: :p, classes: "footer-card-text")) { "Want to join our team?" } %>
         <%= render(Primer::Beta::Link.new(href: "mailto:work@wrantle.com", classes: "footer-link")) { "work@wrantle.com" } %>
-      <% end %>
-
-      <%= render(Primer::Box.new(bg: :subtle, p: 4, border_radius: 2)) do %>
-        <%= render(Primer::Beta::Text.new(tag: :h3, font_weight: :bold, classes: "footer-card-heading")) { "Coffee chat" } %>
-        <%= render(Primer::Beta::Text.new(tag: :p, classes: "footer-card-text")) { "Have a coffee chat with us?" } %>
-        <%= render(Primer::Beta::Link.new(href: "mailto:coffee@wrantle.com", classes: "footer-link")) { "coffee@wrantle.com" } %>
       <% end %>
     </div>
 
