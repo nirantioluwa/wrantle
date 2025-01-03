@@ -1,3 +1,71 @@
-<%# Intellectual Property page template - content to be added %>
-<div class="service-page intellectual-property">
-</div>
+<%# Meta tags %>
+<% content_for :title, "IP Protection & Portfolio Management - Wrantle" %>
+<% content_for :meta_description, "Expert IP portfolio management and protection services. We help businesses manage global IP portfolios, protect patents and trademarks, handle licensing, and optimize IP structures across jurisdictions." %>
+<% content_for :meta_keywords, "IP management, patent strategy, trademark protection, IP portfolio, technology licensing, brand protection, IP structure, design rights" %>
+<% content_for :og_title, "IP Protection & Portfolio Management | Wrantle" %>
+<% content_for :og_description, "Strategic IP portfolio management and protection services. Get expert help with trademark registration, patent strategy, technology licensing, and IP structure optimization." %>
+
+<%# IP Services Page %>
+
+<%# Hero Section %>
+<%= render(Primer::Box.new(mt: 6, p: 4)) do %>
+  <%= render(Primer::Beta::Heading.new(tag: :h1, font_weight: :bold, classes: "hero-heading")) { "IP management and technology licensing" } %>
+<% end %>
+
+<%# Services Content Section %>
+<%= render(Primer::Box.new(p: 4, mb: 6)) do %>
+  <div class="features-cards">
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_right: 0, border_bottom: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/tech_ip_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Portfolio Audit & Strategy" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Review your IP assets and align them with business goals." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_left: 0, border_bottom: 0, border_right: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/tech_ip_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Trademark Management" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Register and manage trademarks worldwide, including Madrid Protocol filings." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_left: 0, border_bottom: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/tech_ip_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Patent Strategy" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Protect your innovations and manage patent portfolios across markets." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, p: 4, border_top: 0, border_right: 0, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/tech_ip_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Technology Licensing" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Manage technology licenses and third-party agreements." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, p: 4, border_top: 0, border_left: 0, border_right: 0, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/tech_ip_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Brand Protection" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Monitor and enforce your IP rights online and in markets." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_top: 0, border_left: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/tech_ip_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Group IP Structure" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Set up IP ownership and licensing between your holding company and subsidiaries." } %>
+    <% end %>
+  </div>
+<% end %>
+
+<%# Contact Section %>
+<%= render "shared/contact_box",
+  title: "Need help protecting your IP?",
+  subtitle: "Let's discuss how we can secure and manage your IP assets" %>
