@@ -1,0 +1,60 @@
+<%# About Navigation %>
+<%= render(Primer::Box.new(p: 4)) do %>
+  <%= render(Primer::Alpha::ActionBar.new(color: :success, classes: "about-action-bar")) do |component| %>
+    <%= component.with_item_icon_button(
+      bg: current_page?(root_path) ? :success : nil,
+      p: 2,
+      icon: "home",
+      label: "Home",
+      tag: :a,
+      href: root_path,
+      classes: "about-icon-button"
+    ) %>
+    <%= component.with_item_icon_button(
+      bg: current_page?(services_path) ? :success : nil,
+      p: 2,
+      icon: "apps",
+      label: "Services",
+      tag: :a,
+      href: services_path,
+      classes: "about-icon-button"
+    ) %>
+    <%= component.with_item_icon_button(
+      bg: current_page?(about_path) ? :success : nil,
+      p: 2,
+      icon: "info",
+      label: "About",
+      tag: :a,
+      href: about_path,
+      classes: "about-icon-button"
+    ) %>
+    <%= component.with_item_divider %>
+    <%= component.with_item_icon_button(
+      bg: current_page?(single_north_star_path) ? :success : nil,
+      p: 2,
+      icon: "north-star",
+      label: "A Single North Star",
+      tag: :a,
+      href: single_north_star_path,
+      classes: "about-icon-button"
+    ) %>
+    <%= component.with_item_icon_button(
+      bg: current_page?(live_impact_thrive_path) ? :success : nil,
+      p: 2,
+      icon: "stack",
+      label: "Live, Impact & Thrive",
+      tag: :a,
+      href: live_impact_thrive_path,
+      classes: "about-icon-button"
+    ) %>
+    <%= component.with_item_icon_button(
+      bg: current_page?(impact_beyond_us_path) ? :success : nil,
+      p: 2,
+      icon: "pulse",
+      label: "Impact Beyond Us",
+      tag: :a,
+      href: impact_beyond_us_path,
+      classes: "about-icon-button"
+    ) %>
+  <% end %>
+<% end %>

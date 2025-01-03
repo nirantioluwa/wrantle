@@ -1,0 +1,23 @@
+/* Main Sections Navigation Styles */
+.main-sections-action-bar {
+  padding: 0;
+}
+
+.main-section-icon-button {
+  padding: 0 !important;
+  margin: 0 0.5rem !important;
+  border: none !important;
+  color: #28a745 !important; /* Success green */
+  cursor: pointer !important;
+}
+
+.main-section-icon-button .octicon {
+  width: 2rem !important;
+  height: 2rem !important;
+}
+
+.main-section-icon-button:hover {
+  background-color: #dcffe4 !important; /* Light success green */
+  color: #165c26 !important; /* Dark success green */
+  text-decoration: none !important;
+}

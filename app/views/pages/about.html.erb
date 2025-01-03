@@ -1,0 +1,22 @@
+<%# SEO Meta Tags %>
+<% content_for :title, "About Us - Expert Advisory Team for Technology and Innovative Ventures - Wrantle" %>
+<% content_for :meta_description, "Learn about Wrantle's mission, principles, and how we help technology companies and innovative ventures succeed." %>
+<% content_for :og_title, "About Us - Expert Advisory Team for Technology and Innovative Ventures - Wrantle" %>
+<% content_for :og_description, "Learn about Wrantle's mission, principles, and how we help technology companies and innovative ventures succeed." %>
+
+<%# About Page %>
+
+<%# About Navigation %>
+<%= render "shared/about_navigation" %>
+
+<%# Hero Section %>
+<%= render(Primer::Box.new(mt: 6, p: 4)) do %>
+ <% end %>
+
+<%# Principles Box %>
+<%= render "shared/principles_box" %>
+
+<%# Contact Section %>
+<%= render "shared/contact_box",
+  title: "Want to learn more about how we work?",
+  subtitle: "Schedule a call to discuss your needs and learn about our approach" %>

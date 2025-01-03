@@ -26,6 +26,14 @@ class PagesController < ApplicationController
     # Risk, ESG & Governance page action
   end
 
+  def services
+    # Services page action
+  end
+
+  def about
+    # About page action
+  end
+
   def single_north_star
     # Single North Star principle page action
   end

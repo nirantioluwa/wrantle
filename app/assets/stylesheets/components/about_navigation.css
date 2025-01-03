@@ -1,0 +1,23 @@
+/* About Navigation Styles */
+.about-action-bar {
+  padding: 0;
+}
+
+.about-icon-button {
+  padding: 0 !important;
+  margin: 0 0.5rem !important;
+  border: none !important;
+  color: #28a745 !important; /* Success green */
+  cursor: pointer !important;
+}
+
+.about-icon-button .octicon {
+  width: 2rem !important;
+  height: 2rem !important;
+}
+
+.about-icon-button:hover {
+  background-color: #dcffe4 !important; /* Light success green */
+  color: #165c26 !important; /* Dark success green */
+  text-decoration: none !important;
+}

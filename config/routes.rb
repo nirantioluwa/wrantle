@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   get 'legal-and-compliance', to: 'pages#legal_and_compliance', as: :legal_and_compliance
   get 'operational-excellence', to: 'pages#operational_excellence', as: :operational_excellence
   get 'risk-esg-and-governance', to: 'pages#risk_esg_and_governance', as: :risk_esg_and_governance
+  get 'services', to: 'pages#services'
+  get 'about', to: 'pages#about'
 
   # Principle pages
   get 'single-north-star', to: 'pages#single_north_star', as: :single_north_star

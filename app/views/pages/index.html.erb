@@ -1,3 +1,12 @@
+<%# SEO Meta Tags %>
+<% content_for :title, "Expert Advisory for Technology and Innovative Ventures - Wrantle" %>
+<% content_for :meta_description, "Wrantle provides expert advisory services for technology and innovative ventures. We help teams build and scale their ventures through our expert services." %>
+<% content_for :og_title, "Expert Advisory for Technology and Innovative Ventures - Wrantle" %>
+<% content_for :og_description, "Wrantle provides expert advisory services for technology and innovative ventures. We help teams build and scale their ventures through our expert services." %>
+
+<%# Main Navigation %>
+<%= render "shared/main_sections_navigation" %>
+
 <%# Hero Section %>
 <%= render(Primer::Box.new(p: 0, mb: 6)) do %>
   <%= render "shared/hero" %>
