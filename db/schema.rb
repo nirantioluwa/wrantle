@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_03_203306) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_03_221020) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -41,8 +41,23 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_03_203306) do
     t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_admin", default: false, null: false
+    t.boolean "is_staff", default: false, null: false
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
   end
 
+  create_table "verification_codes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "code", null: false
+    t.string "verification_type", null: false
+    t.datetime "expires_at", null: false
+    t.datetime "used_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["code"], name: "index_verification_codes_on_code", unique: true
+    t.index ["user_id"], name: "index_verification_codes_on_user_id"
+  end
+
   add_foreign_key "sessions", "users"
+  add_foreign_key "verification_codes", "users"
 end

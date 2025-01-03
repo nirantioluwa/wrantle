@@ -4,6 +4,16 @@ Rails.application.routes.draw do
   resources :registrations, except: [ :index, :show, :destroy ]
   mount MissionControl::Jobs::Engine, at: "/jobs"
   resources :contacts, only: [ :new, :create, :show ]
+
+  # Dashboard and Verification routes
+  resource :dashboard, only: [ :show ], controller: "dashboard"
+  scope :verifications do
+    post "request_staff", to: "verifications#request_staff", as: :request_staff_verification
+    post "request_admin", to: "verifications#request_admin", as: :request_admin_verification
+    post "verify_staff", to: "verifications#verify_staff", as: :verify_staff_verification
+    post "verify_admin", to: "verifications#verify_admin", as: :verify_admin_verification
+  end
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
