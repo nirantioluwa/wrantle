@@ -1,57 +1,71 @@
-<%= render(Primer::Box.new(p: 4, mt: 4, mb: 4)) do %>
-  <% if notice.present? %>
-    <%= render(Primer::Beta::Flash.new(scheme: :success, full: true, mb: 4)) { notice } %>
-  <% end %>
+<% content_for :title, "Request Submitted - Wrantle" %>
+<%# Main Navigation %>
+<%= render "shared/main_sections_navigation" %>
 
-  <%= render(Primer::Box.new(border: true, p: 4, border_radius: 2)) do %>
-    <%= render(Primer::Beta::Text.new(tag: :h1, mb: 4)) do %>
-      <%= @contact.contact_type.humanize %> Request Submitted
+<div class="d-flex flex-justify-center">
+  <%= render(Primer::Box.new(p: 4, mt: 4, mb: 4, style: "width: 100%; max-width: 600px;")) do %>
+    <% if notice.present? %>
+      <%= render(Primer::Beta::Flash.new(scheme: :success, full: true, mb: 4)) { notice } %>
     <% end %>
 
-    <%= render(Primer::Box.new(mb: 4)) do %>
-      <%= render(Primer::Beta::Text.new(tag: :h2, mb: 2)) { "Contact Information" } %>
-      
-      <dl>
-        <dt><%= render(Primer::Beta::Text.new(weight: :bold)) { "Name" } %></dt>
-        <dd class="mb-2"><%= @contact.name %></dd>
-        
-        <dt><%= render(Primer::Beta::Text.new(weight: :bold)) { "Email" } %></dt>
-        <dd class="mb-2"><%= @contact.email %></dd>
-        
-        <dt><%= render(Primer::Beta::Text.new(weight: :bold)) { "Phone" } %></dt>
-        <dd class="mb-2"><%= @contact.phone %></dd>
-      </dl>
-    <% end %>
+    <%= render(Primer::Box.new(bg: :success, border: false, p: 4, border_radius: 0)) do %>
+      <%= render(Primer::Beta::Text.new(tag: :h1, mb: 4)) do %>
+         We received your request
+      <% end %>
 
-    <% if @contact.contact_type == 'schedule_chat' %>
       <%= render(Primer::Box.new(mb: 4)) do %>
-        <%= render(Primer::Beta::Text.new(tag: :h2, mb: 2)) { "Preferred Meeting Time" } %>
+        <%= render(Primer::Beta::Text.new(tag: :h3, mb: 2)) { "Contact Information" } %>
         
         <dl>
-          <dt><%= render(Primer::Beta::Text.new(weight: :bold)) { "Date" } %></dt>
-          <dd class="mb-2"><%= @contact.preferred_date.strftime('%B %d, %Y') %></dd>
+          <dt><%= render(Primer::Beta::Text.new(weight: :bold)) { "Name" } %></dt>
+          <dd class="mb-2"><%= @contact.name %></dd>
           
-          <dt><%= render(Primer::Beta::Text.new(weight: :bold)) { "Time" } %></dt>
-          <dd class="mb-2"><%= @contact.preferred_time.strftime('%I:%M %p') %></dd>
+          <dt><%= render(Primer::Beta::Text.new(weight: :bold)) { "Email" } %></dt>
+          <dd class="mb-2"><%= @contact.email %></dd>
+          
+          <dt><%= render(Primer::Beta::Text.new(weight: :bold)) { "Phone" } %></dt>
+          <dd class="mb-2"><%= @contact.phone %></dd>
         </dl>
       <% end %>
-    <% end %>
 
-    <%= render(Primer::Box.new(mb: 4)) do %>
-      <%= render(Primer::Beta::Text.new(tag: :h2, mb: 2)) { "Message" } %>
-      <%= render(Primer::Box.new(bg: :subtle, p: 3, border_radius: 2)) do %>
-        <%= simple_format(@contact.message) %>
+      <% if @contact.contact_type == "schedule_chat" %>
+        <%= render(Primer::Box.new(mb: 4)) do %>
+          <%= render(Primer::Beta::Text.new(tag: :h2, mb: 2)) { "Preferred Meeting Time" } %>
+          
+          <dl>
+            <dt><%= render(Primer::Beta::Text.new(weight: :bold)) { "Date" } %></dt>
+            <dd class="mb-2"><%= @contact.preferred_date.strftime("%B %d, %Y") %></dd>
+            
+            <dt><%= render(Primer::Beta::Text.new(weight: :bold)) { "Time" } %></dt>
+            <dd class="mb-2"><%= @contact.preferred_time.strftime("%I:%M %p") %></dd>
+          </dl>
+        <% end %>
       <% end %>
-    <% end %>
 
-    <%= render(Primer::Box.new(mt: 4, text_align: :center)) do %>
-      <%= render(Primer::Beta::Text.new(color: :muted)) do %>
-        We'll review your request and get back to you shortly.
+      <%= render(Primer::Box.new(mb: 4)) do %>
+        <%= render(Primer::Beta::Text.new(tag: :h3, mb: 2)) { "Message" } %>
+        <%= render(Primer::Box.new(bg: :default, p: 3, border_radius: 0)) do %>
+          <%= simple_format(@contact.message) %>
+        <% end %>
       <% end %>
-      
-      <%= render(Primer::Beta::Link.new(href: root_path, mt: 3)) do %>
-        Return to Home
+
+      <%= render(Primer::Box.new(mt: 4)) do %>
+        <%= render(Primer::Beta::Text.new(color: :muted, text_align: :center)) do %>
+          <% if @contact.contact_type == "schedule_chat" %>
+            We'll review your preferred meeting time and confirm the schedule shortly.
+          <% elsif @contact.contact_type == "request_info" %>
+            We'll gather the information you need and get back to you soon.
+          <% else %>
+            We'll review your needs and provide a detailed assessment shortly.
+          <% end %>
+        <% end %>
+
+        <div class="text-right mt-4">
+          <%= render(Primer::Beta::Link.new(href: root_path, classes: "btn color-bg-default border-0 px-6")) do %>
+            Return to Home
+          <% end %>
+        </div>
       <% end %>
     <% end %>
   <% end %>
-<% end %>
+</div>

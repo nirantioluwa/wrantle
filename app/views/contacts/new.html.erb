@@ -1,13 +1,17 @@
 <% content_for :title, "Contact Us - Wrantle" %>
+<%# Main Navigation %>
+<%= render "shared/main_sections_navigation" %>
 
-<%= render(Primer::Box.new(p: 4, mt: 4, mb: 4)) do %>
-  <%= render(Primer::Box.new(border: true, p: 4, border_radius: 0, mx:  2, style: "max-width: 600px;")) do %>
-    <%= render(Primer::Beta::Text.new(tag: :h1, mb: 4)) do %>
-      <%= @contact.contact_type.humanize %>
+<div class="d-flex flex-justify-center">
+  <%= render(Primer::Box.new(p: 4, mt: 4, mb: 4, style: "width: 100%; max-width: 600px;")) do %>
+    <%= render(Primer::Box.new(bg: :success, border: false, p: 4, border_radius: 0)) do %>
+      <%= render(Primer::Beta::Text.new(tag: :h1, mb: 4)) do %>
+        <%= @contact.contact_type.humanize %>
+      <% end %>
+      <%= render "form", contact: @contact %>
     <% end %>
-    <%= render "form", contact: @contact %>
   <% end %>
-<% end %>
+</div>
 
 <br>
 
