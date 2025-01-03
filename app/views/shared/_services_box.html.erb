@@ -3,7 +3,7 @@
   <%= render(Primer::Beta::Text.new(tag: :p, classes: "services-subheader")) { "We are a niche team of experts working only with technology and innovation focused ventures." } %>
  
   <div class="features-cards mt-8">
-    <%= render(Primer::Box.new(bg: :default, border: true, p: 4, border_right: 0, border_top: 0, border_radius: 0)) do %>
+    <%= render(Primer::Box.new(bg: :default, border: true, p: 4, border_right: 0, border_bottom: 0, border_radius: 0)) do %>
       <div class="service-icon">
         <%= render "shared/global_strategy_icon" %>
       </div>
@@ -12,7 +12,7 @@
       <% end %>
     <% end %>
 
-    <%= render(Primer::Box.new(bg: :default, border: true, p: 4, border_left: 0, border_bottom: 0, border_radius: 0)) do %>
+    <%= render(Primer::Box.new(bg: :default, border: true, p: 4, border_left: 0, border_right: 0, border_bottom: 0, border_radius: 0)) do %>
       <div class="service-icon">
         <%= render "shared/tech_ip_icon" %>
       </div>
@@ -21,7 +21,7 @@
       <% end %>
     <% end %>
 
-    <%= render(Primer::Box.new(bg: :default, border: true, p: 4, border_right: 0, border_top: 0, border_radius: 0)) do %>
+    <%= render(Primer::Box.new(bg: :default, border: true, p: 4, border_left: 0, border_bottom: 0, border_radius: 0)) do %>
       <div class="service-icon">
         <%= render "shared/finance_investments_icon" %>
       </div>
@@ -30,7 +30,7 @@
       <% end %>
     <% end %>
 
-    <%= render(Primer::Box.new(bg: :default, border: true, p: 4, border_left: 0, border_bottom: 0, border_radius: 0)) do %>
+    <%= render(Primer::Box.new(bg: :default, border: true, p: 4, border_right: 0, border_top: 0, border_radius: 0)) do %>
       <div class="service-icon">
         <%= render "shared/legal_compliance_icon" %>
       </div>
@@ -38,7 +38,7 @@
         <%= render(Primer::Beta::Text.new(tag: :h3)) { "Legal & Compliance" } %>
       <% end %>
     <% end %>
-     <%= render(Primer::Box.new(bg: :default, border: true, p: 4, border_right: 0, border_top: 0, border_radius: 0)) do %>
+     <%= render(Primer::Box.new(bg: :default, border: true, p: 4, border_left: 0, border_right: 0, border_top: 0, border_radius: 0)) do %>
       <div class="service-icon bg">
         <%= render "shared/operational_excellence_icon" %>
       </div>
@@ -47,7 +47,7 @@
       <% end %>
 
     <% end %>
-    <%= render(Primer::Box.new(bg: :default, border: true, p: 4, border_left: 0, border_bottom: 0, border_radius: 0)) do %>
+    <%= render(Primer::Box.new(bg: :default, border: true, p: 4, border_left: 0, border_top: 0, border_radius: 0)) do %>
       <div class="service-icon">
         <%= render "shared/risk_esg_governance_icon" %>
       </div>
