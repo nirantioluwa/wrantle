@@ -6,10 +6,10 @@ class VerificationCode < ApplicationRecord
   validates :expires_at, presence: true
 
   scope :unused, -> { where(used_at: nil) }
-  scope :valid, -> { unused.where('expires_at > ?', Time.current) }
+  scope :valid, -> { unused.where("expires_at > ?", Time.current) }
 
-  before_create :set_code
-  before_create :set_expiry
+  before_validation :set_code, on: :create
+  before_validation :set_expiry, on: :create
 
   def active?
     !used_at? && expires_at > Time.current

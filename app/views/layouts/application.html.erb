@@ -75,6 +75,7 @@
       <% end %>
       <% component.with_sidebar(width: :narrow, col_placement: :start, row_placement: :none) do %>
         <%# 1st outer sidebar content %>
+        <%= yield :inner_sidebar %>
       <% end %>
     <% end %>
   </body>

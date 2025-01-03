@@ -1,74 +1,135 @@
-<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
-  <div class="bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2">
-    <div class="px-4 py-6 sm:p-8">
-      <div class="mx-auto max-w-2xl space-y-16">
-        <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-          <div class="col-span-full">
-            <h2 class="text-2xl font-semibold leading-7 text-gray-900">Dashboard</h2>
-            <p class="mt-1 text-sm leading-6 text-gray-600">Welcome back, <%= @user.email_address %></p>
-          </div>
+<%# Flash Messages %>
+<% if flash[:notice] %>
+  <%= render(Primer::Beta::Flash.new(scheme: :success, full: true, mb: 4)) do %>
+    <%= flash[:notice] %>
+  <% end %>
+<% end %>
 
-          <!-- Staff Verification Section -->
-          <div class="col-span-full">
-            <div class="rounded-lg bg-white px-6 py-6 border border-gray-900/10">
-              <h3 class="text-base font-semibold leading-7 text-gray-900">Staff Verification</h3>
-              <div class="mt-2 max-w-xl text-sm leading-6 text-gray-600">
-                <% if @user.is_staff? %>
-                  <p>✅ You are verified as staff</p>
-                <% else %>
-                  <p>Request staff verification if you are a Wrantle staff member.</p>
-                  <div class="mt-4 flex items-center gap-x-6">
-                    <%= button_to "Request Staff Verification", request_staff_verification_path, 
-                        class: "rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
-                        method: :post %>
-                  </div>
+<% if flash[:alert] %>
+  <%= render(Primer::Beta::Flash.new(scheme: :danger, full: true, mb: 4)) do %>
+    <%= flash[:alert] %>
+  <% end %>
+<% end %>
 
-                  <div class="mt-6">
-                    <h4 class="text-sm font-medium text-gray-900">Enter Verification Code</h4>
-                    <%= form_tag verify_staff_verification_path, method: :post, class: "mt-2 flex max-w-md gap-x-4" do %>
-                      <%= text_field_tag :code, nil, 
-                          class: "min-w-0 flex-auto rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6",
-                          placeholder: "Enter code" %>
-                      <%= submit_tag "Verify Staff Code", 
-                          class: "rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" %>
-                    <% end %>
-                  </div>
-                <% end %>
-              </div>
-            </div>
-          </div>
+<% content_for :inner_sidebar do %>
+  <%= render(Primer::Box.new(p: 2, mt: 6)) do %>
+    <%= render(Primer::Beta::NavList.new(p: 4, mt: 4, selected_item_id: :account)) do |list| %>
+      <% list.with_heading(title: "Dashboard") %>
+      <% list.with_item(label: "Account", href: "#account", selected_by_ids: :account) do |item| %>
+        <% item.with_leading_visual_icon(icon: :person) %>
+      <% end %>
 
-          <!-- Admin Verification Section -->
-          <div class="col-span-full">
-            <div class="rounded-lg bg-white px-6 py-6 border border-gray-900/10">
-              <h3 class="text-base font-semibold leading-7 text-gray-900">Admin Verification</h3>
-              <div class="mt-2 max-w-xl text-sm leading-6 text-gray-600">
-                <% if @user.is_admin? %>
-                  <p>✅ You are verified as admin</p>
-                <% else %>
-                  <p>Request admin verification if you are a Wrantle administrator.</p>
-                  <div class="mt-4 flex items-center gap-x-6">
-                    <%= button_to "Request Admin Verification", request_admin_verification_path, 
-                        class: "rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
-                        method: :post %>
-                  </div>
+      <% list.with_item(label: "Blog Posts", href: "#blog") do |item| %>
+        <% item.with_leading_visual_icon(icon: :book) %>
+      <% end %>
 
-                  <div class="mt-6">
-                    <h4 class="text-sm font-medium text-gray-900">Enter Verification Code</h4>
-                    <%= form_tag verify_admin_verification_path, method: :post, class: "mt-2 flex max-w-md gap-x-4" do %>
-                      <%= text_field_tag :code, nil, 
-                          class: "min-w-0 flex-auto rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6",
-                          placeholder: "Enter code" %>
-                      <%= submit_tag "Verify Admin Code", 
-                          class: "rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" %>
-                    <% end %>
-                  </div>
-                <% end %>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      <% list.with_item(label: "Events", href: "#events") do |item| %>
+        <% item.with_leading_visual_icon(icon: :calendar) %>
+      <% end %>
+
+      <% list.with_group do |group| %>
+        <% group.with_heading(title: "Communication") %>
+        <% list.with_item(label: "Contact Requests", href: "#contacts") do |item| %>
+          <% item.with_leading_visual_icon(icon: :mail) %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <%= button_to "Sign Out", session_path, 
+        method: :delete,
+        class: "btn btn-danger width-full mt-3",
+        style: "border-radius: 0" %>
+  <% end %>
+<% end %>
+
+<!-- Account Section -->
+<%= render(Primer::Box.new(border: true, mb: 4)) do %>
+  <div class="Box-header">
+    <h2 class="Box-title">Account Verification</h2>
   </div>
-</div>
+  <div class="Box-body">
+    <%= render(Primer::Alpha::Layout.new(stacking_breakpoint: :md)) do |layout| %>
+      <% layout.with_sidebar(width: :wide) do %>
+        <%= render(Primer::Box.new(border: true, height_full: true, mb: 3)) do %>
+          <div class="Box-header">
+            <h3 class="Box-title">Staff Access</h3>
+          </div>
+          <div class="Box-body">
+            <% if @user.is_staff? %>
+              <%= render(Primer::Beta::Flash.new(scheme: :success, full: true)) do %>
+                <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+                  <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+                </svg>
+                <span>You are verified as staff</span>
+              <% end %>
+            <% else %>
+              <p class="color-fg-muted mb-3">Request staff verification if you are a Wrantle staff member.</p>
+              <%= form_with url: request_staff_verification_path, method: :post, local: true, class: "mb-4" do |f| %>
+                <%= f.submit "Request Staff Verification",
+                    class: "btn btn-primary width-full",
+                    style: "border-radius: 0" %>
+              <% end %>
+
+              <div class="form-group">
+                <div class="form-group-header">
+                  <label for="staff-code">Enter Verification Code</label>
+                </div>
+                <%= form_with url: verify_staff_verification_path, method: :post, local: true do |f| %>
+                  <%= f.text_field :code,
+                      class: "form-control width-full mb-2",
+                      placeholder: "Enter code",
+                      id: "staff-code",
+                      style: "border-radius: 0" %>
+                  <%= f.submit "Verify", 
+                      class: "btn width-full",
+                      style: "border-radius: 0" %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+
+      <% layout.with_main do %>
+        <%= render(Primer::Box.new(border: true, height_full: true)) do %>
+          <div class="Box-header">
+            <h3 class="Box-title">Admin Access</h3>
+          </div>
+          <div class="Box-body">
+            <% if @user.is_admin? %>
+              <%= render(Primer::Beta::Flash.new(scheme: :success, full: true)) do %>
+                <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+                  <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+                </svg>
+                <span>You are verified as admin</span>
+              <% end %>
+            <% else %>
+              <p class="color-fg-muted mb-3">Request admin verification if you are a Wrantle administrator.</p>
+              <%= form_with url: request_admin_verification_path, method: :post, local: true, class: "mb-4" do |f| %>
+                <%= f.submit "Request Admin Verification",
+                    class: "btn btn-primary width-full",
+                    style: "border-radius: 0" %>
+              <% end %>
+
+              <div class="form-group">
+                <div class="form-group-header">
+                  <label for="admin-code">Enter Verification Code</label>
+                </div>
+                <%= form_with url: verify_admin_verification_path, method: :post, local: true do |f| %>
+                  <%= f.text_field :code,
+                      class: "form-control width-full mb-2",
+                      placeholder: "Enter code",
+                      id: "admin-code",
+                      style: "border-radius: 0" %>
+                  <%= f.submit "Verify", 
+                      class: "btn width-full",
+                      style: "border-radius: 0" %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

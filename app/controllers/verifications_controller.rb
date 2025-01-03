@@ -7,6 +7,8 @@ class VerificationsController < ApplicationController
     else
       redirect_to dashboard_path, alert: "Only @wrantle.com email addresses can request staff verification"
     end
+  rescue ActiveRecord::RecordInvalid => e
+    redirect_to dashboard_path, alert: "Error creating verification code: #{e.message}"
   end
 
   def request_admin
@@ -15,6 +17,8 @@ class VerificationsController < ApplicationController
     else
       redirect_to dashboard_path, alert: "Only @wrantle.com email addresses can request admin verification"
     end
+  rescue ActiveRecord::RecordInvalid => e
+    redirect_to dashboard_path, alert: "Error creating verification code: #{e.message}"
   end
 
   def verify_staff
@@ -22,6 +26,8 @@ class VerificationsController < ApplicationController
     redirect_to dashboard_path, notice: "You are now verified as staff"
   rescue ActiveRecord::RecordNotFound
     redirect_to dashboard_path, alert: "Invalid or expired verification code"
+  rescue ActiveRecord::RecordInvalid => e
+    redirect_to dashboard_path, alert: "Error verifying staff status: #{e.message}"
   end
 
   def verify_admin
@@ -29,5 +35,7 @@ class VerificationsController < ApplicationController
     redirect_to dashboard_path, notice: "You are now verified as admin"
   rescue ActiveRecord::RecordNotFound
     redirect_to dashboard_path, alert: "Invalid or expired verification code"
+  rescue ActiveRecord::RecordInvalid => e
+    redirect_to dashboard_path, alert: "Error verifying admin status: #{e.message}"
   end
 end
