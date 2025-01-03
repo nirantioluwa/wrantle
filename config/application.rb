@@ -20,6 +20,9 @@ module Wrantle
     config.action_mailer.delivery_method = :mailpace
     config.action_mailer.mailpace_settings = { api_token: "96c1941a-d05f-4f74-810a-6cf09e5b57c5" }
 
+    config.mission_control.jobs.base_controller_class = "ApplicationController"
+    config.mission_control.jobs.http_basic_auth_enabled = false
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
