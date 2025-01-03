@@ -12,7 +12,7 @@
       
 
       <%= render(Primer::Box.new(mb: 4)) do %>
-        <%= render(Primer::Beta::Text.new(tag: :h3, mb: 2)) { "Contact Information" } %>
+        <%= render(Primer::Beta::Text.new(tag: :h3, mb: 2)) { "Contact Data" } %>
         
         <dl>
           <dt><%= render(Primer::Beta::Text.new(weight: :bold)) { "Name" } %></dt>
@@ -28,7 +28,7 @@
 
       <% if @contact.contact_type == "schedule_chat" %>
         <%= render(Primer::Box.new(mb: 4)) do %>
-          <%= render(Primer::Beta::Text.new(tag: :h2, mb: 2)) { "Preferred Meeting Time" } %>
+          <%= render(Primer::Beta::Text.new(tag: :h3, mb: 2)) { "Meeting Time" } %>
           
           <dl>
             <dt><%= render(Primer::Beta::Text.new(weight: :bold)) { "Date" } %></dt>

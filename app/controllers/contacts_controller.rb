@@ -1,4 +1,5 @@
 class ContactsController < ApplicationController
+  allow_unauthenticated_access only: %i[ new create show ]
   before_action :set_contact, only: %i[ show edit update destroy ]
 
   # GET /contacts or /contacts.json
