@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount MissionControl::Jobs::Engine, at: "/jobs"
   resources :contacts
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -12,19 +13,19 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "pages#index"
-  
+
   # Service pages
-  get 'global-corporate-strategy', to: 'pages#global_corporate_strategy', as: :global_corporate_strategy
-  get 'intellectual-property', to: 'pages#intellectual_property', as: :intellectual_property
-  get 'finance-and-investments', to: 'pages#finance_and_investments', as: :finance_and_investments
-  get 'legal-and-compliance', to: 'pages#legal_and_compliance', as: :legal_and_compliance
-  get 'operational-excellence', to: 'pages#operational_excellence', as: :operational_excellence
-  get 'risk-esg-and-governance', to: 'pages#risk_esg_and_governance', as: :risk_esg_and_governance
-  get 'services', to: 'pages#services'
-  get 'about', to: 'pages#about'
+  get "global-corporate-strategy", to: "pages#global_corporate_strategy", as: :global_corporate_strategy
+  get "intellectual-property", to: "pages#intellectual_property", as: :intellectual_property
+  get "finance-and-investments", to: "pages#finance_and_investments", as: :finance_and_investments
+  get "legal-and-compliance", to: "pages#legal_and_compliance", as: :legal_and_compliance
+  get "operational-excellence", to: "pages#operational_excellence", as: :operational_excellence
+  get "risk-esg-and-governance", to: "pages#risk_esg_and_governance", as: :risk_esg_and_governance
+  get "services", to: "pages#services"
+  get "about", to: "pages#about"
 
   # Principle pages
-  get 'single-north-star', to: 'pages#single_north_star', as: :single_north_star
-  get 'live-impact-thrive', to: 'pages#live_impact_thrive', as: :live_impact_thrive
-  get 'impact-beyond-us', to: 'pages#impact_beyond_us', as: :impact_beyond_us
+  get "single-north-star", to: "pages#single_north_star", as: :single_north_star
+  get "live-impact-thrive", to: "pages#live_impact_thrive", as: :live_impact_thrive
+  get "impact-beyond-us", to: "pages#impact_beyond_us", as: :impact_beyond_us
 end
