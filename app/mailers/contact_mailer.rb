@@ -10,10 +10,8 @@ class ContactMailer < ApplicationMailer
     @contact = contact
     @greeting = "Hi #{@contact.name}"
 
-    mail(
-      to: @contact.email,
-      subject: "We've received your #{@contact.contact_type.humanize} request"
-    )
+    mail to: @contact.email,
+         subject: "We've received your #{@contact.contact_type.humanize} request"
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -24,10 +22,8 @@ class ContactMailer < ApplicationMailer
   def notification_email(contact)
     @contact = contact
 
-    mail(
-      to: [ "hi@wrantle.com", "service@wrantle.com" ],
-      subject: "New #{@contact.contact_type.humanize} Request from #{@contact.name}",
-      reply_to: @contact.email
-    )
+    mail to: [ "hi@wrantle.com", "service@wrantle.com" ],
+         subject: "New #{@contact.contact_type.humanize} Request from #{@contact.name}",
+         reply_to: @contact.email
   end
 end
