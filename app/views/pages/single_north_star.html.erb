@@ -1,9 +1,66 @@
-<%# Single North Star principle page template - content to be added %>
+<%# Meta tags %>
+<% content_for :title, "A Single North Star - Our Guiding Principle - Wrantle" %>
+<% content_for :meta_description, "At Wrantle, you are our sole focus. Every decision and strategy revolves around your success, creating lasting partnerships through focused, adaptable solutions." %>
+<% content_for :meta_keywords, "business success, focused strategy, adaptable solutions, lasting partnerships, targeted approach, business growth" %>
+<% content_for :og_title, "A Single North Star - Our Guiding Principle - Wrantle" %>
+<% content_for :og_description, "At Wrantle, you are our sole focus. Every decision and strategy revolves around your success, creating lasting partnerships through focused, adaptable solutions." %>
+
 <%# Single North Star Page %>
 
 <%# About Navigation %>
 <%= render "shared/about_navigation" %>
 
-<%# Content %>
-<div class="principle-page single-north-star">
-</div>
+<%# Hero Section %>
+<%= render(Primer::Box.new(mt: 6, p: 4, classes: "principle-hero")) do %>
+  <div class="service-icon">
+    <%= render "shared/north_star_icon" %>
+  </div>
+  <%= render(Primer::Beta::Heading.new(tag: :h1, font_weight: :bold)) { "Our North Star" } %>
+  <%= render(Primer::Beta::Text.new(tag: :h2, classes: "hero-subheading")) { "You are our only metric." } %>
+<% end %>
+
+<%# Content Section %>
+<%= render(Primer::Box.new(p: 4, classes: "principle-content")) do %>
+  <%= render(Primer::Beta::Text.new(tag: :p, classes: "principle-text")) do %>
+    We keep our approach simple and direct - you are our sole focus. Every decision we make and strategy we design revolves around your success.
+  <% end %>
+
+  <%= render(Primer::Beta::Heading.new(tag: :h2, mb: 2)) { "How We Deliver" } %>
+  <%= render(Primer::Beta::Text.new(tag: :p, classes: "principle-text")) do %>
+    Our relationship with you shapes everything we do. When your business faces challenges, we adapt. When markets shift, we adjust our approach to keep you ahead. This focused mindset delivers two core benefits:
+  <% end %>
+
+  <%= render(Primer::Beta::Text.new(tag: :p, classes: "principle-text")) do %>
+    First, we provide exactly what you need. We don't rely on standard solutions. Instead, we listen to your specific situation and design targeted strategies that work for your business.
+  <% end %>
+
+  <%= render(Primer::Beta::Text.new(tag: :p, classes: "principle-text")) do %>
+    Second, we build lasting partnerships. By solving real challenges effectively, we create enduring relationships. You return to us because we understand your business and prioritize your interests.
+  <% end %>
+
+  <%= render(Primer::Beta::Heading.new(tag: :h2, mb: 2)) { "Mutual Growth" } %>
+  <%= render(Primer::Beta::Text.new(tag: :p, classes: "principle-text")) do %>
+    This approach creates momentum. As we help strengthen your business, we grow alongside you. Each success adds to our expertise, enabling us to serve you better with insights from real business scenarios.
+  <% end %>
+
+  <%= render(Primer::Beta::Heading.new(tag: :h2, mb: 2)) { "In Practice" } %>
+  <%= render(Primer::Beta::Text.new(tag: :p, classes: "principle-text")) do %>
+    Our commitment means:
+  <% end %>
+
+  <ul class="principle-list">
+    <li>We invest time to understand your specific needs</li>
+    <li>We modify our methods based on what works best for you</li>
+    <li>We measure our success through your results</li>
+    <li>We focus on long-term partnerships over quick solutions</li>
+  </ul>
+
+  <%= render(Primer::Beta::Text.new(tag: :p, classes: "principle-text")) do %>
+    This straightforward philosophy guides our entire approach. It's uncomplicated but effective - for you and for us.
+  <% end %>
+<% end %>
+
+<%# Contact Section %>
+<%= render "shared/contact_box",
+  title: "Ready to put your business first?",
+  subtitle: "Let's discuss how we can help you achieve your goals" %>

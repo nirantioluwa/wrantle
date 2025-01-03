@@ -1,3 +1,59 @@
 <%# Live, Impact & Thrive principle page template - content to be added %>
 <div class="principle-page live-impact-thrive">
+  <%# Meta tags %>
+  <% content_for :title, "Living & Growth at Wrantle - Our Service Philosophy" %>
+  <% content_for :meta_description, "Discover how Wrantle's balanced approach to professional services, deep knowledge development, and sustained excellence delivers exceptional outcomes for your business." %>
+  <% content_for :meta_keywords, "professional services, deep knowledge, balanced approach, sustained excellence, business solutions, client outcomes" %>
+  <% content_for :og_title, "Living & Growth at Wrantle - Our Service Philosophy" %>
+  <% content_for :og_description, "Discover how Wrantle's balanced approach to professional services, deep knowledge development, and sustained excellence delivers exceptional outcomes for your business." %>
+
+  <%# Single North Star Page %>
+
+  <%# About Navigation %>
+  <%= render "shared/about_navigation" %>
+
+  <%# Hero Section %>
+  <%= render(Primer::Box.new(mt: 6, p: 4, classes: "principle-hero")) do %>
+    <div class="service-icon">
+      <%= render "shared/balance_icon" %>
+    </div>
+    <%= render(Primer::Beta::Heading.new(tag: :h1, font_weight: :bold)) { "Working at Wrantle" } %>
+    <%= render(Primer::Beta::Text.new(tag: :h2, classes: "hero-subheading")) { "Professional excellence and personal balance." } %>
+  <% end %>
+
+  <%# Content Section %>
+  <%= render(Primer::Box.new(p: 4, classes: "principle-content")) do %>
+    <%= render(Primer::Beta::Text.new(tag: :p, classes: "principle-text")) do %>
+      We've built on three fundamental principles that directly benefit your business needs.
+    <% end %>
+
+    <%= render(Primer::Beta::Heading.new(tag: :h2, mb: 2)) { "Deep Knowledge Development" } %>
+    <%= render(Primer::Beta::Text.new(tag: :p, classes: "principle-text")) do %>
+      We invest continuously in developing specialized expertise that serves your complex business challenges. Our teams maintain cutting-edge knowledge across practice areas, ensuring you receive informed, current, and practical solutions. This commitment to deep understanding means we can address your needs with precision and foresight.
+    <% end %>
+
+    <%= render(Primer::Beta::Heading.new(tag: :h2, mb: 2)) { "Balanced Approach" } %>
+    <%= render(Primer::Beta::Text.new(tag: :p, classes: "principle-text")) do %>
+      Our service model breaks from traditional professional services practices. We maintain flexible engagement structures that adapt to your business rhythms and priorities. This approach ensures you receive focused attention when you need it most, with professionals who bring fresh perspectives and energy to your challenges.
+    <% end %>
+
+    <%= render(Primer::Beta::Heading.new(tag: :h2, mb: 2)) { "Sustained Excellence" } %>
+    <%= render(Primer::Beta::Text.new(tag: :p, classes: "principle-text")) do %>
+      By fostering an environment of continuous improvement and measured growth, we deliver consistent, high-quality service across all engagements. Our professionals bring disciplined thinking and innovative solutions to your business challenges, supported by robust knowledge-sharing practices across our specialist teams.
+    <% end %>
+
+    <%= render(Primer::Beta::Heading.new(tag: :h2, mb: 2)) { "Impact on Your Business" } %>
+    <%= render(Primer::Beta::Text.new(tag: :p, classes: "principle-text")) do %>
+      This balanced approach translates into tangible benefits. You receive consistent, high-quality service from engaged professionals who understand your business deeply. Our flexible structure means we can respond quickly to your changing needs while maintaining the highest standards of professional service.
+    <% end %>
+
+    <%= render(Primer::Beta::Text.new(tag: :p, classes: "principle-text")) do %>
+      We've proven that this focused approach delivers superior results for our clients. It's not just a philosophy - it's a practical framework that ensures you receive exceptional service aligned with your business objectives.
+    <% end %>
+  <% end %>
+
+  <%# Contact Section %>
+  <%= render "shared/contact_box",
+    title: "Ready to experience our balanced approach?",
+    subtitle: "Let's discuss how we can deliver exceptional results for your business" %>
 </div>
