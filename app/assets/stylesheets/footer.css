@@ -13,13 +13,13 @@
 
 .footer-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
   margin-bottom: 3rem;
 }
 
 .footer-cards .service-icon {
-  width: clamp(80px, 8vw, 120px);
+  width: clamp(60px, 6vw, 100px);
   height: clamp(80px, 8vw, 120px);
   margin-bottom: 1.5rem;
   display: flex;
