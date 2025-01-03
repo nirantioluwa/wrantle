@@ -1,3 +1,64 @@
-<%# Global Corporate Strategy page template - content to be added %>
-<div class="service-page global-corporate-strategy">
-</div>
+<%# Global Corporate Strategy Page %>
+
+<%# Hero Section %>
+<%= render(Primer::Box.new(mt: 6, p: 4)) do %>
+  <%= render(Primer::Beta::Heading.new(tag: :h1, font_weight: :bold, classes: "hero-heading")) { "International expansion and corporate structuring" } %>
+<% end %>
+
+<%# Services Content Section %>
+<%= render(Primer::Box.new(p: 4, mb: 6)) do %>
+  <div class="features-cards">
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_right: 0, border_bottom: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/global_corporate_strategy/holding_company_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Holding Company Setup" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Set up and structure your parent company to manage multiple subsidiaries effectively." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_left: 0, border_bottom: 0, border_right: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/global_corporate_strategy/entity_management_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Entity Management" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Handle day-to-day legal requirements and maintain compliance for all your business entities." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_left: 0, border_bottom: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/global_corporate_strategy/market_entry_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Market Entry Planning" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Find the right markets for your business and plan your entry step by step." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, p: 4, border_top: 0, border_right: 0, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/global_corporate_strategy/company_structure_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Company Structure Setup" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Set up your business structure across countries in a way that works best for you." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, p: 4, border_top: 0, border_left: 0, border_right: 0, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/global_corporate_strategy/pricing_tax_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Pricing & Tax Planning" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Set up fair pricing between your companies and plan for taxes across borders." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_top: 0, border_left: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/global_corporate_strategy/location_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Location Selection" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Choose the best countries for your business needs and goals." } %>
+    <% end %>
+  </div>
+<% end %>
+
+<%# Contact Section %>
+<%= render "shared/contact_box",
+  title: "Growing your business to new countries?",
+  subtitle: "Let's talk about how we can help you scale your structure" %>

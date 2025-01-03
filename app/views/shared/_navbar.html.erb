@@ -2,7 +2,9 @@
 <%= render(Primer::Box.new(border: true, border_top: 0, border_right: 0, border_left: 0, border_bottom: 0, p: 2)) do %>
   <div class="Header color-bg-transparent">
     <div class="Header-item Header-item--full">
-      <%= render(Primer::Beta::Heading.new(tag: :h1, color: :success, classes: "mono-font logo-large")) { "W" } %>
+      <%= link_to(root_path, class: "logo-link") do %>
+        <%= render(Primer::Beta::Heading.new(tag: :h1, color: :success, classes: "mono-font logo-large")) { "W" } %>
+      <% end %>
     </div>
 
     <div class="Header-item">

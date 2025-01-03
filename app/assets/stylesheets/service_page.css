@@ -1,0 +1,56 @@
+/* Service Page Styles */
+
+.service-page-hero {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.service-page-heading {
+  font-family: monospace;
+  font-size: 2.5rem !important;
+  font-weight: 600 !important;
+  margin: 1.5rem 0 !important;
+}
+
+.service-page-subheader {
+  font-size: 1.2rem !important;
+  color: var(--color-fg-muted);
+  max-width: 600px;
+  margin: 0 auto !important;
+}
+
+.large-icon {
+  transform: scale(1.5);
+  margin: 1rem 0;
+}
+
+.service-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.content-heading {
+  font-family: monospace;
+  font-size: 2rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 2rem !important;
+}
+
+.service-items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.service-items-grid h3 {
+  font-family: monospace;
+  font-size: 1.2rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 1rem !important;
+}
+
+.service-items-grid p {
+  color: var(--color-fg-muted);
+  line-height: 1.5;
+}
