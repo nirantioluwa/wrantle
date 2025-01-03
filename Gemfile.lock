@@ -170,6 +170,10 @@ GEM
       net-imap
       net-pop
       net-smtp
+    mailbin (1.0.0)
+      importmap-rails
+      rails (>= 7.1.0)
+      turbo-rails
     mailpace-rails (0.4.1)
       actionmailbox (>= 6.0.0)
       actionmailer (>= 6.0.0)
@@ -414,6 +418,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   kamal
+  mailbin (~> 1.0)
   mailpace-rails
   mission_control-jobs (~> 1.0)
   pg (~> 1.1)

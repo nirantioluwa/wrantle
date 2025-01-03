@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
+  mount Mailbin::Engine => :mailbin if Rails.env.development?
+  mount MissionControl::Jobs::Engine, at: "/jobs"
+
   resource :session
   resources :passwords, param: :token
   resources :registrations, except: [ :index, :show, :destroy ]
-  mount MissionControl::Jobs::Engine, at: "/jobs"
   resources :contacts, only: [ :new, :create, :show ]
 
   # Dashboard and Verification routes
-  resource :dashboard, only: [ :show ], controller: "dashboard"
+  resource :dashboard, only: [ :show ], controller: "dashboard" do
+    get :verification
+  end
   scope :verifications do
     post "request_staff", to: "verifications#request_staff", as: :request_staff_verification
     post "request_admin", to: "verifications#request_admin", as: :request_admin_verification

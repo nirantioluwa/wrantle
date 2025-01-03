@@ -11,125 +11,18 @@
   <% end %>
 <% end %>
 
-<% content_for :inner_sidebar do %>
-  <%= render(Primer::Box.new(p: 2, mt: 6)) do %>
-    <%= render(Primer::Beta::NavList.new(p: 4, mt: 4, selected_item_id: :account)) do |list| %>
-      <% list.with_heading(title: "Dashboard") %>
-      <% list.with_item(label: "Account", href: "#account", selected_by_ids: :account) do |item| %>
-        <% item.with_leading_visual_icon(icon: :person) %>
-      <% end %>
+<div class="d-flex flex-justify-end mb-4">
+  <%= render "user_info", user: Current.user %>
+</div>
 
-      <% list.with_item(label: "Blog Posts", href: "#blog") do |item| %>
-        <% item.with_leading_visual_icon(icon: :book) %>
-      <% end %>
-
-      <% list.with_item(label: "Events", href: "#events") do |item| %>
-        <% item.with_leading_visual_icon(icon: :calendar) %>
-      <% end %>
-
-      <% list.with_group do |group| %>
-        <% group.with_heading(title: "Communication") %>
-        <% list.with_item(label: "Contact Requests", href: "#contacts") do |item| %>
-          <% item.with_leading_visual_icon(icon: :mail) %>
-        <% end %>
-      <% end %>
-    <% end %>
-
-    <%= button_to "Sign Out", session_path, 
-        method: :delete,
-        class: "btn btn-danger width-full mt-3",
-        style: "border-radius: 0" %>
-  <% end %>
-<% end %>
-
-<!-- Account Section -->
 <%= render(Primer::Box.new(border: true, mb: 4)) do %>
   <div class="Box-header">
-    <h2 class="Box-title">Account Verification</h2>
+    <h2 class="Box-title">Welcome to Your Dashboard</h2>
   </div>
   <div class="Box-body">
-    <%= render(Primer::Alpha::Layout.new(stacking_breakpoint: :md)) do |layout| %>
-      <% layout.with_sidebar(width: :wide) do %>
-        <%= render(Primer::Box.new(border: true, height_full: true, mb: 3)) do %>
-          <div class="Box-header">
-            <h3 class="Box-title">Staff Access</h3>
-          </div>
-          <div class="Box-body">
-            <% if @user.is_staff? %>
-              <%= render(Primer::Beta::Flash.new(scheme: :success, full: true)) do %>
-                <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
-                  <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
-                </svg>
-                <span>You are verified as staff</span>
-              <% end %>
-            <% else %>
-              <p class="color-fg-muted mb-3">Request staff verification if you are a Wrantle staff member.</p>
-              <%= form_with url: request_staff_verification_path, method: :post, local: true, class: "mb-4" do |f| %>
-                <%= f.submit "Request Staff Verification",
-                    class: "btn btn-primary width-full",
-                    style: "border-radius: 0" %>
-              <% end %>
-
-              <div class="form-group">
-                <div class="form-group-header">
-                  <label for="staff-code">Enter Verification Code</label>
-                </div>
-                <%= form_with url: verify_staff_verification_path, method: :post, local: true do |f| %>
-                  <%= f.text_field :code,
-                      class: "form-control width-full mb-2",
-                      placeholder: "Enter code",
-                      id: "staff-code",
-                      style: "border-radius: 0" %>
-                  <%= f.submit "Verify", 
-                      class: "btn width-full",
-                      style: "border-radius: 0" %>
-                <% end %>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
-      <% end %>
-
-      <% layout.with_main do %>
-        <%= render(Primer::Box.new(border: true, height_full: true)) do %>
-          <div class="Box-header">
-            <h3 class="Box-title">Admin Access</h3>
-          </div>
-          <div class="Box-body">
-            <% if @user.is_admin? %>
-              <%= render(Primer::Beta::Flash.new(scheme: :success, full: true)) do %>
-                <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
-                  <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
-                </svg>
-                <span>You are verified as admin</span>
-              <% end %>
-            <% else %>
-              <p class="color-fg-muted mb-3">Request admin verification if you are a Wrantle administrator.</p>
-              <%= form_with url: request_admin_verification_path, method: :post, local: true, class: "mb-4" do |f| %>
-                <%= f.submit "Request Admin Verification",
-                    class: "btn btn-primary width-full",
-                    style: "border-radius: 0" %>
-              <% end %>
-
-              <div class="form-group">
-                <div class="form-group-header">
-                  <label for="admin-code">Enter Verification Code</label>
-                </div>
-                <%= form_with url: verify_admin_verification_path, method: :post, local: true do |f| %>
-                  <%= f.text_field :code,
-                      class: "form-control width-full mb-2",
-                      placeholder: "Enter code",
-                      id: "admin-code",
-                      style: "border-radius: 0" %>
-                  <%= f.submit "Verify", 
-                      class: "btn width-full",
-                      style: "border-radius: 0" %>
-                <% end %>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
-      <% end %>
-    <% end %>
+    <p class="color-fg-muted">
+      This is your personal dashboard where you can manage your account and access various features.
+      Use the menu in the top right to navigate through different sections.
+    </p>
   </div>
 <% end %>
