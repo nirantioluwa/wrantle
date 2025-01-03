@@ -1,11 +1,61 @@
-<%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
-<%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>
+<% content_for :title, "Sign In - Wrantle" %>
 
-<%= form_with url: session_path do |form| %>
-  <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address] %><br>
-  <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72 %><br>
-  <%= form.submit "Sign in" %>
+<div class="d-flex flex-justify-left">
+  <%= render(Primer::Box.new(p: 4, mt: 4, mb: 4, style: "width: 100%; max-width: 600px;")) do %>
+    <%= render(Primer::Beta::Text.new(tag: :h1, mb: 4)) do %>
+      Sign In
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :success, border: false, p: 4, border_radius: 0)) do %>
+      <% if flash[:alert] %>
+        <%= render(Primer::Beta::Flash.new(scheme: :danger, full: true, mb: 4)) do %>
+          <%= flash[:alert] %>
+        <% end %>
+      <% end %>
+
+      <% if flash[:notice] %>
+        <%= render(Primer::Beta::Flash.new(scheme: :success, full: true, mb: 4)) do %>
+          <%= flash[:notice] %>
+        <% end %>
+      <% end %>
+
+      <%= form_with url: session_path, local: true do |form| %>
+        <div class="mb-4">
+          <%= form.label :email_address, "Email Address", class: "d-block mb-2 text-bold" %>
+          <%= form.email_field :email_address,
+              required: true,
+              autofocus: true,
+              autocomplete: "username",
+              placeholder: "your.email@example.com",
+              value: params[:email_address],
+              class: "form-control width-full" %>
+        </div>
+
+        <div class="mb-4">
+          <%= form.label :password, class: "d-block mb-2 text-bold" %>
+          <%= form.password_field :password,
+              required: true,
+              autocomplete: "current-password",
+              placeholder: "Enter your password",
+              maxlength: 72,
+              class: "form-control width-full" %>
+        </div>
+
+        <div class="d-flex flex-items-center flex-justify-between">
+          <%= form.submit "Sign in", class: "btn btn-primary" %>
+          <%= link_to "Forgot password?", new_password_path, class: "Link--muted" %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+<% content_for :styles do %>
+  <style>
+    .btn-primary {
+      padding: 0.6rem;
+      font-weight: 500;
+      border-radius: 5px;
+    }
+  </style>
 <% end %>
-<br>
-
-<%= link_to "Forgot password?", new_password_path %>

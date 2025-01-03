@@ -1,36 +1,68 @@
-<div class="max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow-md">
-  <h2 class="text-2xl font-bold mb-6 text-center">Create Account</h2>
+<% content_for :title, "Create Account - Wrantle" %>
 
-  <%= form_for @user, url: registrations_path do |form| %>
-    <% if @user.errors.any? %>
-      <div class="mb-4 p-4 bg-red-50 rounded-md">
-        <ul class="list-disc list-inside text-red-600">
-          <% @user.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
+<div class="d-flex flex-justify-left">
+  <%= render(Primer::Box.new(p: 4, mt: 4, mb: 4, style: "width: 100%; max-width: 600px;")) do %>
+    <%= render(Primer::Beta::Text.new(tag: :h1, mb: 4)) do %>
+      Create Account
     <% end %>
 
-    <div class="mb-4">
-      <%= form.label :email_address, class: "block text-gray-700 text-sm font-bold mb-2" %>
-      <%= form.email_field :email_address, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", autofocus: true %>
-    </div>
+    <%= render(Primer::Box.new(bg: :success, border: false, p: 4, border_radius: 0)) do %>
+      <% if @user.errors.any? %>
+        <%= render(Primer::Beta::Flash.new(scheme: :danger, full: true, mb: 4)) do %>
+          <h4 class="mb-2">Please correct the following errors:</h4>
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      <% end %>
 
-    <div class="mb-4">
-      <%= form.label :password, class: "block text-gray-700 text-sm font-bold mb-2" %>
-      <%= form.password_field :password, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
-      <p class="text-gray-600 text-xs mt-1">Minimum 10 characters</p>
-    </div>
+      <%= form_for @user, url: registrations_path, local: true do |form| %>
+        <div class="mb-4">
+          <%= form.label :email_address, "Email Address", class: "d-block mb-2 text-bold" %>
+          <%= form.email_field :email_address,
+              required: true,
+              autofocus: true,
+              autocomplete: "username",
+              placeholder: "your.email@example.com",
+              class: "form-control width-full" %>
+          <%= render(Primer::Beta::Text.new(color: :muted, mt: 1, mb: 0)) do %>
+            This will be your login username
+          <% end %>
+        </div>
 
-    <div class="mb-6">
-      <%= form.label :password_confirmation, "Confirm Password", class: "block text-gray-700 text-sm font-bold mb-2" %>
-      <%= form.password_field :password_confirmation, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
-    </div>
+        <div class="mb-4">
+          <%= form.label :password, class: "d-block mb-2 text-bold" %>
+          <%= form.password_field :password,
+              required: true,
+              autocomplete: "new-password",
+              placeholder: "Enter your password",
+              maxlength: 72,
+              class: "form-control width-full" %>
+          <%= render(Primer::Beta::Text.new(color: :muted, mt: 1, mb: 0)) do %>
+            Use at least 10 characters
+          <% end %>
+        </div>
 
-    <div class="flex items-center justify-between">
-      <%= form.submit "Create Account", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
-      <%= link_to "Sign In", new_session_path, class: "inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" %>
-    </div>
+        <div class="mb-4">
+          <%= form.label :password_confirmation, "Confirm Password", class: "d-block mb-2 text-bold" %>
+          <%= form.password_field :password_confirmation,
+              required: true,
+              autocomplete: "new-password",
+              placeholder: "Repeat your password",
+              maxlength: 72,
+              class: "form-control width-full" %>
+          <%= render(Primer::Beta::Text.new(color: :muted, mt: 1, mb: 0)) do %>
+            Type your password again
+          <% end %>
+        </div>
+
+        <div class="d-flex flex-items-center flex-justify-between">
+          <%= form.submit "Create Account", class: "btn btn-primary" %>
+          <%= link_to "Sign In", new_session_path, class: "Link--muted" %>
+        </div>
+      <% end %>
+    <% end %>
   <% end %>
 </div>

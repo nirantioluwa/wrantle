@@ -1,8 +1,37 @@
-<h1>Forgot your password?</h1>
+<% content_for :title, "Forgot Password - Wrantle" %>
 
-<%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
+<div class="d-flex flex-justify-left">
+  <%= render(Primer::Box.new(p: 4, mt: 4, mb: 4, style: "width: 100%; max-width: 600px;")) do %>
+    <%= render(Primer::Beta::Text.new(tag: :h1, mb: 4)) do %>
+      Forgot your password?
+    <% end %>
 
-<%= form_with url: passwords_path do |form| %>
-  <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address] %><br>
-  <%= form.submit "Email reset instructions" %>
-<% end %>
+    <%= render(Primer::Box.new(bg: :success, border: false, p: 4, border_radius: 0)) do %>
+      <% if flash[:alert] %>
+        <%= render(Primer::Beta::Flash.new(scheme: :danger, full: true, mb: 4)) do %>
+          <%= flash[:alert] %>
+        <% end %>
+      <% end %>
+
+      <%= form_with url: passwords_path, local: true do |form| %>
+        <div class="mb-4">
+          <%= form.label :email_address, "Email Address", class: "d-block mb-2 text-bold" %>
+          <%= form.email_field :email_address,
+              required: true,
+              autofocus: true,
+              autocomplete: "username",
+              placeholder: "your.email@example.com",
+              value: params[:email_address],
+              class: "form-control width-full" %>
+          <%= render(Primer::Beta::Text.new(color: :muted, mt: 1, mb: 0)) do %>
+            We'll send password reset instructions to this email
+          <% end %>
+        </div>
+
+        <div class="d-flex flex-items-center">
+          <%= form.submit "Email reset instructions", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
