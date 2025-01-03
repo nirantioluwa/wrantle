@@ -1,8 +1,13 @@
-<% content_for :title, "New contact" %>
+<% content_for :title, "Contact Us - Wrantle" %>
 
-<h1>New contact</h1>
-
-<%= render "form", contact: @contact %>
+<%= render(Primer::Box.new(p: 4, mt: 4, mb: 4)) do %>
+  <%= render(Primer::Box.new(border: true, p: 4, border_radius: 0, mx:  2, style: "max-width: 600px;")) do %>
+    <%= render(Primer::Beta::Text.new(tag: :h1, mb: 4)) do %>
+      <%= @contact.contact_type.humanize %>
+    <% end %>
+    <%= render "form", contact: @contact %>
+  <% end %>
+<% end %>
 
 <br>
 

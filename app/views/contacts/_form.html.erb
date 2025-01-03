@@ -1,57 +1,79 @@
-<%= form_with(model: contact) do |form| %>
+<%= form_with(model: contact, local: true) do |form| %>
   <% if contact.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
-
+    <%= render(Primer::Beta::Flash.new(scheme: :danger, full: true, mb: 4)) do %>
+      <h2><%= pluralize(contact.errors.count, "error") %> prohibited this request from being saved:</h2>
       <ul>
         <% contact.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
-    </div>
+    <% end %>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <%= form.hidden_field :contact_type %>
+  <%= form.hidden_field :status %>
+
+  <div class="mb-4">
+    <%= form.label :name, class: "d-block mb-2 text-bold" %>
+    <%= form.text_field :name, class: "form-control width-full", placeholder: "Your full name" %>
+    <%= render(Primer::Beta::Text.new(color: :muted, mt: 1, mb: 0)) do %>
+      Please enter your first and last name
+    <% end %>
   </div>
 
-  <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
+  <div class="mb-4">
+    <%= form.label :email, class: "d-block mb-2 text-bold" %>
+    <%= form.email_field :email, class: "form-control width-full", placeholder: "your.email@example.com" %>
+    <%= render(Primer::Beta::Text.new(color: :muted, mt: 1, mb: 0)) do %>
+      We'll send a confirmation to this email address
+    <% end %>
   </div>
 
-  <div>
-    <%= form.label :phone, style: "display: block" %>
-    <%= form.text_field :phone %>
+  <div class="mb-4">
+    <%= form.label :phone, class: "d-block mb-2 text-bold" %>
+    <%= form.telephone_field :phone, class: "form-control width-full", placeholder: "+1 (555) 123-4567" %>
+    <%= render(Primer::Beta::Text.new(color: :muted, mt: 1, mb: 0)) do %>
+      Please include your country code (e.g., +1 for US/Canada)
+    <% end %>
   </div>
 
-  <div>
-    <%= form.label :contact_type, style: "display: block" %>
-    <%= form.text_field :contact_type %>
+  <% if contact.contact_type == "schedule_chat" %>
+    <%= render(Primer::Box.new(bg: :subtle, p: 3, border_radius: 2, mb: 4)) do %>
+      <%= render(Primer::Beta::Text.new(tag: :h3, mb: 3)) { "Preferred Meeting Time" } %>
+      
+      <div class="d-flex flex-items-center">
+        <div class="flex-auto mr-2">
+          <%= form.label :preferred_date, class: "d-block mb-2 text-bold" %>
+          <%= form.date_field :preferred_date, class: "form-control width-full", min: Date.today %>
+          <%= render(Primer::Beta::Text.new(color: :muted, mt: 1, mb: 0)) do %>
+            Select a date from today onwards
+          <% end %>
+        </div>
+        <div class="flex-auto ml-2">
+          <%= form.label :preferred_time, class: "d-block mb-2 text-bold" %>
+          <%= form.time_field :preferred_time, class: "form-control width-full" %>
+          <%= render(Primer::Beta::Text.new(color: :muted, mt: 1, mb: 0)) do %>
+            Your local time
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+  <div class="mb-4">
+    <%= form.label :message, class: "d-block mb-2 text-bold" %>
+    <%= form.text_area :message, rows: 5, class: "form-control width-full", 
+        placeholder: contact.contact_type == "schedule_chat" ? "Let us know what you'd like to discuss in the meeting" :
+                    contact.contact_type == "request_info" ? "What information would you like to know more about?" :
+                    "Tell us about your needs and how we can help" %>
+    <%= render(Primer::Beta::Text.new(color: :muted, mt: 1, mb: 0)) do %>
+      <%= contact.contact_type == "schedule_chat" ? "What would you like to talk about?" :
+          contact.contact_type == "request_info" ? "What services would you like to learn more about?" :
+          "Describe your business needs in detail to help us better understand how we can assist you" %>
+    <% end %>
   </div>
 
-  <div>
-    <%= form.label :message, style: "display: block" %>
-    <%= form.textarea :message %>
-  </div>
-
-  <div>
-    <%= form.label :preferred_date, style: "display: block" %>
-    <%= form.date_field :preferred_date %>
-  </div>
-
-  <div>
-    <%= form.label :preferred_time, style: "display: block" %>
-    <%= form.time_field :preferred_time %>
-  </div>
-
-  <div>
-    <%= form.label :status, style: "display: block" %>
-    <%= form.text_field :status %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+  <div class="text-center">
+    <%= form.submit "Submit Request", class: "btn btn-primary px-6" %>
   </div>
 <% end %>
