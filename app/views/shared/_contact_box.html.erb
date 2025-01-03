@@ -1,24 +1,24 @@
 <%# Contact Box Partial %>
-<%= render(Primer::Box.new(p: 4, mt: 4, border: false, border_right: 0, border_left: 0, border_bottom: 0)) do %>
+<%= render(Primer::Box.new(p: 6, mt: 6, border: true, border_right: 0, border_left: 0)) do %>
   <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-heading")) { title } %>
   <%= render(Primer::Beta::Text.new(tag: :p, classes: "services-subheader")) { subtitle } %>
   
   <div class="features-cards">
-    <%= render(Primer::Box.new(bg: :subtle, p: 4, border_radius: 0, border: true, border_right: 0)) do %>
+    <%= render(Primer::Box.new(bg: :success, p: 4, border_radius: 0, border: true, border_right: 0)) do %>
       <div class="feature-card-content">
         <div class="service-icon">
           <%= render "shared/schedule_icon" %>
         </div>
         <div>
           <%= render(Primer::Beta::Link.new(href: "#", classes: "features-card-heading")) do %>
-            <%= render(Primer::Beta::Text.new(tag: :h3)) { "Schedule a Consultation" } %>
+            <%= render(Primer::Beta::Text.new(tag: :h3)) { "Schedule a Chat" } %>
           <% end %>
-          <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Book a meeting with our strategy experts" } %>
+          <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Book a meeting with a member of our team" } %>
         </div>
       </div>
     <% end %>
 
-    <%= render(Primer::Box.new(bg: :subtle, border: true, p: 4, border_radius: 0, border_left: 0, border_right: 0)) do %>
+    <%= render(Primer::Box.new(bg: :success, border: true, p: 4, border_radius: 0, border_left: 0, border_right: 0)) do %>
       <div class="feature-card-content">
         <div class="service-icon">
           <%= render "shared/info_icon" %>
@@ -27,12 +27,12 @@
           <%= render(Primer::Beta::Link.new(href: "#", classes: "features-card-heading")) do %>
             <%= render(Primer::Beta::Text.new(tag: :h3)) { "Request Information" } %>
           <% end %>
-          <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Get detailed information about our services" } %>
+          <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Learn more about our services" } %>
         </div>
       </div>
     <% end %>
 
-    <%= render(Primer::Box.new(bg: :subtle, border: true, p: 4, border_radius: 0, border_left: 0)) do %>
+    <%= render(Primer::Box.new(bg: :success, border: true, p: 4, border_radius: 0, border_left: 0)) do %>
       <div class="feature-card-content">
         <div class="service-icon">
           <%= render "shared/assessment_icon" %>
@@ -41,7 +41,7 @@
           <%= render(Primer::Beta::Link.new(href: "#", classes: "features-card-heading")) do %>
             <%= render(Primer::Beta::Text.new(tag: :h3)) { "Quick Assessment" } %>
           <% end %>
-          <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Get a quick assessment of your needs" } %>
+          <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Get an quick assessment of your needs" } %>
         </div>
       </div>
     <% end %>
