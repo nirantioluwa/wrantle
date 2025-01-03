@@ -9,14 +9,10 @@
       </div>
       <%= render(Primer::Beta::Link.new(href: "#", classes: "features-card-heading")) do %>
         <%= render(Primer::Beta::Text.new(tag: :h3)) { "Global Corporate Strategy" } %>
-      <% end %>
-      <div data-controller="text-rotator" 
-           data-text-rotator-interval-value="5000"
-           data-text-rotator-items-value='["Global holding company establishment", "International market entry planning", "Corporate entity structuring", "Business model optimization", "Cross-border expansion strategy", "Jurisdictional optimization", "Corporate restructuring", "Transfer pricing framework", "Gap analysis and strategic assessment", "Group structure optimization"]'>
-        <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text rotating-text")) do %>
-          <span data-text-rotator-target="text">Global holding company establishment</span>
+          <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) do %>
+          <span data-text-rotator-target="text">International expansion and corporate structuring</span>
         <% end %>
-      </div>
+      <% end %>
     <% end %>
 
     <%= render(Primer::Box.new(bg: :default, border: true, p: 4, border_left: 0, border_bottom: 0, border_radius: 0)) do %>
@@ -25,14 +21,10 @@
       </div>
       <%= render(Primer::Beta::Link.new(href: "#", classes: "features-card-heading")) do %>
         <%= render(Primer::Beta::Text.new(tag: :h3)) { "Technology & IP" } %>
-      <% end %>
-      <div data-controller="text-rotator" 
-           data-text-rotator-interval-value="5000"
-           data-text-rotator-items-value='["Global trademark portfolio management", "IP registration and protection", "Digital transformation strategy", "Technology licensing", "Patent strategy and management", "Brand protection systems", "IP monitoring and enforcement", "Innovation strategy development", "IP jurisdictional search and analysis", "Design rights protection", "Third-party licensing management"]'>
-        <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text rotating-text")) do %>
-          <span data-text-rotator-target="text">Global trademark portfolio management</span>
+          <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) do %>
+          <span data-text-rotator-target="text">Protection and management of intellectual property assets</span>
         <% end %>
-      </div>
+      <% end %>
     <% end %>
 
     <%= render(Primer::Box.new(bg: :default, border: true, p: 4, border_right: 0, border_top: 0, border_radius: 0)) do %>
@@ -41,14 +33,10 @@
       </div>
       <%= render(Primer::Beta::Link.new(href: "#", classes: "features-card-heading")) do %>
         <%= render(Primer::Beta::Text.new(tag: :h3)) { "Finance & Investments" } %>
-      <% end %>
-      <div data-controller="text-rotator" 
-           data-text-rotator-interval-value="5000"
-           data-text-rotator-items-value='["Mergers and acquisitions advisory", "Financial due diligence", "Investment structuring", "Fundraising strategy", "Capital optimization", "Financial restructuring", "Investor relations management", "Transaction support", "Insurance portfolio optimization", "Tax treaty optimization", "Double taxation management", "Group financial planning"]'>
-        <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text rotating-text")) do %>
-          <span data-text-rotator-target="text">Mergers and acquisitions advisory</span>
+        <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) do %>
+          <span data-text-rotator-target="text"> Fundraising, financial strategy and investment structuring</span>
         <% end %>
-      </div>
+      <% end %>
     <% end %>
 
     <%= render(Primer::Box.new(bg: :default, border: true, p: 4, border_left: 0, border_bottom: 0, border_radius: 0)) do %>
@@ -57,14 +45,10 @@
       </div>
       <%= render(Primer::Beta::Link.new(href: "#", classes: "features-card-heading")) do %>
         <%= render(Primer::Beta::Text.new(tag: :h3)) { "Legal & Compliance" } %>
-      <% end %>
-      <div data-controller="text-rotator" 
-           data-text-rotator-interval-value="5000"
-           data-text-rotator-items-value='["Corporate legal advisory", "Regulatory compliance", "Contract management", "Employment and labour matters", "Data protection compliance", "Licensing and permits", "Legal documentation", "Legal playbook development", "Consumer protection framework", "Marketing and distribution framework advisory", "Annual compliance management"]'>
-        <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text rotating-text")) do %>
-          <span data-text-rotator-target="text">Corporate legal advisory</span>
+        <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) do %>
+          <span data-text-rotator-target="text">Tailored businesslegal and compliance services</span>
         <% end %>
-      </div>
+      <% end %>
     <% end %>
      <%= render(Primer::Box.new(bg: :default, border: true, p: 4, border_right: 0, border_top: 0, border_radius: 0)) do %>
       <div class="service-icon bg">
@@ -72,14 +56,11 @@
       </div>
       <%= render(Primer::Beta::Link.new(href: "#", classes: "features-card-heading")) do %>
         <%= render(Primer::Beta::Text.new(tag: :h3)) { "Operational Excellence" } %>
-      <% end %>
-      <div data-controller="text-rotator" 
-           data-text-rotator-interval-value="5000"
-           data-text-rotator-items-value='["Process optimization", "Quality management systems", "Performance monitoring", "ESOP implementation", "Supply chain optimization", "Standard operating procedures", "Training and development", "Operational restructuring", "Vendor agreement management", "Lease agreement optimization", "Employee contract structuring", "Anti-bribery training programs", "Workplace compliance training", "Retail operations advisory"]'>
-        <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text rotating-text")) do %>
-          <span data-text-rotator-target="text">Process optimization</span>
+        <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) do %>
+          <span data-text-rotator-target="text">Business processes and employee efficiency optimization</span>
         <% end %>
-      </div>
+      <% end %>
+
     <% end %>
     <%= render(Primer::Box.new(bg: :default, border: true, p: 4, border_left: 0, border_bottom: 0, border_radius: 0)) do %>
       <div class="service-icon">
@@ -87,14 +68,10 @@
       </div>
       <%= render(Primer::Beta::Link.new(href: "#", classes: "features-card-heading")) do %>
         <%= render(Primer::Beta::Text.new(tag: :h3)) { "Risk, ESG & Governance" } %>
-      <% end %>
-      <div data-controller="text-rotator" 
-           data-text-rotator-interval-value="5000"
-           data-text-rotator-items-value='["Enterprise risk management", "Board governance structures", "ESG strategy development", "Corporate governance frameworks", "Sustainability compliance", "Stakeholder management", "Crisis management", "Regulatory monitoring", "Board committee structuring", "Ethical sourcing frameworks", "Environmental compliance", "Whistleblowing systems", "Quarterly risk reporting", "Annual governance reviews", "Supply chain due diligence"]'>
-        <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text rotating-text")) do %>
-          <span data-text-rotator-target="text">Enterprise risk management</span>
+          <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text rotating-text")) do %>
+          <span data-text-rotator-target="text">Risk management and sustainable governance advisory</span>
         <% end %>
-      </div>
+      <% end %>
     <% end %>
   </div>
 <% end %>
