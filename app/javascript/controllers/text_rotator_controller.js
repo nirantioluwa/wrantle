@@ -4,7 +4,7 @@ export default class extends Controller {
   static targets = ["text"]
   static values = {
     items: Array,
-    interval: { type: Number, default: 5000 }
+    interval: { type: Number, default: 100000 }
   }
 
   connect() {
@@ -26,7 +26,7 @@ export default class extends Controller {
     for (let i = 0; i < text.length; i++) {
       currentText += text[i]
       this.textTarget.textContent = currentText
-      await new Promise(resolve => setTimeout(resolve, 50)) // 50ms per character
+      await new Promise(resolve => setTimeout(resolve, 100)) // 50ms per character
     }
     
     this.isTyping = false

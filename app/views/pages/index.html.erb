@@ -1,6 +1,19 @@
-<%= render "shared/hero" %>
+<%# Hero Section %>
+<%= render(Primer::Box.new(p: 0, mb: 6)) do %>
+  <%= render "shared/hero" %>
+<% end %>
 
-<%= render "shared/stats_box" %>
+<%# Stats Section %>
+<%= render(Primer::Box.new(p: 0, mb: 6)) do %>
+  <%= render "shared/stats_box" %>
+<% end %>
 
-<%= render "shared/services_box" %>
-<%= render "shared/features_box" %>
+<%# Services Section %>
+<%= render(Primer::Box.new(p: 4, mb: 6, mt: 6, bg: :subtle)) do %>
+  <%= render "shared/services_box" %>
+<% end %>
+
+<%# Features Section %>
+<%= render(Primer::Box.new(p: 0, mb: 6, mt: 6)) do %>
+  <%= render "shared/features_box" %>
+<% end %>
