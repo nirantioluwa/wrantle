@@ -17,7 +17,7 @@
   <div class="features-cards">
     <%= render(Primer::Box.new(bg: :subtle, border: true, border_right: 0, border_bottom: 0, p: 4, border_radius: 0)) do %>
       <div class="service-icon">
-        <%= render "shared/tech_ip_icon" %>
+        <%= render "shared/intellectual_property/portfolio_icon" %>
       </div>
       <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Portfolio Audit & Strategy" } %>
       <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Review your IP assets and align them with business goals." } %>
@@ -25,7 +25,7 @@
 
     <%= render(Primer::Box.new(bg: :subtle, border: true, border_left: 0, border_bottom: 0, border_right: 0, p: 4, border_radius: 0)) do %>
       <div class="service-icon">
-        <%= render "shared/tech_ip_icon" %>
+        <%= render "shared/intellectual_property/trademark_icon" %>
       </div>
       <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Trademark Management" } %>
       <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Register and manage trademarks worldwide, including Madrid Protocol filings." } %>
@@ -33,15 +33,39 @@
 
     <%= render(Primer::Box.new(bg: :subtle, border: true, border_left: 0, border_bottom: 0, p: 4, border_radius: 0)) do %>
       <div class="service-icon">
-        <%= render "shared/tech_ip_icon" %>
+        <%= render "shared/intellectual_property/patent_icon" %>
       </div>
       <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Patent Strategy" } %>
       <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Protect your innovations and manage patent portfolios across markets." } %>
     <% end %>
 
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_top: 0, border_right: 0, border_bottom: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/intellectual_property/design_rights_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Design Rights" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Protect product designs and aesthetic elements globally." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: 0, border_right: 0, border_top: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/intellectual_property/due_diligence_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "IP Due Diligence" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Assess IP assets for transactions and strategic decisions." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_left: 0, border_bottom: 0, border_top: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/intellectual_property/digital_ip_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Digital IP Strategy" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Protect and manage IP assets in digital platforms." } %>
+    <% end %>
+
     <%= render(Primer::Box.new(bg: :subtle, border: true, p: 4, border_top: 0, border_right: 0, border_radius: 0)) do %>
       <div class="service-icon">
-        <%= render "shared/tech_ip_icon" %>
+        <%= render "shared/intellectual_property/licensing_icon" %>
       </div>
       <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Technology Licensing" } %>
       <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Manage technology licenses and third-party agreements." } %>
@@ -49,7 +73,7 @@
 
     <%= render(Primer::Box.new(bg: :subtle, border: true, p: 4, border_top: 0, border_left: 0, border_right: 0, border_radius: 0)) do %>
       <div class="service-icon">
-        <%= render "shared/tech_ip_icon" %>
+        <%= render "shared/intellectual_property/brand_protection_icon" %>
       </div>
       <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Brand Protection" } %>
       <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Monitor and enforce your IP rights online and in markets." } %>
@@ -57,7 +81,7 @@
 
     <%= render(Primer::Box.new(bg: :subtle, border: true, border_top: 0, border_left: 0, p: 4, border_radius: 0)) do %>
       <div class="service-icon">
-        <%= render "shared/tech_ip_icon" %>
+        <%= render "shared/intellectual_property/group_ip_icon" %>
       </div>
       <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Group IP Structure" } %>
       <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Set up IP ownership and licensing between your holding company and subsidiaries." } %>
