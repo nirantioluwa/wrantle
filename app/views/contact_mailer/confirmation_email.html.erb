@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <style>
+      body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+      .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+      .header { background: #f8f9fa; padding: 20px; border-radius: 5px; margin-bottom: 20px; }
+      .details { background: #fff; padding: 20px; border: 1px solid #ddd; border-radius: 5px; }
+      .message-box { background: #f8f9fa; padding: 15px; border-left: 4px solid #007bff; margin: 20px 0; }
+      .footer { margin-top: 20px; padding-top: 20px; border-top: 1px solid #ddd; font-size: 0.9em; color: #666; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1 style="color: #007bff; margin: 0;"><%= @greeting %></h1>
+        <p style="margin: 10px 0 0;">Thank you for reaching out to Wrantle</p>
+      </div>
+
+      <div class="details">
+        <p>We've received your <%= @contact.contact_type.humanize.downcase %> request. Here's a summary of what you submitted:</p>
+
+        <div class="message-box">
+          <h2 style="margin-top: 0;">Contact Details</h2>
+          <p><strong>Name:</strong> <%= @contact.name %></p>
+          <p><strong>Email:</strong> <%= @contact.email %></p>
+          <p><strong>Phone:</strong> <%= @contact.phone %></p>
+          
+          <% if @contact.contact_type == "schedule_chat" %>
+            <h2>Preferred Meeting Time</h2>
+            <p><strong>Date:</strong> <%= @contact.preferred_date.strftime("%B %d, %Y") %></p>
+            <p><strong>Time:</strong> <%= @contact.preferred_time.strftime("%I:%M %p") %></p>
+          <% end %>
+
+          <h2>Your Message</h2>
+          <p><%= @contact.message %></p>
+        </div>
+
+        <% if @contact.contact_type == "schedule_chat" %>
+          <p>We'll review your preferred meeting time and confirm the schedule shortly.</p>
+        <% elsif @contact.contact_type == "request_info" %>
+          <p>We'll gather the information you need and get back to you soon.</p>
+        <% else %>
+          <p>We'll review your needs and provide a detailed assessment shortly.</p>
+        <% end %>
+      </div>
+
+      <div class="footer">
+        <p>Best regards,<br>The Wrantle Team</p>
+        <p style="font-size: 0.8em; color: #888;">
+          If you did not submit this request, please contact us immediately at support@wrantle.com
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

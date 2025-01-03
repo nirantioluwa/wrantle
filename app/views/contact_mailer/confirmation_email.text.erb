@@ -1,0 +1,38 @@
+Contact#confirmation_email
+
+<%= @greeting %>
+
+Thank you for reaching out to Wrantle. We've received your <%= @contact.contact_type.humanize.downcase %> request.
+
+Here's a summary of what you submitted:
+
+Contact Details:
+--------------
+Name: <%= @contact.name %>
+Email: <%= @contact.email %>
+Phone: <%= @contact.phone %>
+
+<% if @contact.contact_type == "schedule_chat" %>
+Preferred Meeting Time:
+--------------------
+Date: <%= @contact.preferred_date.strftime("%B %d, %Y") %>
+Time: <%= @contact.preferred_time.strftime("%I:%M %p") %>
+
+<% end %>
+Your Message:
+-----------
+<%= @contact.message %>
+
+<% if @contact.contact_type == "schedule_chat" %>
+We'll review your preferred meeting time and confirm the schedule shortly.
+<% elsif @contact.contact_type == "request_info" %>
+We'll gather the information you need and get back to you soon.
+<% else %>
+We'll review your needs and provide a detailed assessment shortly.
+<% end %>
+
+Best regards,
+The Wrantle Team
+
+---
+If you did not submit this request, please contact us immediately at support@wrantle.com

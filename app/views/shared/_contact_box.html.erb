@@ -10,7 +10,7 @@
           <%= render "shared/schedule_icon" %>
         </div>
         <div>
-          <%= render(Primer::Beta::Link.new(href: "#", classes: "features-card-heading")) do %>
+          <%= render(Primer::Beta::Link.new(href: new_contact_path(contact_type: 'schedule_chat'), classes: "features-card-heading")) do %>
             <%= render(Primer::Beta::Text.new(tag: :h3)) { "Schedule a Chat" } %>
           <% end %>
           <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Book a meeting with a member of our team" } %>
@@ -24,7 +24,7 @@
           <%= render "shared/info_icon" %>
         </div>
         <div>
-          <%= render(Primer::Beta::Link.new(href: "#", classes: "features-card-heading")) do %>
+          <%= render(Primer::Beta::Link.new(href: new_contact_path(contact_type: 'request_info'), classes: "features-card-heading")) do %>
             <%= render(Primer::Beta::Text.new(tag: :h3)) { "Request Information" } %>
           <% end %>
           <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Learn more about our services" } %>
@@ -38,7 +38,7 @@
           <%= render "shared/assessment_icon" %>
         </div>
         <div>
-          <%= render(Primer::Beta::Link.new(href: "#", classes: "features-card-heading")) do %>
+          <%= render(Primer::Beta::Link.new(href: new_contact_path(contact_type: 'needs_assessment'), classes: "features-card-heading")) do %>
             <%= render(Primer::Beta::Text.new(tag: :h3)) { "Needs Assessment" } %>
           <% end %>
           <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Get a quick assessment of how we can help" } %>

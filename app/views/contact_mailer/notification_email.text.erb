@@ -1,0 +1,25 @@
+New Contact Form Submission
+=======================
+
+Type: <%= @contact.contact_type.humanize %>
+
+Contact Details:
+---------------
+Name: <%= @contact.name %>
+Email: <%= @contact.email %>
+Phone: <%= @contact.phone %>
+
+<% if @contact.contact_type == 'schedule_chat' %>
+Preferred Meeting Time:
+---------------------
+Date: <%= @contact.preferred_date.strftime('%B %d, %Y') %>
+Time: <%= @contact.preferred_time.strftime('%I:%M %p') %>
+
+<% end %>
+Message:
+--------
+<%= @contact.message %>
+
+--
+This is an automated notification from the Wrantle contact form system.
+To reply to this inquiry, simply reply to this email.

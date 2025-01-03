@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style>
+      body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+      .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+      .header { background: #f8f9fa; padding: 20px; border-radius: 5px; margin-bottom: 20px; }
+      .details { background: #fff; padding: 20px; border: 1px solid #ddd; border-radius: 5px; }
+      .message-box { background: #f8f9fa; padding: 15px; border-left: 4px solid #007bff; margin: 20px 0; }
+      .footer { margin-top: 20px; padding-top: 20px; border-top: 1px solid #ddd; font-size: 0.9em; color: #666; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1 style="color: #007bff; margin: 0;">New Contact Form Submission</h1>
+        <p style="margin: 10px 0 0;">Type: <%= @contact.contact_type.humanize %></p>
+      </div>
+
+      <div class="details">
+        <h2 style="color: #333;">Contact Details</h2>
+        <table style="width: 100%; border-collapse: collapse;">
+          <tr>
+            <td style="padding: 8px 0; width: 120px;"><strong>Name:</strong></td>
+            <td style="padding: 8px 0;"><%= @contact.name %></td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0;"><strong>Email:</strong></td>
+            <td style="padding: 8px 0;"><%= @contact.email %></td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0;"><strong>Phone:</strong></td>
+            <td style="padding: 8px 0;"><%= @contact.phone %></td>
+          </tr>
+        </table>
+
+        <% if @contact.contact_type == 'schedule_chat' %>
+          <h2 style="color: #333; margin-top: 20px;">Preferred Meeting Time</h2>
+          <table style="width: 100%; border-collapse: collapse;">
+            <tr>
+              <td style="padding: 8px 0; width: 120px;"><strong>Date:</strong></td>
+              <td style="padding: 8px 0;"><%= @contact.preferred_date.strftime('%B %d, %Y') %></td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0;"><strong>Time:</strong></td>
+              <td style="padding: 8px 0;"><%= @contact.preferred_time.strftime('%I:%M %p') %></td>
+            </tr>
+          </table>
+        <% end %>
+
+        <div class="message-box">
+          <h2 style="color: #333; margin-top: 0;">Message</h2>
+          <p style="margin: 0;"><%= @contact.message %></p>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p>This is an automated notification from the Wrantle contact form system.</p>
+        <p style="margin: 0;">To reply to this inquiry, simply reply to this email.</p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<%= render(Primer::Box.new(p: 4, mt: 4, mb: 4)) do %>
+  <% if notice.present? %>
+    <%= render(Primer::Beta::Flash.new(scheme: :success, full: true, mb: 4)) { notice } %>
+  <% end %>
+
+  <%= render(Primer::Box.new(border: true, p: 4, border_radius: 2)) do %>
+    <%= render(Primer::Beta::Text.new(tag: :h1, mb: 4)) do %>
+      <%= @contact.contact_type.humanize %> Request Submitted
+    <% end %>
+
+    <%= render(Primer::Box.new(mb: 4)) do %>
+      <%= render(Primer::Beta::Text.new(tag: :h2, mb: 2)) { "Contact Information" } %>
+      
+      <dl>
+        <dt><%= render(Primer::Beta::Text.new(weight: :bold)) { "Name" } %></dt>
+        <dd class="mb-2"><%= @contact.name %></dd>
+        
+        <dt><%= render(Primer::Beta::Text.new(weight: :bold)) { "Email" } %></dt>
+        <dd class="mb-2"><%= @contact.email %></dd>
+        
+        <dt><%= render(Primer::Beta::Text.new(weight: :bold)) { "Phone" } %></dt>
+        <dd class="mb-2"><%= @contact.phone %></dd>
+      </dl>
+    <% end %>
+
+    <% if @contact.contact_type == 'schedule_chat' %>
+      <%= render(Primer::Box.new(mb: 4)) do %>
+        <%= render(Primer::Beta::Text.new(tag: :h2, mb: 2)) { "Preferred Meeting Time" } %>
+        
+        <dl>
+          <dt><%= render(Primer::Beta::Text.new(weight: :bold)) { "Date" } %></dt>
+          <dd class="mb-2"><%= @contact.preferred_date.strftime('%B %d, %Y') %></dd>
+          
+          <dt><%= render(Primer::Beta::Text.new(weight: :bold)) { "Time" } %></dt>
+          <dd class="mb-2"><%= @contact.preferred_time.strftime('%I:%M %p') %></dd>
+        </dl>
+      <% end %>
+    <% end %>
+
+    <%= render(Primer::Box.new(mb: 4)) do %>
+      <%= render(Primer::Beta::Text.new(tag: :h2, mb: 2)) { "Message" } %>
+      <%= render(Primer::Box.new(bg: :subtle, p: 3, border_radius: 2)) do %>
+        <%= simple_format(@contact.message) %>
+      <% end %>
+    <% end %>
+
+    <%= render(Primer::Box.new(mt: 4, text_align: :center)) do %>
+      <%= render(Primer::Beta::Text.new(color: :muted)) do %>
+        We'll review your request and get back to you shortly.
+      <% end %>
+      
+      <%= render(Primer::Beta::Link.new(href: root_path, mt: 3)) do %>
+        Return to Home
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

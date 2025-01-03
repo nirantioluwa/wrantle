@@ -16,6 +16,10 @@ module Wrantle
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks])
 
+    # Configure Action Mailer using MailPace
+    config.action_mailer.delivery_method = :mailpace
+    config.action_mailer.mailpace_settings = "96c1941a-d05f-4f74-810a-6cf09e5b57c5"
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
@@ -23,7 +27,7 @@ module Wrantle
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    
+
     # Add node_modules to asset path for Primer components
     config.assets.paths << Rails.root.join("node_modules")
   end
@@ -32,4 +36,3 @@ end
 
 require "view_component"
 require "primer/view_components"
-
