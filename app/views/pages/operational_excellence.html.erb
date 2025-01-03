@@ -1,3 +1,95 @@
-<%# Operational Excellence page template - content to be added %>
-<div class="service-page operational-excellence">
-</div>
+<%# Meta tags %>
+<% content_for :title, "Operational Excellence Services - Wrantle" %>
+<% content_for :meta_description, "Process optimization and operational efficiency services. We help businesses streamline operations, implement quality systems, and enhance performance across functions." %>
+<% content_for :meta_keywords, "operational excellence, process optimization, quality management, performance monitoring, training development, SOP development" %>
+<% content_for :og_title, "Operational Excellence Services | Wrantle" %>
+<% content_for :og_description, "Expert operational optimization services. Get support with process improvement, quality systems, and performance enhancement." %>
+
+<%# Operations Page %>
+
+<%# Hero Section %>
+<%= render(Primer::Box.new(mt: 6, p: 4)) do %>
+  <%= render(Primer::Beta::Heading.new(tag: :h1, font_weight: :bold, classes: "hero-heading")) { "Operational Excellence Services" } %>
+<% end %>
+
+<%# Services Content Section %>
+<%= render(Primer::Box.new(p: 4, mb: 6)) do %>
+  <div class="features-cards">
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_right: 0, border_bottom: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/operations/process_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Process Optimization" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Streamline workflows and enhance operational efficiency." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_left: 0, border_bottom: 0, border_right: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/operations/quality_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Quality Management" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Implement quality systems and control frameworks." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_left: 0, border_bottom: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/operations/sop_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "SOP Development" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Create standard operating procedures for key business functions." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_bottom: 0, border_right: 0, border_top: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/operations/performance_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Performance Management" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Set up monitoring systems and performance metrics." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_left: 0, border_bottom: 0, border_right: 0, border_top: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/operations/supply_chain_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Supply Chain Management" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Optimize vendor relations and supply chain processes." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_left: 0, border_bottom: 0,border_top: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/operations/training_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Training Programs" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Develop workplace training and compliance modules." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_right: 0, border_top: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/operations/agreements_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Agreement Management" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Handle vendor and supplier agreements effectively." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_left: 0, border_right: 0, border_top: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/operations/esop_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "ESOP Implementation" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Set up and manage employee stock ownership plans." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_left: 0, border_top: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/operations/retail_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Retail Operations" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Optimize retail processes and customer experience." } %>
+    <% end %>
+  </div>
+<% end %>
+
+<%# Contact Section %>
+<%= render "shared/contact_box",
+  title: "Looking to improve your operations?",
+  subtitle: "Let's discuss how to enhance your business efficiency" %>
