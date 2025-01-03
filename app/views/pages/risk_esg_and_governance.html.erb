@@ -1,3 +1,98 @@
-<%# Risk, ESG & Governance page template - content to be added %>
-<div class="service-page risk-esg-and-governance">
-</div>
+<%# Meta tags %>
+<% content_for :title, "Risk, ESG & Governance Services - Wrantle" %>
+<% content_for :meta_description, "Strategic risk management and governance services. We support businesses with ESG implementation, board structuring, and compliance frameworks." %>
+<% content_for :meta_keywords, "risk management, ESG, corporate governance, board structure, sustainability, compliance, stakeholder management" %>
+<% content_for :og_title, "Risk, ESG & Governance Services | Wrantle" %>
+<% content_for :og_description, "Expert risk and governance advisory services. Get support with ESG strategy, board governance, and compliance frameworks." %>
+
+<%# Risk & Governance Page %>
+
+<%# Hero Section %>
+<%= render(Primer::Box.new(mt: 6, p: 4)) do %>
+  <%= render(Primer::Beta::Heading.new(tag: :h1, font_weight: :bold, classes: "hero-heading")) { "Manage risks and build sustainably" } %>
+<% end %>
+
+<%# Services Content Section %>
+<%= render(Primer::Box.new(p: 4, mb: 6)) do %>
+  <div class="features-cards">
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_right: 0, border_bottom: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/risk_governance/risk_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Enterprise Risk Management" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Set up risk frameworks and reporting systems." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_left: 0, border_bottom: 0, border_right: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/risk_governance/board_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Board Governance" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Structure board committees and governance frameworks." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_left: 0, border_bottom: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/risk_governance/esg_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "ESG Strategy" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Develop sustainability and ESG implementation plans." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_bottom: 0,  border_right: 0, border_top: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/risk_governance/compliance_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Compliance Management" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Monitor regulations and maintain compliance systems." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_bottom: 0,  border_left: 0, border_right: 0, border_top: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/risk_governance/stakeholder_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Stakeholder Management" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Structure communication and reporting frameworks." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_bottom: 0,  border_left: 0, border_top: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/risk_governance/crisis_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Crisis Management" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Develop response protocols and whistleblowing systems." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_right: 0, border_top: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/risk_governance/ethical_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Ethical Sourcing" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Implement supply chain due diligence frameworks." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_left: 0, border_right: 0, border_top: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/risk_governance/environmental_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Environmental Compliance" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Manage environmental standards and reporting." } %>
+    <% end %>
+
+    <%= render(Primer::Box.new(bg: :subtle, border: true, border_left: 0, border_top: 0, p: 4, border_radius: 0)) do %>
+      <div class="service-icon">
+        <%= render "shared/risk_governance/governance_review_icon" %>
+      </div>
+      <%= render(Primer::Beta::Text.new(tag: :h3, classes: "features-card-heading")) { "Governance Review" } %>
+      <%= render(Primer::Beta::Text.new(tag: :p, classes: "features-card-text")) { "Assessments of governance frameworks and controls." } %>
+    <% end %>
+  </div>
+<% end %>
+
+<%# Services Navigation %>
+<%= render "shared/services_navigation" %>
+
+<%# Contact Section %>
+<%= render "shared/contact_box",
+  title: "Need risk and governance support?",
+  subtitle: "Let's discuss your governance and compliance needs" %>

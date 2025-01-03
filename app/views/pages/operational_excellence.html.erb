@@ -9,7 +9,7 @@
 
 <%# Hero Section %>
 <%= render(Primer::Box.new(mt: 6, p: 4)) do %>
-  <%= render(Primer::Beta::Heading.new(tag: :h1, font_weight: :bold, classes: "hero-heading")) { "Operational Excellence Services" } %>
+  <%= render(Primer::Beta::Heading.new(tag: :h1, font_weight: :bold, classes: "hero-heading")) { "Operational excellence implementation services" } %>
 <% end %>
 
 <%# Services Content Section %>
@@ -88,6 +88,9 @@
     <% end %>
   </div>
 <% end %>
+
+<%# Services Navigation %>
+<%= render "shared/services_navigation" %>
 
 <%# Contact Section %>
 <%= render "shared/contact_box",
