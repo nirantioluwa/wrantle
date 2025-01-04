@@ -22,12 +22,19 @@
 }
 
 .writing-meta {
-  font-size: 0.9rem;
-  color: var(--color-fg-muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.875rem;
+  color: var(--color-fg-subtle);
+  margin-bottom: 1rem;
+}
+
+.writing-meta time {
+  font-weight: 500;
 }
 
 .writing-content {
   font-family: monospace;
+  font-size: 1rem;
   line-height: 1.6;
   color: var(--color-fg-default);
 }
@@ -41,4 +48,71 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+.writings-header {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.writings-header.main-title {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.writings-header.subtitle {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  opacity: 0.85;
+}
+
+/* Downloads Section */
+.writing-downloads {
+  border-top: 1px solid var(--color-border-default);
+  margin-top: 2rem;
+  padding-top: 1rem;
+}
+
+.writing-downloads h4 {
+  color: var(--color-fg-default);
+  font-family: monospace;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.writing-downloads .list-group-item {
+  display: block;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  background: var(--color-canvas-subtle);
+  border: 1px solid var(--color-success-muted);
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  text-decoration: none !important;
+}
+
+.writing-downloads .list-group-item:hover {
+  background: var(--color-success-subtle);
+  border-color: var(--color-success-emphasis);
+  transform: translateX(5px);
+  text-decoration: none !important;
+}
+
+.writing-downloads .list-group-item h5 {
+  color: var(--color-success-fg);
+  font-family: monospace;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.writing-downloads .list-group-item small {
+  color: var(--color-fg-muted);
+  font-family: monospace;
+}
+
+.writing-downloads .list-group-item p {
+  color: var(--color-fg-muted);
+  font-family: monospace;
+  font-size: 0.9rem;
 }

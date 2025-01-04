@@ -1,11 +1,15 @@
 <div id="<%= dom_id writing %>" class="writing">
-  <h2 class="writing-title">
-    <%= link_to writing.title, writing_path(writing.slug), class: "writing-title-link" %>
-  </h2>
+  <% unless local_assigns[:in_show_page] %>
+    <h2 class="writing-title">
+      <%= link_to writing.title, writing_path(writing.slug), class: "writing-title-link" %>
+    </h2>
+  <% end %>
 
   <% if writing.published? %>
-    <div class="writing-meta text-muted">
-      Published <%= time_tag writing.published_at.to_date %>
+    <div class="writing-meta">
+      <%= render(Primer::Beta::Text.new(color: :subtle)) do %>
+        Published <%= time_tag writing.published_at.to_date, format: '%B %d, %Y' %>
+      <% end %>
     </div>
   <% end %>
 </div>

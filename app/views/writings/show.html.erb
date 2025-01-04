@@ -28,19 +28,52 @@
 
 <p style="color: green"><%= notice %></p>
 
-<article class="writing-article">
-  <%= render @writing %>
-  
-  <div class="writing-content mt-4">
-    <%= @writing.content.to_s %>
-  </div>
-</article>
+<%= render(Primer::Box.new(p: 4, mb: 4)) do %>
+  <%= render(Primer::Beta::Heading.new(tag: :h1, mb: 1, classes: "writings-header main-title")) { @writing.title } %>
+  <% if @writing.excerpt.present? %>
+    <%= render(Primer::Beta::Text.new(tag: :h3, color: :subtle, classes: "writings-header subtitle")) { @writing.excerpt } %>
+  <% end %>
+<% end %>
+
+<%= render(Primer::Box.new(p: 4)) do %>
+  <article class="writing-article">
+    <%= render @writing, in_show_page: true %>
+    
+    <div class="writing-content mt-4">
+      <%= @writing.content.to_s %>
+    </div>
+
+    <% if @writing.downloadable_files.attached? %>
+      <div class="writing-downloads">
+        <h4>Downloads</h4>
+        <div class="list-group">
+          <% @writing.downloadable_files.each do |file| %>
+            <%= render(Primer::Beta::Link.new(
+              href: rails_blob_path(file, disposition: "attachment"),
+              scheme: :primary,
+              underline: false,
+              classes: "list-group-item"
+            )) do %>
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1"><%= file.filename %></h5>
+                <small><%= number_to_human_size(file.byte_size) %></small>
+              </div>
+              <p class="mb-1">Click to download</p>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </article>
+<% end %>
 
 <% if Current.user&.is_admin? %>
-  <div class="mt-4">
-    <%= button_to "Delete this writing", writing_path(@writing.slug), 
-                  method: :delete, 
-                  class: "btn btn-danger",
-                  data: { confirm: "Are you sure you want to delete this writing?" } %>
-  </div>
+  <%= render(Primer::Box.new(p: 4)) do %>
+    <div class="mt-4">
+      <%= button_to "Delete this writing", writing_path(@writing.slug), 
+                    method: :delete, 
+                    class: "btn btn-danger",
+                    data: { confirm: "Are you sure you want to delete this writing?" } %>
+    </div>
+  <% end %>
 <% end %>

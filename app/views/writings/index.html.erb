@@ -4,10 +4,15 @@
 
 <%= render "shared/writings_navigation" %>
 
-<h1>Writings</h1>
+<%= render(Primer::Box.new(p: 4, mb: 4)) do %>
+  <%= render(Primer::Beta::Heading.new(tag: :h1, mb: 1, classes: "writings-header main-title")) { "Writings" } %>
+  <%= render(Primer::Beta::Text.new(tag: :h3, color: :subtle, classes: "writings-header subtitle")) { "Collection of resources, writings and thoughts." } %>
+<% end %>
 
-<div id="writings">
-  <% @writings.each do |writing| %>
-    <%= render writing %>
-  <% end %>
-</div>
+<%= render(Primer::Box.new(p:4)) do %>
+  <div id="writings">
+    <% @writings.each do |writing| %>
+      <%= render writing %>
+    <% end %>
+  </div>
+<% end %>

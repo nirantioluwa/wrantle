@@ -3,6 +3,7 @@ class Writing < ApplicationRecord
 
   has_rich_text :content
   has_one_attached :featured_image
+  has_many_attached :downloadable_files
 
   validates :title, presence: true
   validates :slug, presence: true, uniqueness: true, unless: :skip_slug_validation

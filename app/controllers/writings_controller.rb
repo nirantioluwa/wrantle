@@ -71,7 +71,7 @@ class WritingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def writing_params
-      params.require(:writing).permit(:title, :content, :status, :published_at, :excerpt, :featured_image)
+      params.require(:writing).permit(:title, :content, :status, :published_at, :excerpt, :featured_image, downloadable_files: [])
     end
 
     def require_staff_and_admin

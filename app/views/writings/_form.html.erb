@@ -46,6 +46,22 @@
     <%= form.file_field :featured_image, class: "form-control", accept: 'image/png,image/jpg,image/jpeg' %>
   </div>
 
+  <div class="form-group mb-3">
+    <%= form.label :downloadable_files, "Downloadable Files (PDF, Word, Excel, PowerPoint)", style: "display: block" %>
+    <% if form.object.downloadable_files.attached? %>
+      <div class="mb-2">
+        <% form.object.downloadable_files.each do |file| %>
+          <div class="mb-1">
+            <%= file.filename %> (<%= number_to_human_size(file.byte_size) %>)
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    <%= form.file_field :downloadable_files, multiple: true, class: "form-control", 
+        accept: '.pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx' %>
+    <small class="text-muted">You can select multiple files. Maximum size per file: 10MB</small>
+  </div>
+
   <div class="actions">
     <%= form.submit class: "btn btn-primary" %>
   </div>
