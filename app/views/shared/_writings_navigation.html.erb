@@ -40,6 +40,15 @@
 
     <% if Current.user&.is_staff? && Current.user&.is_admin? %>
       <%= component.with_item_icon_button(
+        bg: current_page?(drafts_writings_path) ? :success : nil,
+        p: 2,
+        icon: "file-directory-open-fill",
+        label: "Drafts",
+        tag: :a,
+        href: drafts_writings_path,
+        classes: "main-section-icon-button"
+      ) %>
+      <%= component.with_item_icon_button(
         bg: current_page?(new_writing_path) ? :success : nil,
         p: 2,
         icon: "plus",
@@ -50,7 +59,7 @@
       ) %>
     <% end %>
 
-    <% if @writing&.persisted? && Current.user&.is_staff? %>
+    <% if @writing&.persisted? && Current.user&.is_staff? && Current.user&.is_admin? %>
       <%= component.with_item_icon_button(
         bg: current_page?(edit_writing_path(@writing.slug)) ? :success : nil,
         p: 2,

@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
 
   # Writings routes
-  resources :writings, path: 'writings', param: :slug do
+  resources :writings, path: "writings", param: :slug do
     collection do
       get :drafts
     end

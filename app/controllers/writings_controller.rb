@@ -1,12 +1,19 @@
 class WritingsController < ApplicationController
   allow_unauthenticated_access only: %i[ index show ]
   before_action :set_writing, only: %i[ show edit update destroy ]
-  before_action :require_staff_and_admin, only: %i[ new create edit update destroy ]
+  before_action :require_staff_and_admin, only: %i[ new create edit update destroy drafts ]
 
   # GET /writings or /writings.json
   def index
     resume_session
     @writings = Writing.published.order(published_at: :desc)
+  end
+
+  # GET /writings/drafts
+  def drafts
+    resume_session
+    @writings = Writing.where(status: "draft").order(updated_at: :desc)
+    render :index
   end
 
   # GET /writings/1 or /writings/1.json
