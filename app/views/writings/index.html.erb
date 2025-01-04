@@ -1,6 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
-<% content_for :title, "Writings" %>
+<% content_for :title, "Writings by Wrantle" %>
+
+<% content_for :meta_description do %>
+  Collection of resources, writings and thoughts from Wrantle. Insights on building and growing businesses in emerging markets.
+<% end %>
+
+<% content_for :meta_keywords do %>
+  <%= "writings, articles, resources, insights, emerging markets, business growth, wrantle" %>
+<% end %>
+
+<% content_for :og_title, "Writings | Wrantle" %>
 
 <%= render "shared/writings_navigation" %>
 
@@ -16,3 +26,9 @@
     <% end %>
   </div>
 <% end %>
+
+
+<%# Contact Section %>
+<%= render "shared/contact_box",
+  title: "What can we help you with?",
+  subtitle: "Talk to us about how we can support your journey" %>
