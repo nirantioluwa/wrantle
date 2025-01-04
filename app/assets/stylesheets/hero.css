@@ -5,6 +5,7 @@
   line-height: 1.4;
   letter-spacing: -0.02em;
   max-width: 900px;
+  font-weight: 700 !important;
 }
 
 @media (min-width: 768px) {
