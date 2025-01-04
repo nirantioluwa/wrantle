@@ -20,6 +20,15 @@
       classes: "service-icon-button"
     ) %>
     <%= component.with_item_icon_button(
+      bg: current_page?(writings_path) ? :success : nil,
+      p: 2,
+      icon: "book",
+      label: "Writings",
+      tag: :a,
+      href: writings_path,
+      classes: "service-icon-button"
+    ) %>
+    <%= component.with_item_icon_button(
       bg: current_page?(about_path) ? :success : nil,
       p: 2,
       icon: "info",
@@ -77,7 +86,7 @@
     <%= component.with_item_icon_button(
       bg: current_page?(risk_esg_and_governance_path) ? :success : nil,
       p: 2,
-      icon: "shield",
+      icon: "shield-check",
       label: "Risk, ESG & Governance",
       tag: :a,
       href: risk_esg_and_governance_path,

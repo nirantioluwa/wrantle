@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @writing %>
+
+<div>
+  <%= link_to "Edit this writing", edit_writing_path(@writing.slug) %> |
+  <%= link_to "Back to writings", writings_path %>
+
+  <%= button_to "Destroy this writing", writing_path(@writing.slug), method: :delete %>
+</div>

@@ -1,0 +1,11 @@
+<% content_for :title, "New writing" %>
+
+<h1>New writing</h1>
+
+<%= render "form", writing: @writing %>
+
+<br>
+
+<div>
+  <%= link_to "Back to writings", writings_path %>
+</div>

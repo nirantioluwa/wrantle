@@ -18,6 +18,13 @@ Rails.application.routes.draw do
     post "verify_admin", to: "verifications#verify_admin", as: :verify_admin_verification
   end
 
+  # Writings routes
+  resources :writings, path: 'writings', param: :slug do
+    collection do
+      get :drafts
+    end
+  end
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
