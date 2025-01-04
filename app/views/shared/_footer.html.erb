@@ -23,8 +23,7 @@
     </div>
 
     <%= render(Primer::Box.new(mt: 4, classes: "footer-bottom")) do %>
-      <%= render(Primer::Beta::Link.new(href: "#", classes: "footer-writings")) { "Read our writings" } %>
-      <%= render(Primer::Box.new(classes: "footer-locations")) do %>
+      <%= render(Primer::Box.new(classes: "footer-locations", width: :full, text_align: :center)) do %>
         <%= render(Primer::Beta::Text.new(tag: :span)) { "Lagos" } %>
         <%= render(Primer::Beta::Text.new(tag: :span)) { "Nairobi" } %>
         <%= render(Primer::Beta::Text.new(tag: :span)) { "London" } %>
