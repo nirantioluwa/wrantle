@@ -13,6 +13,8 @@
     <meta name="author" content="Wrantle">
     <meta name="robots" content="index, follow">
     
+    <%= yield :meta_tags if content_for?(:meta_tags) %>
+    
     <%# Open Graph Meta Tags for Social Media %>
     <meta property="og:title" content="<%= content_for(:og_title) || content_for(:title) || "Wrantle - Africa's Leading Advisory Firm for Innovative Ventures" %>">
     <meta property="og:description" content="<%= content_for(:og_description) || content_for(:meta_description) || "Wrantle is Africa's premier advisory firm for innovative ventures, delivering strategic guidance and solutions to technology-driven companies. We accelerate business growth across the continent." %>">

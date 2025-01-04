@@ -1,5 +1,29 @@
 <% content_for :title, @writing.title %>
 
+<% content_for :meta_description do %>
+  <%= @writing.excerpt.present? ? @writing.excerpt : strip_tags(@writing.content.to_plain_text.truncate(200)) %>
+<% end %>
+
+<% content_for :meta_keywords do %>
+  <%= "writing, article, #{@writing.title.downcase}, wrantle" %>
+<% end %>
+
+<% content_for :og_title, @writing.title %>
+<% content_for :og_description do %>
+  <%= @writing.excerpt.present? ? @writing.excerpt : strip_tags(@writing.content.to_plain_text.truncate(200)) %>
+<% end %>
+<% if @writing.featured_image.attached? %>
+  <% content_for :og_image, url_for(@writing.featured_image) %>
+<% end %>
+
+<% content_for :twitter_title, @writing.title %>
+<% content_for :twitter_description do %>
+  <%= @writing.excerpt.present? ? @writing.excerpt : strip_tags(@writing.content.to_plain_text.truncate(200)) %>
+<% end %>
+<% if @writing.featured_image.attached? %>
+  <% content_for :twitter_image, url_for(@writing.featured_image) %>
+<% end %>
+
 <%= render "shared/writings_navigation" %>
 
 <p style="color: green"><%= notice %></p>
@@ -8,7 +32,7 @@
   <%= render @writing %>
   
   <div class="writing-content mt-4">
-    <%= @writing.content %>
+    <%= @writing.content.to_s %>
   </div>
 </article>
 
