@@ -2,12 +2,14 @@
 
 <%= render "shared/writings_navigation" %>
 
-<h1>New writing</h1>
+<%= render(Primer::Box.new(p: 4, mb: 4)) do %>
+  <%= render(Primer::Beta::Heading.new(tag: :h1, mb: 1, classes: "writings-header main-title")) { "New writing" } %>
+<% end %>
 
-<%= render "form", writing: @writing %>
+<%= render(Primer::Box.new(p: 4)) do %>
+  <%= render "form", writing: @writing %>
 
-<br>
-
-<div>
-  <%= link_to "Back to writings", writings_path %>
-</div>
+  <div class="mt-4">
+    <%= render(Primer::Beta::Link.new(href: writings_path)) { "Back to writings" } %>
+  </div>
+<% end %>

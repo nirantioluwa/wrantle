@@ -116,3 +116,52 @@
   font-family: monospace;
   font-size: 0.9rem;
 }
+
+/* Form Styles */
+.form-control.monospace,
+.form-select.monospace {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.875rem;
+}
+
+.form-control.input-lg,
+.form-select.input-lg {
+  padding: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 6px;
+}
+
+.form-control.monospace:focus,
+.form-select.monospace:focus {
+  border-color: var(--color-accent-emphasis);
+  box-shadow: 0 0 0 3px var(--color-accent-muted);
+}
+
+.trix-content {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 1rem;
+  line-height: 1.6;
+  min-height: 500px;
+  border-radius: 6px;
+  border: 1px solid var(--color-border-default);
+  padding: 0.75rem;
+}
+
+.trix-button-group {
+  border-color: var(--color-border-default) !important;
+  border-radius: 6px 6px 0 0;
+}
+
+.trix-button {
+  border-bottom: none !important;
+}
+
+/* Custom Button */
+.btn-writing-submit {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+  font-size: 1rem !important;
+  padding: 1rem 1.5rem !important;
+  height: auto !important;
+  font-weight: 600 !important;
+}

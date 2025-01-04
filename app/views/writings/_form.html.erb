@@ -1,68 +1,75 @@
 <%= form_with(model: writing, url: writing.new_record? ? writings_path : writing_path(writing.slug), local: true) do |form| %>
   <% if writing.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(writing.errors.count, "error") %> prohibited this writing from being saved:</h2>
+    <%= render(Primer::Box.new(border: :danger, p: 3, mb: 4)) do %>
+      <%= render(Primer::Beta::Heading.new(tag: :h2, mb: 2)) do %>
+        <%= pluralize(writing.errors.count, "error") %> prohibited this writing from being saved:
+      <% end %>
 
-      <ul>
+      <ul class="mb-0">
         <% writing.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
+    <% end %>
+  <% end %>
+
+  <div class="mb-4">
+    <%= form.label :title, class: "writings-header subtitle d-block mb-2" %>
+    <%= form.text_field :title, class: "form-control input-lg monospace width-full" %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :excerpt, "Excerpt (for what the writing is about)", class: "writings-header subtitle mb-2" %>
+    <%= form.text_area :excerpt, class: "form-control input-lg monospace width-full", rows: 3 %>
+  </div>
+
+  <div class="d-flex mb-4">
+    <div class="flex-auto mr-3">
+      <%= form.label :status, class: "writings-header subtitle mb-2" %>
+      <%= form.select :status, %w[draft published], { include_blank: "Select status" }, class: "form-control input-lg monospace width-full color-fg-default" %>
+    </div>
+    <div class="flex-auto">
+      <%= form.label :published_at, class: "writings-header subtitle mb-2" %>
+      <%= form.datetime_field :published_at, class: "form-control input-lg monospace width-full color-fg-default" %>
+    </div>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :content, class: "writings-header subtitle d-block mb-2" %>
+    <div class="color-fg-default">
+      <%= form.rich_text_area :content, class: "width-full", rows: 20 %>
+    </div>
+  </div>
+
+  <%= render(Primer::Box.new(border: true, p: 3, mb: 4)) do %>
+    <div class="mb-4">
+      <%= form.label :featured_image, "Featured Image (for social media sharing)", class: "writings-header subtitle d-block mb-2" %>
+      <% if form.object.featured_image.attached? %>
+        <div class="mb-2">
+          <%= image_tag form.object.featured_image, class: "width-fit" %>
+        </div>
+      <% end %>
+      <%= form.file_field :featured_image, class: "form-control monospace", accept: 'image/png,image/jpg,image/jpeg' %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :downloadable_files, "Downloadable Files (PDF, Word, Excel, PowerPoint)", class: "writings-header subtitle d-block mb-2" %>
+      <% if form.object.downloadable_files.attached? %>
+        <div class="mb-2">
+          <% form.object.downloadable_files.each do |file| %>
+            <%= render(Primer::Beta::Text.new(mb: 2, color: :default)) do %>
+              <%= file.filename %>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+      <%= form.file_field :downloadable_files, class: "form-control monospace", multiple: true %>
     </div>
   <% end %>
 
-  <div class="form-group mb-3">
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title, class: "form-control" %>
-  </div>
-
-  <div class="form-group mb-3">
-    <%= form.label :content, style: "display: block" %>
-    <%= form.rich_text_area :content %>
-  </div>
-
-  <div class="form-group mb-3">
-    <%= form.label :status, style: "display: block" %>
-    <%= form.select :status, %w[draft published], { include_blank: "Select status" }, class: "form-select" %>
-  </div>
-
-  <div class="form-group mb-3">
-    <%= form.label :published_at, style: "display: block" %>
-    <%= form.datetime_field :published_at, class: "form-control" %>
-  </div>
-
-  <div class="form-group mb-3">
-    <%= form.label :excerpt, "Excerpt (for social media sharing)", style: "display: block" %>
-    <%= form.text_area :excerpt, class: "form-control", rows: 3 %>
-  </div>
-
-  <div class="form-group mb-3">
-    <%= form.label :featured_image, "Featured Image (for social media sharing)", style: "display: block" %>
-    <% if form.object.featured_image.attached? %>
-      <div class="mb-2">
-        <%= image_tag form.object.featured_image, class: "img-fluid", style: "max-width: 300px" %>
-      </div>
+  <div class="d-flex">
+    <%= render(Primer::ButtonComponent.new(scheme: :primary, type: :submit, classes: "btn-writing-submit")) do %>
+      Save writing
     <% end %>
-    <%= form.file_field :featured_image, class: "form-control", accept: 'image/png,image/jpg,image/jpeg' %>
-  </div>
-
-  <div class="form-group mb-3">
-    <%= form.label :downloadable_files, "Downloadable Files (PDF, Word, Excel, PowerPoint)", style: "display: block" %>
-    <% if form.object.downloadable_files.attached? %>
-      <div class="mb-2">
-        <% form.object.downloadable_files.each do |file| %>
-          <div class="mb-1">
-            <%= file.filename %> (<%= number_to_human_size(file.byte_size) %>)
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-    <%= form.file_field :downloadable_files, multiple: true, class: "form-control", 
-        accept: '.pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx' %>
-    <small class="text-muted">You can select multiple files. Maximum size per file: 10MB</small>
-  </div>
-
-  <div class="actions">
-    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>
