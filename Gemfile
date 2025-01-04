@@ -50,6 +50,12 @@ gem "mailpace-rails"
 # Mission Control for Rails [https://github.com/basecamp/mission_control]
 gem "mission_control-jobs", "~> 1.0"
 
+# AWS SDK for S3 API (used by Cloudflare R2)
+gem "aws-sdk-s3", require: false
+
+# Load environment variables from .env file
+  gem "dotenv-rails"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
