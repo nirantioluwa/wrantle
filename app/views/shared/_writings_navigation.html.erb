@@ -1,0 +1,65 @@
+<%# Main Sections Navigation with Writings Actions %>
+<%= render(Primer::Box.new(p: 4)) do %>
+  <%= render(Primer::Alpha::ActionBar.new(color: :success, classes: "main-sections-action-bar")) do |component| %>
+    <%= component.with_item_icon_button(
+      bg: current_page?(root_path) ? :success : nil,
+      p: 2,
+      icon: "home",
+      label: "Home",
+      tag: :a,
+      href: root_path,
+      classes: "main-section-icon-button"
+    ) %>
+    <%= component.with_item_icon_button(
+      bg: current_page?(services_path) ? :success : nil,
+      p: 2,
+      icon: "apps",
+      label: "Services",
+      tag: :a,
+      href: services_path,
+      classes: "main-section-icon-button"
+    ) %>
+    <%= component.with_item_icon_button(
+      bg: current_page?(about_path) ? :success : nil,
+      p: 2,
+      icon: "info",
+      label: "About",
+      tag: :a,
+      href: about_path,
+      classes: "main-section-icon-button"
+    ) %>
+    <%= component.with_item_icon_button(
+      bg: current_page?(writings_path) ? :success : nil,
+      p: 2,
+      icon: "book",
+      label: "Writings",
+      tag: :a,
+      href: writings_path,
+      classes: "main-section-icon-button"
+    ) %>
+
+    <% if Current.user&.is_staff? && Current.user&.is_admin? %>
+      <%= component.with_item_icon_button(
+        bg: current_page?(new_writing_path) ? :success : nil,
+        p: 2,
+        icon: "plus",
+        label: "New Writing",
+        tag: :a,
+        href: new_writing_path,
+        classes: "main-section-icon-button"
+      ) %>
+    <% end %>
+
+    <% if @writing&.persisted? && Current.user&.is_staff? %>
+      <%= component.with_item_icon_button(
+        bg: current_page?(edit_writing_path(@writing.slug)) ? :success : nil,
+        p: 2,
+        icon: "pencil",
+        label: "Edit Writing",
+        tag: :a,
+        href: edit_writing_path(@writing.slug),
+        classes: "main-section-icon-button"
+      ) %>
+    <% end %>
+  <% end %>
+<% end %>

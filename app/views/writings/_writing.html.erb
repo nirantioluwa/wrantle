@@ -1,27 +1,11 @@
-<div id="<%= dom_id writing %>">
-  <p>
-    <strong>Title:</strong>
-    <%= writing.title %>
-  </p>
+<div id="<%= dom_id writing %>" class="writing">
+  <h2 class="writing-title">
+    <%= link_to writing.title, writing_path(writing.slug), class: "writing-title-link" %>
+  </h2>
 
-  <p>
-    <strong>Slug:</strong>
-    <%= writing.slug %>
-  </p>
-
-  <p>
-    <strong>Status:</strong>
-    <%= writing.status %>
-  </p>
-
-  <p>
-    <strong>Published at:</strong>
-    <%= writing.published_at %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= writing.user_id %>
-  </p>
-
+  <% if writing.published? %>
+    <div class="writing-meta text-muted">
+      Published <%= time_tag writing.published_at.to_date %>
+    </div>
+  <% end %>
 </div>

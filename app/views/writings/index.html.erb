@@ -2,17 +2,12 @@
 
 <% content_for :title, "Writings" %>
 
-<%= render "shared/main_sections_navigation" %>
+<%= render "shared/writings_navigation" %>
 
 <h1>Writings</h1>
 
 <div id="writings">
   <% @writings.each do |writing| %>
     <%= render writing %>
-    <p>
-      <%= link_to "Show this writing", writing_path(writing.slug) %>
-    </p>
   <% end %>
 </div>
-
-<%= link_to "New writing", new_writing_path %>

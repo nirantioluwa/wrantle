@@ -1,4 +1,6 @@
-<% content_for :title, "Editing writing" %>
+<% content_for :title, "Edit #{@writing.title}" %>
+
+<%= render "shared/writings_navigation" %>
 
 <h1>Editing writing</h1>
 
@@ -7,6 +9,6 @@
 <br>
 
 <div>
-  <%= link_to "Show this writing", @writing %> |
+  <%= link_to "Show this writing", writing_path(@writing.slug) %> |
   <%= link_to "Back to writings", writings_path %>
 </div>

@@ -1,0 +1,44 @@
+/* Writings Styles */
+
+.writing {
+  font-family: monospace;
+  margin-bottom: 1rem;
+}
+
+.writing-title {
+  font-size: clamp(1rem, 2rem);
+  margin-bottom: 0.2rem;
+}
+
+.writing-title-link {
+  color: var(--color-success-fg);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.writing-title-link:hover {
+  color: var(--color-success-emphasis);
+  text-decoration: underline;
+}
+
+.writing-meta {
+  font-size: 0.9rem;
+  color: var(--color-fg-muted);
+}
+
+.writing-content {
+  font-family: monospace;
+  line-height: 1.6;
+  color: var(--color-fg-default);
+}
+
+.writing-actions {
+  border-top: 1px solid var(--color-border-default);
+  padding-top: 1rem;
+}
+
+#writings {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}

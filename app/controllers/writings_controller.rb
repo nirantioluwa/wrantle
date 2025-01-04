@@ -5,11 +5,13 @@ class WritingsController < ApplicationController
 
   # GET /writings or /writings.json
   def index
-    @writings = Writing.all
+    resume_session
+    @writings = Writing.published.order(published_at: :desc)
   end
 
   # GET /writings/1 or /writings/1.json
   def show
+    resume_session
   end
 
   # GET /writings/new
@@ -24,6 +26,8 @@ class WritingsController < ApplicationController
   # POST /writings or /writings.json
   def create
     @writing = Writing.new(writing_params)
+    @writing.user = Current.user
+    @writing.slug = @writing.title.parameterize if @writing.title.present?
 
     respond_to do |format|
       if @writing.save

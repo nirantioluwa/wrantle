@@ -1,4 +1,4 @@
-<%= form_with(model: writing) do |form| %>
+<%= form_with(model: writing, url: writing.new_record? ? writings_path : writing_path(writing.slug), local: true) do |form| %>
   <% if writing.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(writing.errors.count, "error") %> prohibited this writing from being saved:</h2>
@@ -11,27 +11,27 @@
     </div>
   <% end %>
 
-  <div>
+  <div class="form-group mb-3">
     <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class: "form-control" %>
   </div>
 
-  <div>
+  <div class="form-group mb-3">
     <%= form.label :content, style: "display: block" %>
     <%= form.rich_text_area :content %>
   </div>
 
-  <div>
+  <div class="form-group mb-3">
     <%= form.label :status, style: "display: block" %>
-    <%= form.select :status, %w[draft published], { include_blank: "Select status" } %>
+    <%= form.select :status, %w[draft published], { include_blank: "Select status" }, class: "form-select" %>
   </div>
 
-  <div>
+  <div class="form-group mb-3">
     <%= form.label :published_at, style: "display: block" %>
-    <%= form.datetime_field :published_at %>
+    <%= form.datetime_field :published_at, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.submit class: "mt-4" %>
+  <div class="actions">
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

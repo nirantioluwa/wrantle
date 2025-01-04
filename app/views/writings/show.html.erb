@@ -1,10 +1,22 @@
+<% content_for :title, @writing.title %>
+
+<%= render "shared/writings_navigation" %>
+
 <p style="color: green"><%= notice %></p>
 
-<%= render @writing %>
+<article class="writing-article">
+  <%= render @writing %>
+  
+  <div class="writing-content mt-4">
+    <%= @writing.content %>
+  </div>
+</article>
 
-<div>
-  <%= link_to "Edit this writing", edit_writing_path(@writing.slug) %> |
-  <%= link_to "Back to writings", writings_path %>
-
-  <%= button_to "Destroy this writing", writing_path(@writing.slug), method: :delete %>
-</div>
+<% if Current.user&.is_admin? %>
+  <div class="mt-4">
+    <%= button_to "Delete this writing", writing_path(@writing.slug), 
+                  method: :delete, 
+                  class: "btn btn-danger",
+                  data: { confirm: "Are you sure you want to delete this writing?" } %>
+  </div>
+<% end %>

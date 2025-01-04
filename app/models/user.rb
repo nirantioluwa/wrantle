@@ -45,4 +45,8 @@ class User < ApplicationRecord
     code.mark_as_used!
     update!(is_admin: true)
   end
+
+  def is_staff?
+    is_staff || is_admin?
+  end
 end
