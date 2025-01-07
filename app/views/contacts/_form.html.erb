@@ -14,8 +14,12 @@
   <%= form.hidden_field :status %>
 
   <%# Honeypot field - hidden from real users %>
-  <div class="honeypot-field">
-    <%= form.text_field :website, tabindex: "-1", autocomplete: "off" %>
+  <div class="honeypot-field" aria-hidden="true">
+    <%= form.text_field :website, 
+        tabindex: "-1", 
+        autocomplete: "off",
+        placeholder: "Please leave this field empty",
+        class: "form-control width-full" %>
   </div>
 
   <div class="mb-4">
