@@ -1,6 +1,6 @@
 <%= form_with(model: contact, local: true) do |form| %>
   <% if contact.errors.any? %>
-    <%= render(Primer::Beta::Flash.new(scheme: :danger, full: true, mb: 4)) do %>
+    <%= render(Primer::Beta::Flash.new(scheme: :danger, full: true, mb: 4, border_radius: 0, border: false)) do %>
       <h2><%= pluralize(contact.errors.count, "error") %> prohibited this request from being saved:</h2>
       <ul>
         <% contact.errors.each do |error| %>

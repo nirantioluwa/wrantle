@@ -3,9 +3,9 @@
 <%= render "shared/main_sections_navigation" %>
 
 <div class="d-flex flex-justify-left">
-  <%= render(Primer::Box.new(p: 4, mt: 4, mb: 4, style: "width: 100%; max-width: 600px;")) do %>
+  <%= render(Primer::Box.new(p: 4, border: false, mt: 4, mb: 4, style: "width: 100%; max-width: 600px;")) do %>
     <% if notice.present? %>
-      <%= render(Primer::Beta::Flash.new(scheme: :success, full: true, mb: 4)) { notice } %>
+      <%= render(Primer::Beta::Flash.new(scheme: :success, full: true, mb: 4, border_radius: 0, border: false)) { notice } %>
     <% end %>
 
     <%= render(Primer::Box.new(bg: :success, border: false, p: 4, border_radius: 0)) do %>
