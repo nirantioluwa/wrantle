@@ -2,7 +2,7 @@ class ContactsController < ApplicationController
   allow_unauthenticated_access only: %i[ new create show ]
   before_action :set_contact, only: %i[ show edit update destroy ]
   # Rate limit to 3 submissions per hour per IP
-  rate_limit to: 3, within: 1.hour, only: :create, with: -> { redirect_to root_path, alert: "We already received 3 messages from you. Trust us, we will get back to you." }
+  rate_limit to: 3, within: 24.hour, only: :create, with: -> { redirect_to root_path, alert: "We already received 3 messages from you. Trust us, we will get back to you." }
 
   # GET /contacts or /contacts.json
   def index

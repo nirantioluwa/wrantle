@@ -65,5 +65,32 @@
       href: impact_beyond_us_path,
       classes: "about-icon-button"
     ) %>
+    <%= component.with_item_icon_button(
+      bg: current_page?(modern_innovator_challenge_path) ? :success : nil,
+      p: 2,
+      icon: "light-bulb",
+      label: "The Innovator's Challenge",
+      tag: :a,
+      href: modern_innovator_challenge_path,
+      classes: "about-icon-button"
+    ) %>
+    <%= component.with_item_icon_button(
+      bg: current_page?(accelerating_business_growth_path) ? :success : nil,
+      p: 2,
+      icon: "rocket",
+      label: "Accelerate Growth",
+      tag: :a,
+      href: accelerating_business_growth_path,
+      classes: "about-icon-button"
+    ) %>
+    <%= component.with_item_icon_button(
+      bg: current_page?(building_for_tomorrow_path) ? :success : nil,
+      p: 2,
+      icon: "telescope",
+      label: "Build Tomorrow",
+      tag: :a,
+      href: building_for_tomorrow_path,
+      classes: "about-icon-button"
+    ) %>
   <% end %>
 <% end %>

@@ -52,4 +52,7 @@ Rails.application.routes.draw do
   get "single-north-star", to: "pages#single_north_star", as: :single_north_star
   get "live-impact-thrive", to: "pages#live_impact_thrive", as: :live_impact_thrive
   get "impact-beyond-us", to: "pages#impact_beyond_us", as: :impact_beyond_us
+  get "modern-innovator-challenge", to: "pages#modern_innovator_challenge", as: :modern_innovator_challenge
+  get "accelerating-business-growth", to: "pages#accelerating_business_growth", as: :accelerating_business_growth
+  get "building-for-tomorrow", to: "pages#building_for_tomorrow", as: :building_for_tomorrow
 end

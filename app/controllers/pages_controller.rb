@@ -46,4 +46,16 @@ class PagesController < ApplicationController
   def impact_beyond_us
     # Impact Beyond Us principle page action
   end
+
+  def modern_innovator_challenge
+    # Modern Innovator's Challenge principle page action
+  end
+
+  def accelerating_business_growth
+    # Accelerating Business Growth principle page action
+  end
+
+  def building_for_tomorrow
+    # Building For Tomorrow principle page action
+  end
 end

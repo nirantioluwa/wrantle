@@ -1,0 +1,70 @@
+<%# Building For Tomorrow principle page template %>
+<div class="principle-page building-for-tomorrow">
+  <%# Meta tags %>
+  <% content_for :title, "Building For Tomorrow - Where Innovation Meets Expertise" %>
+  <% content_for :meta_description, "Discover how Wrantle is evolving professional services to meet the needs of the new builder economy, supporting innovation and technology-driven business growth." %>
+  <% content_for :meta_keywords, "professional services, innovation, AI technology, business growth, entrepreneurship, startup advisory, digital transformation" %>
+  <% content_for :og_title, "Building For Tomorrow - Where Innovation Meets Expertise" %>
+  <% content_for :og_description, "Discover how Wrantle is evolving professional services to meet the needs of the new builder economy, supporting innovation and technology-driven business growth." %>
+
+  <%# About Navigation %>
+  <%= render "shared/about_navigation" %>
+
+  <%# Hero Section %>
+  <%= render(Primer::Box.new(mt: 6, p: 4, classes: "principle-hero")) do %>
+    <div class="service-icon">
+      <%= render "shared/builder_icon" %>
+    </div>
+    <%= render(Primer::Beta::Heading.new(tag: :h1, font_weight: :bold)) { "Building For Tomorrow" } %>
+    <%= render(Primer::Beta::Text.new(tag: :h2, classes: "hero-subheading")) { "Where Innovation Meets Expertise" } %>
+  <% end %>
+
+  <%# Content Section %>
+  <%= render(Primer::Box.new(p: 4, classes: "principle-content")) do %>
+    <%= render(Primer::Beta::Text.new(tag: :p, classes: "principle-text")) do %>
+      A new wave of business opportunity is emerging. Rapid technology advancement, is creating unprecedented possibilities for entrepreneurs and businesses. This transformation demands a new approach to professional services.
+    <% end %>
+
+    <%= render(Primer::Beta::Heading.new(tag: :h2, mb: 2)) { "Meeting the Innovation Wave" } %>
+    <%= render(Primer::Beta::Text.new(tag: :p, classes: "principle-text")) do %>
+      As new technologies reshape business landscapes, fresh challenges emerge daily, we're positioned to answer these evolving demands with forward-thinking solutions.
+    <% end %>
+
+    <%= render(Primer::Beta::Heading.new(tag: :h2, mb: 2)) { "The New Builder Economy" } %>
+    <%= render(Primer::Beta::Text.new(tag: :p, classes: "principle-text")) do %>
+      Modern platforms and tools are democratizing business creation. Anyone with vision can now build and scale. This new generation of entrepreneurs needs professional services that match their ambition and pace - advisors who understand both innovation and compliance.
+    <% end %>
+
+    <%= render(Primer::Beta::Heading.new(tag: :h2, mb: 2)) { "Our Focused Approach" } %>
+    <%= render(Primer::Beta::Text.new(tag: :p, classes: "principle-text")) do %>
+      We've structured our services to support this new business reality:
+    <% end %>
+
+    <%= render(Primer::Beta::Text.new(tag: :ul, classes: "principle-list")) do %>
+      <li>Deep understanding of technology-driven business models</li>
+      <li>Practical solutions for rapid scaling</li>
+      <li>Integration of compliance with innovation</li>
+      <li>Support for cross-border growth</li>
+      <li>Guidance through regulatory complexity</li>
+    <% end %>
+
+    <%= render(Primer::Beta::Heading.new(tag: :h2, mb: 2)) { "Partnering for Growth" } %>
+    <%= render(Primer::Beta::Text.new(tag: :p, classes: "principle-text")) do %>
+      We position ourselves as allies to entrepreneurs and innovators. Whether you're building an AI startup, scaling a digital platform, or transforming traditional industries, we provide the professional expertise to support your vision.
+    <% end %>
+
+    <%= render(Primer::Beta::Heading.new(tag: :h2, mb: 2)) { "Looking Forward" } %>
+    <%= render(Primer::Beta::Text.new(tag: :p, classes: "principle-text")) do %>
+      This is more than an opportunity - it's a responsibility. As professional advisors, we must evolve alongside the businesses we serve. We're building a firm that doesn't just respond to change but helps shape it.
+    <% end %>
+
+    <%= render(Primer::Beta::Text.new(tag: :p, classes: "principle-text")) do %>
+      Our commitment is clear: to be the professional services partner that enables innovation, supports growth, and helps turn bold ideas into sustainable businesses.
+    <% end %>
+  <% end %>
+
+  <%# Contact Section %>
+  <%= render "shared/contact_box",
+    title: "Ready to build the future?",
+    subtitle: "Let's create something extraordinary together" %>
+</div>

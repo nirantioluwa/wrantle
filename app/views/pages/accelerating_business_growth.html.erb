@@ -1,0 +1,80 @@
+<%# Accelerating Business Growth principle page template %>
+<div class="principle-page accelerating-business-growth">
+  <%# Meta tags %>
+  <% content_for :title, "Accelerating Business Growth - Professional Services that Enable Innovation" %>
+  <% content_for :meta_description, "Discover how Wrantle transforms professional services from barriers into strategic advantages, enabling innovation and accelerating business growth." %>
+  <% content_for :meta_keywords, "professional services, business growth, innovation enablement, strategic advantage, business acceleration, practical solutions" %>
+  <% content_for :og_title, "Accelerating Business Growth - Professional Services that Enable Innovation" %>
+  <% content_for :og_description, "Discover how Wrantle transforms professional services from barriers into strategic advantages, enabling innovation and accelerating business growth." %>
+
+  <%# About Navigation %>
+  <%= render "shared/about_navigation" %>
+
+  <%# Hero Section %>
+  <%= render(Primer::Box.new(mt: 6, p: 4, classes: "principle-hero")) do %>
+    <div class="service-icon">
+      <%= render "shared/accelerator_icon" %>
+    </div>
+    <%= render(Primer::Beta::Heading.new(tag: :h1, font_weight: :bold)) { "Accelerating Business Growth" } %>
+    <%= render(Primer::Beta::Text.new(tag: :h2, classes: "hero-subheading")) { "Professional Services that Enable Innovation" } %>
+  <% end %>
+
+  <%# Content Section %>
+  <%= render(Primer::Box.new(p: 4, classes: "principle-content")) do %>
+    <%= render(Primer::Beta::Text.new(tag: :p, classes: "principle-text")) do %>
+      When growing a business, getting professional advice often feels like hitting pause. Standard responses of "we need to check compliance" or "this requires further review" can slow momentum and dampen innovation.
+    <% end %>
+
+    <%= render(Primer::Beta::Heading.new(tag: :h2, mb: 2)) { "Transforming Barriers into Bridges" } %>
+    <%= render(Primer::Beta::Text.new(tag: :p, classes: "principle-text")) do %>
+      At Wrantle, we're changing this narrative. Professional services should accelerate your business, not slow it down. We turn traditional roadblocks into strategic advantages by:
+    <% end %>
+
+    <%= render(Primer::Beta::Heading.new(tag: :h2, mb: 2)) { "Understanding Your Business" } %>
+    <%= render(Primer::Beta::Text.new(tag: :p, classes: "principle-text")) do %>
+      We immerse ourselves in your business reality. Our teams grasp both the technical requirements and practical business needs. We're not just advisors - we think like builders and innovators.
+    <% end %>
+
+    <%= render(Primer::Beta::Heading.new(tag: :h2, mb: 2)) { "Providing Practical Solutions" } %>
+    <%= render(Primer::Beta::Text.new(tag: :p, classes: "principle-text")) do %>
+      Instead of listing problems, we focus on solutions. Our advice is grounded in real business understanding, combining compliance requirements with practical implementation.
+    <% end %>
+
+    <%= render(Primer::Beta::Heading.new(tag: :h2, mb: 2)) { "Moving at Business Speed" } %>
+    <%= render(Primer::Beta::Text.new(tag: :p, classes: "principle-text")) do %>
+      We match your pace. When you need quick decisions and clear guidance, we deliver. Our processes are streamlined to support rapid business development while maintaining professional standards.
+    <% end %>
+
+    <%= render(Primer::Beta::Heading.new(tag: :h2, mb: 2)) { "Speaking Your Language" } %>
+    <%= render(Primer::Beta::Text.new(tag: :p, classes: "principle-text")) do %>
+      We communicate in clear business terms, not technical jargon. Our advice focuses on what you can do, not just what you can't. We translate complex requirements into actionable steps.
+    <% end %>
+
+    <%= render(Primer::Beta::Heading.new(tag: :h2, mb: 2)) { "Building Together" } %>
+    <%= render(Primer::Beta::Text.new(tag: :p, classes: "principle-text")) do %>
+      At Wrantle, getting professional advice means moving forward, not stepping back. We see ourselves as part of your growth journey - professional advisors who understand the spirit, drive, and practical needs of innovative businesses.
+    <% end %>
+
+    <%= render(Primer::Beta::Heading.new(tag: :h2, mb: 2)) { "Partnership for Growth" } %>
+    <%= render(Primer::Beta::Text.new(tag: :p, classes: "principle-text")) do %>
+      Working with Wrantle means having a professional services partner who:
+    <% end %>
+
+    <%= render(Primer::Beta::Text.new(tag: :ul, classes: "principle-list")) do %>
+      <li>Understands your business objectives</li>
+      <li>Provides practical, actionable solutions</li>
+      <li>Moves at the speed of business</li>
+      <li>Focuses on enabling growth</li>
+      <li>Thinks like a business builder</li>
+    <% end %>
+
+    <%= render(Primer::Beta::Text.new(tag: :p, classes: "principle-text")) do %>
+      This approach transforms professional services from a perceived barrier into a strategic advantage for your business growth.
+    <% end %>
+  <% end %>
+
+  <%# Contact Section %>
+  <%= render "shared/contact_box",
+    title: "Ready to accelerate your business growth?",
+    subtitle: "Let's discuss how we can enable your innovation journey" %>
+</div>
