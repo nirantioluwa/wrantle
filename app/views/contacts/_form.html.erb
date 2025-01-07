@@ -13,6 +13,11 @@
   <%= form.hidden_field :contact_type %>
   <%= form.hidden_field :status %>
 
+  <%# Honeypot field - hidden from real users %>
+  <div class="honeypot-field">
+    <%= form.text_field :website, tabindex: "-1", autocomplete: "off" %>
+  </div>
+
   <div class="mb-4">
     <%= form.label :name, class: "d-block mb-2 text-bold" %>
     <%= form.text_field :name, class: "form-control width-full", placeholder: "Your full name" %>

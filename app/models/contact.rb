@@ -1,4 +1,7 @@
 class Contact < ApplicationRecord
+  # Virtual attribute for honeypot
+  attr_accessor :website
+
   # Validations
   validates :name, presence: true
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
@@ -7,6 +10,8 @@ class Contact < ApplicationRecord
   validates :message, presence: true
   validates :preferred_date, presence: true, if: :schedule_chat?
   validates :preferred_time, presence: true, if: :schedule_chat?
+  # Honeypot validation
+  validates :website, absence: true
 
   # Callbacks
   before_create :set_default_status

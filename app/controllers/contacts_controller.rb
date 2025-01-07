@@ -1,6 +1,8 @@
 class ContactsController < ApplicationController
   allow_unauthenticated_access only: %i[ new create show ]
   before_action :set_contact, only: %i[ show edit update destroy ]
+  # Rate limit to 3 submissions per hour per IP
+  rate_limit to: 3, within: 1.hour, only: :create, with: -> { redirect_to new_contact_path, alert: "Too many submissions. Please try again later." }
 
   # GET /contacts or /contacts.json
   def index
@@ -68,6 +70,6 @@ class ContactsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def contact_params
-      params.require(:contact).permit(:name, :email, :phone, :contact_type, :message, :preferred_date, :preferred_time, :status)
+      params.require(:contact).permit(:name, :email, :phone, :contact_type, :message, :preferred_date, :preferred_time, :status, :website)
     end
 end
