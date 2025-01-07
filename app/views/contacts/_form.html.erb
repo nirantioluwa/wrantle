@@ -14,12 +14,16 @@
   <%= form.hidden_field :status %>
 
   <%# Honeypot field - hidden from real users %>
-  <div class="honeypot-field" aria-hidden="true">
-    <%= form.text_field :website, 
+  <div class="honeypot-field" aria-hidden="true" style="display:none !important;">
+    <label for="contact_email_confirm" class="d-block mb-2 text-bold">Confirm Email</label>
+    <%= form.email_field :contact_email_confirm, 
         tabindex: "-1", 
         autocomplete: "off",
-        placeholder: "Please leave this field empty",
-        class: "form-control width-full" %>
+        class: "form-control width-full",
+        value: "",
+        maxlength: "255",
+        placeholder: "Please confirm your email address" %>
+    <small class="form-text text-muted">Please leave this field empty</small>
   </div>
 
   <div class="mb-4">
