@@ -7,6 +7,13 @@
 <%# Main Navigation %>
 <%= render "shared/main_sections_navigation" %>
 
+<%# Flash Messages %>
+<% if alert.present? %>
+  <%= render(Primer::Beta::Flash.new(scheme: :danger, full: true, mb: 4, border_radius: 0, border: false)) do %>
+    <%= alert %>
+  <% end %>
+<% end %>
+
 <%# Hero Section %>
 <%= render(Primer::Box.new(p: 0, mb: 6)) do %>
   <%= render "shared/hero" %>
