@@ -19,7 +19,6 @@ default: &default
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
-
 development:
   <<: *default
   database: wrantle_development
@@ -86,13 +85,7 @@ production:
     password: <%= ENV["WRANTLE_DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
-    database: wrantle_production_cache
-    migrations_paths: db/cache_migrate
   queue:
     <<: *primary_production
-    database: wrantle_production_queue
-    migrations_paths: db/queue_migrate
   cable:
     <<: *primary_production
-    database: wrantle_production_cable
-    migrations_paths: db/cable_migrate
