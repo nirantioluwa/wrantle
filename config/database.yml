@@ -85,7 +85,10 @@ production:
     password: <%= ENV["WRANTLE_DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
+    migrations_paths: db/cache_migrate
   queue:
     <<: *primary_production
+    migrations_paths: db/queue_migrate
   cable:
     <<: *primary_production
+    migrations_paths: db/cable_migrate
