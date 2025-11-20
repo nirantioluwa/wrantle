@@ -1,0 +1,88 @@
+version: "3.8"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    environment:
+      # CRITICAL: Set PORT to 80 for Traefik routing
+      PORT: "80"
+
+      # Database
+      DATABASE_URL: ${DATABASE_URL}
+
+      # Rails
+      RAILS_ENV: production
+      RAILS_LOG_LEVEL: ${RAILS_LOG_LEVEL:-info}
+      RAILS_SERVE_STATIC_FILES: "true"
+      RAILS_LOG_TO_STDOUT: "true"
+      SECRET_KEY_BASE: ${SECRET_KEY_BASE}
+
+      # Performance
+      RAILS_MAX_THREADS: ${RAILS_MAX_THREADS:-5}
+      WEB_CONCURRENCY: ${WEB_CONCURRENCY:-2}
+      DATABASE_POOL_SIZE: ${DATABASE_POOL_SIZE:-30}
+
+      # Job processing
+      JOB_CONCURRENCY: ${JOB_CONCURRENCY:-1}
+
+      # Additional environment variables
+      RAILS_MASTER_KEY: ${RAILS_MASTER_KEY}
+
+    # CRITICAL: Traefik labels for service discovery
+    labels:
+      # Enable Traefik
+      - "traefik.enable=true"
+
+      # HTTPS router
+      - "traefik.http.routers.wrantle-web.rule=Host(`${DOMAIN}`) || Host(`www.${DOMAIN}`)"
+      - "traefik.http.routers.wrantle-web.entrypoints=websecure"
+      - "traefik.http.routers.wrantle-web.tls=true"
+      - "traefik.http.routers.wrantle-web.tls.certresolver=letsencrypt"
+
+      # Load balancer (tell Traefik which port to use)
+      - "traefik.http.services.wrantle-web.loadbalancer.server.port=80"
+
+      # HTTP router (redirect to HTTPS)
+      - "traefik.http.routers.wrantle-web-http.rule=Host(`${DOMAIN}`) || Host(`www.${DOMAIN}`)"
+      - "traefik.http.routers.wrantle-web-http.entrypoints=web"
+      - "traefik.http.routers.wrantle-web-http.middlewares=redirect-to-https"
+
+      # HTTPS redirect middleware
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+
+    networks:
+      - coolify
+
+    depends_on:
+      - worker
+
+    restart: unless-stopped
+
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    command: ["./bin/jobs"]
+
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      RAILS_ENV: production
+      RAILS_LOG_LEVEL: ${RAILS_LOG_LEVEL:-info}
+      RAILS_LOG_TO_STDOUT: "true"
+      SECRET_KEY_BASE: ${SECRET_KEY_BASE}
+      RAILS_MASTER_KEY: ${RAILS_MASTER_KEY}
+      JOB_CONCURRENCY: ${JOB_CONCURRENCY:-1}
+
+    networks:
+      - coolify
+
+    restart: unless-stopped
+
+networks:
+  coolify:
+    external: true
+    name: coolify

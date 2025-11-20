@@ -6,9 +6,37 @@ if [ -z "${LD_PRELOAD+x}" ]; then
     export LD_PRELOAD
 fi
 
+# Symlink production log to stdout for Docker/Coolify log visibility
+# This ensures file-based logs also appear in container logs
+mkdir -p log
+ln -sf /proc/1/fd/1 log/production.log
+ln -sf /proc/1/fd/2 log/puma_error.log
+
 # If running the rails server then create or migrate existing database
 if [ "${@: -2:1}" == "./bin/rails" ] && [ "${@: -1:1}" == "server" ]; then
+  echo "========================================="
+  echo "PREPARING DATABASE (PRIMARY + SOLID CACHE/QUEUE/CABLE)"
+  echo "========================================="
   ./bin/rails db:prepare
+
+  if [ $? -eq 0 ]; then
+    echo "✓ Database prepared successfully"
+  else
+    echo "✗ Database preparation failed"
+    exit 1
+  fi
+  echo "========================================="
+  echo ""
+fi
+
+# If running the jobs worker, wait for database to be ready
+if [ "${1}" == "./bin/jobs" ]; then
+  echo "Waiting for database to be ready..."
+  until ./bin/rails runner "ActiveRecord::Base.connection.execute('SELECT 1')" &> /dev/null; do
+    echo "Database not ready, waiting..."
+    sleep 2
+  done
+  echo "Database ready!"
 fi
 
 exec "${@}"

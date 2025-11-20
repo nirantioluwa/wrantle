@@ -78,17 +78,8 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  primary: &primary_production
-    <<: *default
-    database: wrantle_production
-    username: wrantle
-    password: <%= ENV["WRANTLE_DATABASE_PASSWORD"] %>
-  cache:
-    <<: *primary_production
-    migrations_paths: db/cache_migrate
-  queue:
-    <<: *primary_production
-    migrations_paths: db/queue_migrate
-  cable:
-    <<: *primary_production
-    migrations_paths: db/cable_migrate
+  <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
+  pool: <%= ENV.fetch("DATABASE_POOL_SIZE") { 30 } %>
+  checkout_timeout: 5
+  idle_timeout: <%= ENV.fetch("DATABASE_IDLE_TIMEOUT") { 300 } %>
