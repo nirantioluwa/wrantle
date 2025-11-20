@@ -258,7 +258,13 @@ GEM
     parser (3.3.6.0)
       ast (~> 2.4.1)
       racc
-    pg (1.5.9)
+    pg (1.6.2)
+    pg (1.6.2-aarch64-linux)
+    pg (1.6.2-aarch64-linux-musl)
+    pg (1.6.2-arm64-darwin)
+    pg (1.6.2-x86_64-darwin)
+    pg (1.6.2-x86_64-linux)
+    pg (1.6.2-x86_64-linux-musl)
     primer_view_components (0.36.2)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -451,7 +457,7 @@ DEPENDENCIES
   mailbin (~> 1.0)
   mailpace-rails
   mission_control-jobs (~> 1.0)
-  pg (~> 1.1)
+  pg (~> 1.6)
   primer_view_components
   propshaft
   puma (>= 5.0)
