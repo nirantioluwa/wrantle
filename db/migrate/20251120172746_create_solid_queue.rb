@@ -77,6 +77,7 @@ class CreateSolidQueue < ActiveRecord::Migration[8.0]
 
     create_table :solid_queue_processes do |t|
       t.string :kind, null: false
+      t.string :name, null: false
       t.datetime :last_heartbeat_at, null: false
       t.bigint :supervisor_id
       t.integer :pid, null: false
@@ -84,6 +85,7 @@ class CreateSolidQueue < ActiveRecord::Migration[8.0]
       t.text :metadata
       t.timestamps
 
+      t.index :name, unique: true
       t.index :last_heartbeat_at
       t.index [:kind, :last_heartbeat_at]
     end
