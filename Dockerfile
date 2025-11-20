@@ -33,7 +33,7 @@ ENV RAILS_ENV="production" \
 # Throw-away build stage to reduce size of final image
 FROM base AS build
 
-# Install packages needed to build gems and Node.js for npm packages
+# Install packages needed to build gems and Node.js for npm/yarn packages
 RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     --mount=type=cache,target=/var/lib/apt,sharing=locked \
     apt-get update -qq && \
@@ -42,8 +42,10 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
         git \
         libpq-dev \
         pkg-config \
-        nodejs \
-        npm
+        curl && \
+    curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - && \
+    apt-get install -y nodejs && \
+    npm install -g yarn
 
 # Install application gems
 COPY Gemfile Gemfile.lock ./
