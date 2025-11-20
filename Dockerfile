@@ -33,7 +33,7 @@ ENV RAILS_ENV="production" \
 # Throw-away build stage to reduce size of final image
 FROM base AS build
 
-# Install packages needed to build gems
+# Install packages needed to build gems and Node.js for npm packages
 RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     --mount=type=cache,target=/var/lib/apt,sharing=locked \
     apt-get update -qq && \
@@ -41,7 +41,9 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
         build-essential \
         git \
         libpq-dev \
-        pkg-config
+        pkg-config \
+        nodejs \
+        npm
 
 # Install application gems
 COPY Gemfile Gemfile.lock ./
@@ -50,6 +52,18 @@ RUN --mount=type=cache,target=/usr/local/bundle/cache,sharing=locked \
     rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git && \
     bundle exec bootsnap precompile --gemfile
 
+# Install npm packages for Primer ViewComponents
+# Note: node_modules will be excluded from final image via .dockerignore
+# but is needed here for asset precompilation
+COPY package.json package-lock.json* yarn.lock* ./
+RUN if [ -f yarn.lock ]; then \
+        yarn install --frozen-lockfile; \
+    elif [ -f package-lock.json ]; then \
+        npm ci; \
+    else \
+        npm install; \
+    fi
+
 # Copy application code
 COPY . .
 
@@ -57,6 +71,7 @@ COPY . .
 RUN bundle exec bootsnap precompile app/ lib/
 
 # Precompiling assets for production without requiring secret RAILS_MASTER_KEY
+# This will now find Primer CSS in node_modules via the asset paths we configured
 RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
 
 

@@ -48,8 +48,8 @@
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
-    
-    <%# Primer ViewComponents styles %>
+
+    <%# Primer ViewComponents styles - loaded from node_modules via Propshaft %>
     <%= stylesheet_link_tag "@primer/css/dist/primer.css", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "@primer/view-components/app/assets/styles/primer_view_components.css", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "@primer/primitives/dist/css/primitives.css", "data-turbo-track": "reload" %>
